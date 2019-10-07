@@ -10,12 +10,7 @@ import java.util.List;
 
 public class Reader {
 
-    public static void main(String[] args) {
-        File chosenFile= new File("D:\\Загрузки\\Программирование — Википедия.html");
-        Reader.readHTML(chosenFile);
-    }
-
-    private static void readHTML(File chosenFile) {
+    public static void readHTML(File chosenFile) {
 
         try{
             PrintWriter writer= new PrintWriter(new BufferedWriter(new FileWriter("filename.out")));
@@ -27,4 +22,14 @@ public class Reader {
         }
     }
 
+    //Просто сигнатура
+    public static void readDoc(File chosenFile) {
+        try{
+            PrintWriter writer= new PrintWriter(new BufferedWriter(new FileWriter("filename.out")));
+
+            writer.flush();
+        } catch (IOException ex){
+            ex.printStackTrace();
+        }
+    }
 }

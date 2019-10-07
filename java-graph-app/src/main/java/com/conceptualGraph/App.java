@@ -57,13 +57,31 @@ public class App
             int result = fileChooser.showOpenDialog(frame);
 
             if (result== JFileChooser.APPROVE_OPTION){
-                for (File file:fileChooser.getSelectedFile().listFiles(new MyFileFilter())){
-                    System.out.println(file.getName());
-                };
+                scanDirectory(fileChooser.getSelectedFile());
             }
 
         }
     }
+
+    private void scanDirectory(File selectedFile) {
+
+    final String[] okFileExtensions = new String[] {"docx", "doc", "html","txt"};
+
+    for (File file:selectedFile.listFiles()){
+        if(file.isDirectory()){
+            scanDirectory(file);
+        } else {
+                for (String extension : okFileExtensions)
+                {
+                    if (file.getName().toLowerCase().endsWith(extension))
+                    {
+                        System.out.println(file);
+                    }
+                }
+            }
+        }
+    };
+
 
     private class MyFileFilter implements FileFilter {
         private final String[] okFileExtensions = new String[] {"docx", "doc", "html","txt"};

@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5ad2e5c-7bf5-4542-8024-6999ebb096bc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jsoup_jsoup_1_7_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/Reader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java-graph-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/java-graph-app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/Reader.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,9 +64,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Reader">
-    <configuration name="Reader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.conceptualGraph.Reader" />
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.conceptualGraph.App" />
       <module name="java-graph-app" />
       <extension name="coverage">
         <pattern>
@@ -96,12 +94,12 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Reader" />
+      <item itemvalue="Application.App" />
       <item itemvalue="JUnit.AppTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Reader" />
+        <item itemvalue="Application.App" />
         <item itemvalue="JUnit.AppTest" />
       </list>
     </recent_temporary>
@@ -124,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569962846022</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="jsoup, новый класс Reader, метод ReadHTML">
+      <created>1570122769858</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1570122769858</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -142,6 +147,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="menu bar, choosing dir(UI), parsing chsn dir" />
-    <option name="LAST_COMMIT_MESSAGE" value="menu bar, choosing dir(UI), parsing chsn dir" />
+    <MESSAGE value="jsoup, новый класс Reader, метод ReadHTML" />
+    <option name="LAST_COMMIT_MESSAGE" value="jsoup, новый класс Reader, метод ReadHTML" />
   </component>
 </project>
