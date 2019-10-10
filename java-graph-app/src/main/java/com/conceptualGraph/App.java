@@ -2,10 +2,12 @@ package com.conceptualGraph;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileFilter;
+import java.util.ArrayList;
 
 
 /**
@@ -14,9 +16,15 @@ import java.io.FileFilter;
  */
 public class App 
 {
+    int fileListCounter=1;
     JFrame frame;
     JMenuBar menuBar;
     final JFileChooser fileChooser= new JFileChooser();
+    ArrayList<File> fileArrayList= new ArrayList<File>();
+    TextArea textArea;
+    Button enterFileNumberButton;
+    TextField chooseFileTextField;
+
 
     public static void main( String[] args )
     {
@@ -25,6 +33,17 @@ public class App
 
     private void start() {
         frame= new JFrame("Концептуальный граф");
+        textArea=new TextArea();
+        chooseFileTextField=new TextField();
+        enterFileNumberButton=new Button("Enter file number");
+        Panel mainPanel=new Panel();
+
+        enterFileNumberButton.addActionListener(new enterFileNumberActionListener());
+
+        mainPanel.add(textArea);
+        mainPanel.add(chooseFileTextField);
+        mainPanel.add(enterFileNumberButton);
+        frame.getContentPane().add(mainPanel);
 
         menuBar= new JMenuBar();
         JMenu mainMenu= new JMenu("Файл");
@@ -45,6 +64,8 @@ public class App
 
         fileChooser.setAcceptAllFileFilterUsed(true);
 
+        textArea.setEditable(false);
+        textArea.setFocusable(false);
         frame.setSize(500,500);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -64,10 +85,10 @@ public class App
     }
 
     private void scanDirectory(File selectedFile) {
-
     final String[] okFileExtensions = new String[] {"docx", "doc", "html","txt"};
 
     for (File file:selectedFile.listFiles()){
+
         if(file.isDirectory()){
             scanDirectory(file);
         } else {
@@ -75,27 +96,27 @@ public class App
                 {
                     if (file.getName().toLowerCase().endsWith(extension))
                     {
-                        System.out.println(file);
+                        textArea.append(fileListCounter+") "+file.getAbsolutePath()+'\n');
+                        fileArrayList.add(file);
+                        fileListCounter++;
                     }
                 }
             }
         }
     };
 
-
-    private class MyFileFilter implements FileFilter {
-        private final String[] okFileExtensions = new String[] {"docx", "doc", "html","txt"};
-
+    private class enterFileNumberActionListener implements ActionListener {
         @Override
-        public boolean accept(File f) {
-            for (String extension : okFileExtensions)
-            {
-                if (f.getName().toLowerCase().endsWith(extension))
-                {
-                    return true;
-                }
+        public void actionPerformed(ActionEvent e) {
+
+            int enteredFileNumber=Integer.parseInt(chooseFileTextField.getText());
+
+            if (enteredFileNumber>0 &&
+                enteredFileNumber<fileArrayList.size()){
+
+                Reader.checkAndRead(fileArrayList.get(enteredFileNumber - 1));
             }
-            return false;
         }
     }
+
 }
