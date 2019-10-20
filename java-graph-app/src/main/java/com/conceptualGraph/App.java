@@ -78,6 +78,9 @@ public class App
             int result = fileChooser.showOpenDialog(frame);
 
             if (result== JFileChooser.APPROVE_OPTION){
+                fileArrayList.clear();
+                textArea.setText("");
+                fileListCounter=1;
                 scanDirectory(fileChooser.getSelectedFile());
             }
 
