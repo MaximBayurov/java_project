@@ -1,4 +1,6 @@
-package com.conceptualGraph.model;
+package com.conceptualGraph.view;
+
+import com.conceptualGraph.model.Reader;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -11,28 +13,27 @@ import java.util.ArrayList;
 
 public class App 
 {
-    int fileListCounter = 1;
-    JFrame frame;
-    JMenuBar menuBar;
-    final JFileChooser fileChooser = new JFileChooser();
-    ArrayList<File> fileArrayList = new ArrayList<File>();
-    TextArea textArea;
-    Button enterFileNumberButton;
-    TextField chooseFileTextField;
+    private int fileListCounter = 1;
+    private JFrame frame;
+//    private JMenuBar menuBar;
+    private final JFileChooser fileChooser = new JFileChooser();
+    private ArrayList<File> fileArrayList = new ArrayList<>();
+    private TextArea textArea;
+//    private Button enterFileNumberButton;
+    private TextField chooseFileTextField;
 
-
-    protected void start() {
+    public void start() {
         frame = new JFrame("Концептуальный граф");
-        textArea =new TextArea();
+        textArea = new TextArea();
         chooseFileTextField = new TextField();
-        enterFileNumberButton = new Button("Enter file number");
+        Button enterFileNumberButton = new Button("Enter file number");
         Panel mainPanel = new Panel();
         enterFileNumberButton.addActionListener(new enterFileNumberActionListener());
         mainPanel.add(textArea);
         mainPanel.add(chooseFileTextField);
         mainPanel.add(enterFileNumberButton);
         frame.getContentPane().add(mainPanel);
-        menuBar = new JMenuBar();
+        JMenuBar menuBar = new JMenuBar();
         JMenu mainMenu = new JMenu("Файл");
         JMenuItem selectDirItem = new JMenuItem("Выбрать директорию");
         selectDirItem.addActionListener(new selectDirItemActionListener());
@@ -52,42 +53,44 @@ public class App
     }
 
     private class selectDirItemActionListener implements ActionListener {
-
         @Override
         public void actionPerformed(ActionEvent e) {
             int result = fileChooser.showOpenDialog(frame);
-            if (result == JFileChooser.APPROVE_OPTION) scanDirectory(fileChooser.getSelectedFile());
-
+            if (result == JFileChooser.APPROVE_OPTION) {
+                fileArrayList.clear();
+                textArea.setText("");
+                fileListCounter = 1;
+                scanDirectory(fileChooser.getSelectedFile());
+            }
         }
     }
 
     private void scanDirectory(File selectedFile) {
-    final String[] okFileExtensions = new String[] {"docx", "doc", "html","txt"};
-
-    for (File file:selectedFile.listFiles()){
-
-        if(file.isDirectory()){
-            scanDirectory(file);
-        } else {
-                for (String extension : okFileExtensions)
-                {
-                    if (file.getName().toLowerCase().endsWith(extension))
-                    {
-                        textArea.append(fileListCounter + ") " + file.getAbsolutePath() + "\n");
-                        fileArrayList.add(file);
-                        fileListCounter++;
+        final String[] okFileExtensions = new String[] {"docx", "doc", "html","txt"};
+        try {
+            for (File file : selectedFile.listFiles()) {
+                if (file.isDirectory()) {
+                    scanDirectory(file);
+                } else {
+                    for (String extension : okFileExtensions) {
+                        if (file.getName().toLowerCase().endsWith(extension)) {
+                            textArea.append(fileListCounter + ") " + file.getAbsolutePath() + "\n");
+                            fileArrayList.add(file);
+                            fileListCounter++;
+                        }
                     }
                 }
             }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
         }
-    };
+    }
 
     private class enterFileNumberActionListener implements ActionListener {
-
         @Override
         public void actionPerformed(ActionEvent e) {
-            int enteredFileNumber=Integer.parseInt(chooseFileTextField.getText());
-            if (enteredFileNumber>0 && enteredFileNumber<fileArrayList.size()){
+            int enteredFileNumber = Integer.parseInt(chooseFileTextField.getText());
+            if (enteredFileNumber > 0 && enteredFileNumber<fileArrayList.size()) {
                 Reader.checkAndRead(fileArrayList.get(enteredFileNumber - 1));
             }
         }
