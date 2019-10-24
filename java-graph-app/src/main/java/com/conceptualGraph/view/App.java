@@ -1,5 +1,6 @@
 package com.conceptualGraph.view;
 
+import com.conceptualGraph.BookGenerator;
 import com.conceptualGraph.model.Reader;
 
 import javax.swing.*;
@@ -15,11 +16,9 @@ public class App
 {
     private int fileListCounter = 1;
     private JFrame frame;
-//    private JMenuBar menuBar;
     private final JFileChooser fileChooser = new JFileChooser();
     private ArrayList<File> fileArrayList = new ArrayList<>();
     private TextArea textArea;
-//    private Button enterFileNumberButton;
     private TextField chooseFileTextField;
 
     public void start() {
@@ -35,10 +34,18 @@ public class App
         frame.getContentPane().add(mainPanel);
         JMenuBar menuBar = new JMenuBar();
         JMenu mainMenu = new JMenu("Файл");
+        JMenu testMenu = new JMenu("Тесты");
         JMenuItem selectDirItem = new JMenuItem("Выбрать директорию");
+        JMenuItem generateBookItem  = new JMenuItem("Сгенерировать книгу");
+        JMenuItem readTxtItem  = new JMenuItem("Прочитать книгу txt");
         selectDirItem.addActionListener(new selectDirItemActionListener());
+        generateBookItem.addActionListener(new generateBookActionListener());
+        readTxtItem.addActionListener(new readTxtActionListener());
         mainMenu.add(selectDirItem);
+        testMenu.add(generateBookItem);
+        testMenu.add(readTxtItem);
         menuBar.add(mainMenu);
+        menuBar.add(testMenu);
         frame.setJMenuBar(menuBar);
         fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("PDF Documents", "pdf"));
@@ -96,4 +103,17 @@ public class App
         }
     }
 
+    private class generateBookActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            BookGenerator.generateBook();
+        }
+    }
+
+    private class readTxtActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Reader.checkAndRead(new File("RandomBook.txt"));
+        }
+    }
 }

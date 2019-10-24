@@ -4,17 +4,12 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class BookGenerator {
-    static File randBook;
-    static ArrayList<String> dictionary = new ArrayList<>();
-
-    public static void main(String[] args) {
-        generateBook();
-    }
+    private static ArrayList<String> dictionary = new ArrayList<>();
 
     /**
      * readDict - читает словарь
      */
-    public static void readDict() {
+    private static void readDict() {
         File dict = new File("word_rus.txt");
         try {
             String dictWord;
@@ -36,7 +31,7 @@ public class BookGenerator {
      */
     public static void generateBook() {
         readDict();
-        randBook = new File("RandomBook.txt");
+        File randBook = new File("RandomBook.txt");
         try {
             BufferedWriter buferedRandBookWriter = new BufferedWriter(new FileWriter(randBook));
             for (int stringCount = 0; stringCount < 500; stringCount++) {
@@ -62,7 +57,7 @@ public class BookGenerator {
         return bookString + ".\n";
     }
 
-    public static int rnd(int min, int max) {
+    private static int rnd(int min, int max) {
         max -= min;
         return (int)(Math.random() * ++max) + min;
     }

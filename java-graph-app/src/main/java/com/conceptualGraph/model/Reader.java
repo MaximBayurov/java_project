@@ -1,6 +1,5 @@
 package com.conceptualGraph.model;
 
-//import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.jsoup.*;
@@ -25,12 +24,13 @@ public class Reader {
             readDict();
             BufferedReader bfr = new BufferedReader(new FileReader(chosenFile));
             BufferedWriter bfw = new BufferedWriter(new FileWriter("ReaderResults.txt"));
-            int wordsNumber = 1;
+            int wordsNumber = 0;
             int countDictWords = 0;
-            String line = bfr.readLine();
+            String line = bfr.readLine().trim();
             System.out.println(line);
             while (line != null){
                 System.out.println("Начинается с " + wordsNumber + " слова|");
+                line=line.trim();
                 String[] words = line.split(" ");
                 for (String word:words) {
                     word = word.replace(".","").trim();
