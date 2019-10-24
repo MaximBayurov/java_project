@@ -1,10 +1,8 @@
-package com.conceptualGraph;
+package com.conceptualGraph.model;
 
 import org.jsoup.*;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.TextNode;
-
-
 import java.io.*;
 import java.util.List;
 
@@ -22,7 +20,6 @@ public class Reader {
     }
 
     private static void readHTML(File chosenFile) {
-
         try{
             PrintWriter writer= new PrintWriter(new BufferedWriter(new FileWriter("filename.out")));
             Document doc= Jsoup.parse(chosenFile,"UTF-8");
@@ -38,7 +35,6 @@ public class Reader {
     private static void readDoc(File chosenFile) {
         try{
             PrintWriter writer= new PrintWriter(new BufferedWriter(new FileWriter("filename.out")));
-
             writer.flush();
             writer.close();
         } catch (IOException ex){
