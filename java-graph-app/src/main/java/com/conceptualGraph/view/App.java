@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Properties;
 
 
 public class App 
@@ -20,6 +21,13 @@ public class App
     private ArrayList<File> fileArrayList = new ArrayList<>();
     private TextArea textArea;
     private TextField chooseFileTextField;
+
+    /**
+     * Конструктор устанавливающий свойства,здесь нужно устанавливать значения полученных полей из полученных свойств
+     * @param properties свойства, передаваемые Configurator
+     */
+    public App(Properties properties) {
+    }
 
     public void start() {
         frame = new JFrame("Концептуальный граф");
@@ -62,6 +70,10 @@ public class App
     private class selectDirItemActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            if (fileChooser.getSelectedFile()!=null) fileChooser.setCurrentDirectory(fileChooser.getSelectedFile());
+            else {
+                fileChooser.setCurrentDirectory(new File("./"));
+            }
             int result = fileChooser.showOpenDialog(frame);
             if (result == JFileChooser.APPROVE_OPTION) {
                 fileArrayList.clear();
