@@ -17,7 +17,8 @@ public class App
 {
     private int fileListCounter = 1;
     private JFrame frame;
-    private final JFileChooser fileChooser = new JFileChooser();
+    private final JFileChooser dirChooser = new JFileChooser(); //позволяет выбирать директории
+    private final JFileChooser fileChooser = new JFileChooser(); //позволяет выбирать файл
     private ArrayList<File> fileArrayList = new ArrayList<>();
     private TextArea textArea;
     private TextField chooseFileTextField;
@@ -44,22 +45,24 @@ public class App
         JMenu mainMenu = new JMenu("Файл");
         JMenu testMenu = new JMenu("Тесты");
         JMenuItem selectDirItem = new JMenuItem("Выбрать директорию");
+        JMenuItem selectFileItem = new JMenuItem("Выбрать файл");
         JMenuItem generateBookItem  = new JMenuItem("Сгенерировать книгу");
         JMenuItem readTxtItem  = new JMenuItem("Прочитать книгу txt");
         selectDirItem.addActionListener(new selectDirItemActionListener());
+        selectFileItem.addActionListener(new selectFileItemActionListener());
         generateBookItem.addActionListener(new generateBookActionListener());
         readTxtItem.addActionListener(new readTxtActionListener());
         mainMenu.add(selectDirItem);
+        mainMenu.add(selectFileItem);
         testMenu.add(generateBookItem);
         testMenu.add(readTxtItem);
         menuBar.add(mainMenu);
         menuBar.add(testMenu);
         frame.setJMenuBar(menuBar);
-        fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("PDF Documents", "pdf"));
-        fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Simple text documents", "txt"));
-        fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Microsoft documents", "doc"));
-        fileChooser.setAcceptAllFileFilterUsed(true);
+        dirChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        setFileChooserFilters(dirChooser);
+        setFileChooserFilters(fileChooser);
         textArea.setEditable(false);
         textArea.setFocusable(false);
         frame.setSize(500,500);
@@ -67,19 +70,26 @@ public class App
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
+    private void setFileChooserFilters(JFileChooser fileChooser) {
+        fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("PDF Documents", "pdf"));
+        fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Simple text documents", "txt"));
+        fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Microsoft documents", "doc"));
+        fileChooser.setAcceptAllFileFilterUsed(true);
+    }
+
     private class selectDirItemActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (fileChooser.getSelectedFile()!=null) fileChooser.setCurrentDirectory(fileChooser.getSelectedFile());
+            if (dirChooser.getSelectedFile()!=null) dirChooser.setCurrentDirectory(dirChooser.getSelectedFile());
             else {
-                fileChooser.setCurrentDirectory(new File("./"));
+                dirChooser.setCurrentDirectory(new File("./"));
             }
-            int result = fileChooser.showOpenDialog(frame);
+            int result = dirChooser.showOpenDialog(frame);
             if (result == JFileChooser.APPROVE_OPTION) {
                 fileArrayList.clear();
                 textArea.setText("");
                 fileListCounter = 1;
-                scanDirectory(fileChooser.getSelectedFile());
+                scanDirectory(dirChooser.getSelectedFile());
             }
         }
     }
@@ -126,6 +136,20 @@ public class App
         @Override
         public void actionPerformed(ActionEvent e) {
             Reader.checkAndRead(new File("RandomBook.txt"));
+        }
+    }
+
+    private class selectFileItemActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (fileChooser.getSelectedFile()!=null) fileChooser.setCurrentDirectory(fileChooser.getSelectedFile());
+            else {
+                fileChooser.setCurrentDirectory(new File("./"));
+            }
+            int result = fileChooser.showOpenDialog(frame);
+            if (result == JFileChooser.APPROVE_OPTION) {
+                Reader.checkAndRead(fileChooser.getSelectedFile());
+            }
         }
     }
 }

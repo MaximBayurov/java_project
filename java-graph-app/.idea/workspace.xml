@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5ad2e5c-7bf5-4542-8024-6999ebb096bc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/Configurator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/model/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/model/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaderResults.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ReaderResults.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/view/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/view/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/conceptualGraph/model/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/conceptualGraph/model/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/conceptualGraph/model/Reader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/conceptualGraph/model/Reader.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -154,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571916955478</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="change filechooser">
+      <created>1571941972627</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1571941972627</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -176,6 +179,7 @@
     <MESSAGE value="chsn dir full scanning" />
     <MESSAGE value="new methods" />
     <MESSAGE value="new menu items" />
-    <option name="LAST_COMMIT_MESSAGE" value="new menu items" />
+    <MESSAGE value="change filechooser" />
+    <option name="LAST_COMMIT_MESSAGE" value="change filechooser" />
   </component>
 </project>
