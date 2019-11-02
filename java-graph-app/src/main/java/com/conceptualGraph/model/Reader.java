@@ -1,5 +1,6 @@
 package com.conceptualGraph.model;
 
+import com.conceptualGraph.controller.PartOfSpeechChecker;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.jsoup.*;
@@ -27,7 +28,6 @@ public class Reader {
             int wordsNumber = 0;
             int countDictWords = 0;
             String line = bfr.readLine().trim();
-            System.out.println(line);
             while (line != null){
                 System.out.println("Начинается с " + wordsNumber + " слова|");
                 line=line.trim();
@@ -35,12 +35,13 @@ public class Reader {
                 for (String word:words) {
                     word = word.replace(".","").trim();
                     if (dictionary.contains(word)) countDictWords++;
+                    if (PartOfSpeechChecker.isVerb(word)) countDictWords++;
                 }
                 wordsNumber += words.length;
                 line = bfr.readLine();
             }
             bfw.write("Количество слов в книге:" + wordsNumber + "\n");
-            bfw.write("Количество совпавших с словарём слов:" + countDictWords + "\n");
+            bfw.write("Количество идентифицированных слов:" + countDictWords + "\n");
             bfw.close();
             bfr.close();
         } catch (IOException ex) {
@@ -77,10 +78,15 @@ public class Reader {
             int countDictWords = 0;
             for (XWPFParagraph paragraph:paragraphs) {
                 System.out.println("Начинается с " + wordsNumber + " слова|");
-                String[] words = paragraph.getText().split(" ");
-                for (String word:words){
-                    if (dictionary.contains(word)) countDictWords++;
-                    wordsNumber++;
+                String[] sentences = paragraph.getText().split("\\.");
+                for (String sentence:sentences){
+                    String[] words = sentence.split(" ");
+                    for (String word:words){
+                        if (dictionary.contains(word)) countDictWords++;
+                        else if (PartOfSpeechChecker.isVerb(word)) countDictWords++;
+                        else System.out.println(word);
+                        wordsNumber++;
+                    }
                 }
             }
             bfw.write("Количество слов в книге:" + wordsNumber + "\n");

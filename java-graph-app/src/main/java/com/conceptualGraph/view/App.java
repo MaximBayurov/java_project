@@ -62,7 +62,6 @@ public class App
         dirChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
         setFileChooserFilters(dirChooser);
-        setFileChooserFilters(fileChooser);
         textArea.setEditable(false);
         textArea.setFocusable(false);
         frame.setSize(500,500);

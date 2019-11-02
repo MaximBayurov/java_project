@@ -20,6 +20,7 @@ public class BookGenerator {
                 dictionary.add(dictWord);
                 dictWord = bufferedDictReader.readLine();
             }
+            System.out.println("Словарь прочитан!");
         } catch (Exception ex) {
             System.out.println("\nНеудалось открыть словарь!");
             System.out.println(ex.getMessage());
@@ -61,4 +62,5 @@ public class BookGenerator {
         max -= min;
         return (int)(Math.random() * ++max) + min;
     }
+
 }
