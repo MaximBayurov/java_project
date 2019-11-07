@@ -81,9 +81,10 @@ public class Reader {
                 System.out.println("Начинается с " + wordsNumber + " слова|");
                 String[] sentences = paragraph.getText().split("\\.");
                 for (String sentence:sentences){
-                    String[] words = sentence.split(" ");
+                    String[] words = sentence.replace(".","").split(" ");
                     for (String word:words){
-                        word = PartOfSpeechChecker.stem(word.replace(".","").trim());
+                        word = bringTo(word);
+                        word = PartOfSpeechChecker.stem(word);
                         if (dictionary.contains(word)) countDictWords++;
                         else if (PartOfSpeechChecker.isVerb(word)) countDictWords++;
                         else System.out.println(word);
@@ -98,6 +99,10 @@ public class Reader {
         } catch (IOException ex) {
             System.err.println(ex.getMessage() + "\n");
         }
+    }
+
+    private static String bringTo(String word) {
+        return word.toLowerCase().replaceAll("[^а-я]","");
     }
 
     private static void readDict() {

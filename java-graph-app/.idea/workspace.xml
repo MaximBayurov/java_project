@@ -4,9 +4,7 @@
     <list default="true" id="d5ad2e5c-7bf5-4542-8024-6999ebb096bc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReaderResults.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ReaderResults.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/PartOfSpeechChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/PartOfSpeechChecker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/model/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/model/Reader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/view/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/view/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/conceptualGraph/model/Reader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/conceptualGraph/model/Reader.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -175,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572728609744</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="добавил стемминг словаря и чтение">
+      <created>1573125037177</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1573125037177</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -200,6 +205,7 @@
     <MESSAGE value="change filechooser" />
     <MESSAGE value="rename filechooser to dirChooser, add fileChooser" />
     <MESSAGE value="idk" />
-    <option name="LAST_COMMIT_MESSAGE" value="idk" />
+    <MESSAGE value="добавил стемминг словаря и чтение" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавил стемминг словаря и чтение" />
   </component>
 </project>
