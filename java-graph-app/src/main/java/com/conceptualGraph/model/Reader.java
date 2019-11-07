@@ -8,6 +8,7 @@ import org.jsoup.nodes.Document;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Reader {
     private static ArrayList<String> dictionary = new ArrayList<>();
@@ -68,7 +69,7 @@ public class Reader {
     //Просто сигнатура
     private static void readDocx(File chosenFile) {
         try{
-            readDict();
+            readStemDict();
             InputStream inputStream = new FileInputStream(chosenFile);
             BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
             XWPFDocument exampleDoc = new XWPFDocument(bufferedInputStream);
@@ -82,6 +83,7 @@ public class Reader {
                 for (String sentence:sentences){
                     String[] words = sentence.split(" ");
                     for (String word:words){
+                        word = PartOfSpeechChecker.stem(word.replace(".","").trim());
                         if (dictionary.contains(word)) countDictWords++;
                         else if (PartOfSpeechChecker.isVerb(word)) countDictWords++;
                         else System.out.println(word);
@@ -113,6 +115,41 @@ public class Reader {
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
             System.out.println("\nНеудалось открыть словарь!");
+        }
+    }
+
+    public static void readStemDict(){
+        File dict = new File("stemed_word_rus.txt");
+        try {
+            Scanner in = new Scanner(dict);
+            dictionary.clear();
+            while (in.hasNext()){
+                if (!in.equals(' ')){
+                    String dictWord =in.next();
+                    dictionary.add(dictWord);
+                }
+            }
+            System.out.println("Словарь прочитан!");
+            in.close();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            System.out.println("\nНеудалось открыть словарь!");
+        }
+    }
+
+    public static void stemTheDict(){
+        File stemDict = new File("stemed_word_rus.txt");
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(stemDict));
+            System.out.println("Начало стемминга!");
+            readDict();
+            for (String word : dictionary) {
+                bw.write(PartOfSpeechChecker.stem(word)+" ");
+            }
+            System.out.println("Конец стемминга!");
+            bw.close();
+        } catch (IOException ex){
+            ex.printStackTrace();
         }
     }
 }
