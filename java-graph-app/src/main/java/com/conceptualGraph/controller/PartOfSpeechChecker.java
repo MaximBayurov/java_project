@@ -84,5 +84,4 @@ public class PartOfSpeechChecker {
 
         return word;
     }
-
 }

@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 public class Reader {
     private static ArrayList<String> dictionary = new ArrayList<>();
+    private static ArrayList<String> pronouns = new ArrayList<>();
 
     public static void checkAndRead(File file){
 //           if (file.toString().toLowerCase().endsWith("doc")){readDoc(file);};
@@ -70,6 +71,8 @@ public class Reader {
     private static void readDocx(File chosenFile) {
         try{
             readStemDict();
+            readPronouns();
+            readUnions();
             InputStream inputStream = new FileInputStream(chosenFile);
             BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
             XWPFDocument exampleDoc = new XWPFDocument(bufferedInputStream);
@@ -84,10 +87,12 @@ public class Reader {
                     String[] words = sentence.replace(".","").split(" ");
                     for (String word:words){
                         word = bringTo(word);
-                        word = PartOfSpeechChecker.stem(word);
-                        if (dictionary.contains(word)) countDictWords++;
-                        else if (PartOfSpeechChecker.isVerb(word)) countDictWords++;
-                        else System.out.println(word);
+                        String stemedWord = PartOfSpeechChecker.stem(word);
+                        if (dictionary.contains(stemedWord)) countDictWords++;
+                        else if (PartOfSpeechChecker.isVerb(stemedWord)) countDictWords++;
+                        else if (stemedWord.equals("")){
+                            continue;
+                        }else System.out.println(word + " | " + stemedWord);
                         wordsNumber++;
                     }
                 }
@@ -99,10 +104,11 @@ public class Reader {
         } catch (IOException ex) {
             System.err.println(ex.getMessage() + "\n");
         }
+
     }
 
     private static String bringTo(String word) {
-        return word.toLowerCase().replaceAll("[^а-я]","");
+        return word.toLowerCase().replaceAll("[^а-яё]","");
     }
 
     private static void readDict() {
@@ -157,4 +163,43 @@ public class Reader {
             ex.printStackTrace();
         }
     }
+
+    public static void readPronouns(){
+        File pronounsFile = new File("pronouns");
+        try {
+            Scanner in = new Scanner(pronounsFile);
+            pronouns.clear();
+            while (in.hasNext()){
+                if (!in.equals(' ')){
+                    String pronoun =PartOfSpeechChecker.stem(bringTo(in.next()));
+                    if (!pronouns.contains(pronoun)){
+                        pronouns.add(pronoun);
+                    };
+                }
+            }
+            dictionary.addAll(pronouns);
+            in.close();
+        } catch (IOException ex){
+            ex.printStackTrace();
+        }
+    }
+
+    protected static void readUnions(){
+        File unionsFile = new File("unions");
+        ArrayList<String> unions = new ArrayList<String>();
+        try {
+            Scanner in = new Scanner(unionsFile);
+            while (in.hasNext()){
+                if (!in.equals(' ')){
+                    String union = PartOfSpeechChecker.stem(bringTo(in.next()));
+                    if (!unions.contains(union)) unions.add(union);
+                }
+            }
+            dictionary.addAll(unions);
+            in.close();
+        } catch (IOException ex){
+            ex.printStackTrace();
+        }
+    }
+
 }
