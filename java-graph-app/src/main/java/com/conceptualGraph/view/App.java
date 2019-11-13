@@ -128,7 +128,7 @@ public class App
         @Override
         public void actionPerformed(ActionEvent e) {
             int enteredFileNumber = Integer.parseInt(chooseFileTextField.getText());
-            if (enteredFileNumber > 0 && enteredFileNumber<fileArrayList.size()) {
+            if (enteredFileNumber > 0 && enteredFileNumber <= fileArrayList.size()) {
                 Reader.checkAndRead(fileArrayList.get(enteredFileNumber - 1));
             }
         }
