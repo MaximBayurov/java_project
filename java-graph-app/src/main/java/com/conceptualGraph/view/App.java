@@ -59,6 +59,7 @@ public class App
         fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("PDF Documents", "pdf"));
         fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Simple text documents", "txt"));
         fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Microsoft documents", "doc"));
+        fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("HTML documents", "html"));
         fileChooser.setAcceptAllFileFilterUsed(true);
         textArea.setEditable(false);
         textArea.setFocusable(false);
@@ -109,7 +110,7 @@ public class App
         @Override
         public void actionPerformed(ActionEvent e) {
             int enteredFileNumber = Integer.parseInt(chooseFileTextField.getText());
-            if (enteredFileNumber > 0 && enteredFileNumber<fileArrayList.size()) {
+            if (enteredFileNumber > 0 && enteredFileNumber <= fileArrayList.size()) {
                 Reader.checkAndRead(fileArrayList.get(enteredFileNumber - 1));
             }
         }
