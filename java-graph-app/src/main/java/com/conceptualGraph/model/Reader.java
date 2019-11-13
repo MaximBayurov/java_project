@@ -67,6 +67,7 @@ public class Reader {
         System.out.println("readHTML start");
         BufferedWriter bw = new BufferedWriter(new FileWriter("outputFromHTML.txt", true));
         Document doc = Jsoup.parse(chosenFile, "UTF-8");
+        WordChecker.readFullDict();
 //        Elements h1 = doc.getElementsByTag("h1");
 //        Elements h2 = doc.getElementsByTag("h2");
 //        Elements h3 = doc.getElementsByTag("h3");
@@ -76,7 +77,8 @@ public class Reader {
         Elements h = doc.select("h1, h2, h3, h4, h5, h6");
         Elements text = doc.select("h1, h2, h3, h4, h5, h6, p");
         ArrayList<Integer> indexList = new ArrayList<>();
-//        ArrayList<String> wordList = new ArrayList<>();
+        int wordsNumber = 1;
+        int countDictWords = 0;
         for (int i = 0; i < text.size(); i++) {
 //            ПОКА НЕ УДАЛЯТЬ!!!
 //            bw.write(text.get(i).text() + "\n");
@@ -92,15 +94,24 @@ public class Reader {
 
                 a = false;
             }
+
             String[] sentences = text.get(i).text().split("\\.");
             for (String sentence: sentences) {
-
+                String[] words = sentence.replace(".","").split(" ");
+                for (String word:words){
+                    word = WordChecker.bringTo(word);
+                    if (word.equals(" ")||word.isEmpty()) continue;
+                    else if (WordChecker.check(word)) countDictWords++;
+                    wordsNumber++;
+                }
             }
         }
         bw.close();
         System.out.println("readHTML end");
         System.out.println(indexList);
         System.out.println("Количество глав: " + h.size());
+        System.out.println("Количество слов в книге: " + wordsNumber);
+        System.out.println("Количество совпавших с словарём слов: " + countDictWords);
     }
 
     //Просто сигнатура
