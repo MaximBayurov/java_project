@@ -1,6 +1,7 @@
 package com.conceptualGraph.model;
 
 import com.conceptualGraph.controller.Stemmer;
+import com.conceptualGraph.controller.WordChecker;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.jsoup.*;
@@ -14,7 +15,6 @@ import java.util.Scanner;
 
 public class Reader {
     private static ArrayList<String> dictionary = new ArrayList<>();
-    private static ArrayList<String> pronouns = new ArrayList<>();
 
     public static void checkAndRead(File file){
 //           if (file.toString().toLowerCase().endsWith("doc")){readDoc(file);};
@@ -131,9 +131,7 @@ public class Reader {
     //Просто сигнатура
     private static void readDocx(File chosenFile) {
         try{
-            readStemDict();
-            readPronouns();
-            readUnions();
+            WordChecker.readFullDict();
             InputStream inputStream = new FileInputStream(chosenFile);
             BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
             XWPFDocument exampleDoc = new XWPFDocument(bufferedInputStream);
@@ -147,12 +145,9 @@ public class Reader {
                 for (String sentence:sentences){
                     String[] words = sentence.replace(".","").split(" ");
                     for (String word:words){
-                        word = bringTo(word);
-                        String stemedWord = Stemmer.stem(word);
-                        if (dictionary.contains(stemedWord)) countDictWords++;
-                        else if (stemedWord.equals("")){
-                            continue;
-                        }else System.out.println(word + " | " + stemedWord);
+                        word = WordChecker.bringTo(word);
+                        if (word.equals(" ")||word.isEmpty()) continue;
+                        else if (WordChecker.check(word)) countDictWords++;
                         wordsNumber++;
                     }
                 }
@@ -165,10 +160,6 @@ public class Reader {
             System.err.println(ex.getMessage() + "\n");
         }
 
-    }
-
-    private static String bringTo(String word) {
-        return word.toLowerCase().replaceAll("[^а-яё]","");
     }
 
     private static void readDict() {
@@ -189,25 +180,6 @@ public class Reader {
         }
     }
 
-    public static void readStemDict(){
-        File dict = new File("stemed_word_rus.txt");
-        try {
-            Scanner in = new Scanner(dict);
-            dictionary.clear();
-            while (in.hasNext()){
-                if (!in.equals(' ')){
-                    String dictWord =in.next();
-                    dictionary.add(dictWord);
-                }
-            }
-            System.out.println("Словарь прочитан!");
-            in.close();
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-            System.out.println("\nНеудалось открыть словарь!");
-        }
-    }
-
     public static void stemTheDict(){
         File stemDict = new File("stemed_word_rus.txt");
         try {
@@ -219,44 +191,6 @@ public class Reader {
             }
             System.out.println("Конец стемминга!");
             bw.close();
-        } catch (IOException ex){
-            ex.printStackTrace();
-        }
-    }
-
-    public static void readPronouns(){
-        File pronounsFile = new File("pronouns");
-        try {
-            Scanner in = new Scanner(pronounsFile);
-            pronouns.clear();
-            while (in.hasNext()){
-                if (!in.equals(' ')){
-                    String pronoun = Stemmer.stem(bringTo(in.next()));
-                    if (!pronouns.contains(pronoun)){
-                        pronouns.add(pronoun);
-                    };
-                }
-            }
-            dictionary.addAll(pronouns);
-            in.close();
-        } catch (IOException ex){
-            ex.printStackTrace();
-        }
-    }
-
-    protected static void readUnions(){
-        File unionsFile = new File("unions");
-        ArrayList<String> unions = new ArrayList<String>();
-        try {
-            Scanner in = new Scanner(unionsFile);
-            while (in.hasNext()){
-                if (!in.equals(' ')){
-                    String union = Stemmer.stem(bringTo(in.next()));
-                    if (!unions.contains(union)) unions.add(union);
-                }
-            }
-            dictionary.addAll(unions);
-            in.close();
         } catch (IOException ex){
             ex.printStackTrace();
         }

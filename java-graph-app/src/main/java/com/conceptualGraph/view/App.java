@@ -49,22 +49,16 @@ public class App
         JMenuItem generateBookItem  = new JMenuItem("Сгенерировать книгу");
         JMenuItem readTxtItem  = new JMenuItem("Прочитать книгу txt");
         JMenuItem stemDictItem = new JMenuItem("Стемминг словаря");
-        JMenuItem pronounsItem = new JMenuItem("Предлоги");
-        JMenuItem readStemedDictItem = new JMenuItem("Прочесть стемингованый словарь");
         selectDirItem.addActionListener(new selectDirItemActionListener());
         selectFileItem.addActionListener(new selectFileItemActionListener());
         generateBookItem.addActionListener(new generateBookActionListener());
         readTxtItem.addActionListener(new readTxtActionListener());
         stemDictItem.addActionListener(new stemDictItemActionListener());
-        readStemedDictItem.addActionListener(new readStemedDictItemActionListener());
-        pronounsItem.addActionListener(new pronounsItemActionListener());
         mainMenu.add(selectDirItem);
         mainMenu.add(selectFileItem);
         testMenu.add(generateBookItem);
         testMenu.add(readTxtItem);
         testMenu.add(stemDictItem);
-        testMenu.add(readStemedDictItem);
-        testMenu.add(pronounsItem);
         menuBar.add(mainMenu);
         menuBar.add(testMenu);
         frame.setJMenuBar(menuBar);
@@ -168,17 +162,4 @@ public class App
         }
     }
 
-    private class readStemedDictItemActionListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            Reader.readStemDict();
-        }
-    }
-
-    private class pronounsItemActionListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            Reader.readPronouns();
-        }
-    }
 }
