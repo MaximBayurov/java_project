@@ -1,6 +1,6 @@
 package com.conceptualGraph.model;
 
-import com.conceptualGraph.controller.PartOfSpeechChecker;
+import com.conceptualGraph.controller.Stemmer;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.jsoup.*;
@@ -45,7 +45,6 @@ public class Reader {
                 for (String word:words) {
                     word = word.replace(".","").trim();
                     if (dictionary.contains(word)) countDictWords++;
-                    if (PartOfSpeechChecker.isVerb(word)) countDictWords++;
                 }
                 wordsNumber += words.length;
                 line = bfr.readLine();
@@ -149,9 +148,8 @@ public class Reader {
                     String[] words = sentence.replace(".","").split(" ");
                     for (String word:words){
                         word = bringTo(word);
-                        String stemedWord = PartOfSpeechChecker.stem(word);
+                        String stemedWord = Stemmer.stem(word);
                         if (dictionary.contains(stemedWord)) countDictWords++;
-                        else if (PartOfSpeechChecker.isVerb(stemedWord)) countDictWords++;
                         else if (stemedWord.equals("")){
                             continue;
                         }else System.out.println(word + " | " + stemedWord);
@@ -217,7 +215,7 @@ public class Reader {
             System.out.println("Начало стемминга!");
             readDict();
             for (String word : dictionary) {
-                bw.write(PartOfSpeechChecker.stem(word)+" ");
+                bw.write(Stemmer.stem(word)+" ");
             }
             System.out.println("Конец стемминга!");
             bw.close();
@@ -233,7 +231,7 @@ public class Reader {
             pronouns.clear();
             while (in.hasNext()){
                 if (!in.equals(' ')){
-                    String pronoun =PartOfSpeechChecker.stem(bringTo(in.next()));
+                    String pronoun = Stemmer.stem(bringTo(in.next()));
                     if (!pronouns.contains(pronoun)){
                         pronouns.add(pronoun);
                     };
@@ -253,7 +251,7 @@ public class Reader {
             Scanner in = new Scanner(unionsFile);
             while (in.hasNext()){
                 if (!in.equals(' ')){
-                    String union = PartOfSpeechChecker.stem(bringTo(in.next()));
+                    String union = Stemmer.stem(bringTo(in.next()));
                     if (!unions.contains(union)) unions.add(union);
                 }
             }
