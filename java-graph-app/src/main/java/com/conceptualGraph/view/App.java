@@ -1,7 +1,6 @@
 package com.conceptualGraph.view;
 
 import com.conceptualGraph.BookGenerator;
-import com.conceptualGraph.controller.PartOfSpeechChecker;
 import com.conceptualGraph.model.Reader;
 
 import javax.swing.*;

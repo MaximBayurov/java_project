@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class PartOfSpeechChecker {
+public class Stemmer {
     private static final Pattern PERFECTIVEGROUND = Pattern.compile("((ив|ивши|ившись|ыв|ывши|ывшись)|((?<=[ая])(в|вши|вшись)))$");
 
     private static final Pattern REFLEXIVE = Pattern.compile("(с[яь])$");
@@ -28,15 +28,6 @@ public class PartOfSpeechChecker {
     private static final Pattern I = Pattern.compile("и$");
     private static final Pattern P = Pattern.compile("ь$");
     private static final Pattern NN = Pattern.compile("нн$");
-
-    public static boolean isVerb(String word){
-        int wordsLength = word.length();
-        if(wordsLength>=6 && (word.substring(wordsLength - 3, wordsLength).equals("тся")||
-            word.substring(wordsLength - 4, wordsLength).equals("ться"))){
-            return true;
-        } else return false;
-    }
-
 
     public static String stem(String word) {
         word = word.toLowerCase();
