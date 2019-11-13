@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d5ad2e5c-7bf5-4542-8024-6999ebb096bc" name="Default Changelist" comment="союзы и предлоги">
+    <list default="true" id="d5ad2e5c-7bf5-4542-8024-6999ebb096bc" name="Default Changelist" comment="refactoring controller class Stemmer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReaderResults.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ReaderResults.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pronouns" beforeDir="false" afterPath="$PROJECT_DIR$/pronouns" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/PartOfSpeechChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/Stemmer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/model/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/model/Reader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/view/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/view/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/conceptualGraph/model/Reader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/conceptualGraph/model/Reader.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -197,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573158626414</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="refactoring controller class Stemmer">
+      <created>1573643291684</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1573643291684</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -225,6 +226,7 @@
     <MESSAGE value="добавил стемминг словаря и чтение" />
     <MESSAGE value="метод bringTo для приведения к необходимому виду" />
     <MESSAGE value="союзы и предлоги" />
-    <option name="LAST_COMMIT_MESSAGE" value="союзы и предлоги" />
+    <MESSAGE value="refactoring controller class Stemmer" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring controller class Stemmer" />
   </component>
 </project>
