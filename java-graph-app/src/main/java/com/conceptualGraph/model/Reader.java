@@ -8,6 +8,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.io.*;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -63,69 +64,43 @@ public class Reader {
 //    }
 
     private static void readHTML(File chosenFile) throws Exception {
-//        PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter("filename.out")));
-//        Document doc = Jsoup.parse(chosenFile,"UTF-8");
-//        writer.print(doc.body().text());
-//        writer.flush();
-//        writer.close();
         System.out.println("readHTML start");
         BufferedWriter bw = new BufferedWriter(new FileWriter("outputFromHTML.txt", true));
         Document doc = Jsoup.parse(chosenFile, "UTF-8");
-        Elements h1 = doc.getElementsByTag("h1");
-        Elements h2 = doc.getElementsByTag("h2");
-        Elements h3 = doc.getElementsByTag("h3");
-        Elements h4 = doc.getElementsByTag("h4");
-        Elements h5 = doc.getElementsByTag("h5");
-        Elements h6 = doc.getElementsByTag("h6");
+//        Elements h1 = doc.getElementsByTag("h1");
+//        Elements h2 = doc.getElementsByTag("h2");
+//        Elements h3 = doc.getElementsByTag("h3");
+//        Elements h4 = doc.getElementsByTag("h4");
+//        Elements h5 = doc.getElementsByTag("h5");
+//        Elements h6 = doc.getElementsByTag("h6");
+        Elements h = doc.select("h1, h2, h3, h4, h5, h6");
         Elements text = doc.select("h1, h2, h3, h4, h5, h6, p");
         ArrayList<Integer> indexList = new ArrayList<>();
+//        ArrayList<String> wordList = new ArrayList<>();
         for (int i = 0; i < text.size(); i++) {
-            bw.write(text.get(i).text() + "\n");
-            bw.flush();
+//            ПОКА НЕ УДАЛЯТЬ!!!
+//            bw.write(text.get(i).text() + "\n");
+//            bw.flush();
             boolean a = true;
             while (a) {
-                for (int j = 0; j < h1.size(); j++) {
-                    if (h1.get(j).text().equals(text.get(i).text())) {
-                        indexList.add(i + 1);
-                        a = false;
+                for (int j = 0; j < h.size(); j++) {
+                    if (h.get(j).text().equals(text.get(i).text())) {
+                        indexList.add(i); // Будет запись не в коллекцию, а в БД
+                        break;
                     }
                 }
-                for (int j = 0; j < h2.size(); j++) {
-                    if (h2.get(j).text().equals(text.get(i).text())) {
-                        indexList.add(i + 1);
-                        a = false;
-                    }
-                }
-                for (int j = 0; j < h3.size(); j++) {
-                    if (h3.get(j).text().equals(text.get(i).text())) {
-                        indexList.add(i + 1);
-                        a = false;
-                    }
-                }
-                for (int j = 0; j < h4.size(); j++) {
-                    if (h4.get(j).text().equals(text.get(i).text())) {
-                        indexList.add(i + 1);
-                        a = false;
-                    }
-                }
-                for (int j = 0; j < h5.size(); j++) {
-                    if (h5.get(j).text().equals(text.get(i).text())) {
-                        indexList.add(i + 1);
-                        a = false;
-                    }
-                }
-                for (int j = 0; j < h6.size(); j++) {
-                    if (h6.get(j).text().equals(text.get(i).text())) {
-                        indexList.add(i + 1);
-                        a = false;
-                    }
-                }
+
                 a = false;
+            }
+            String[] sentences = text.get(i).text().split("\\.");
+            for (String sentence: sentences) {
+
             }
         }
         bw.close();
         System.out.println("readHTML end");
         System.out.println(indexList);
+        System.out.println("Количество глав: " + h.size());
     }
 
     //Просто сигнатура
