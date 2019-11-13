@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d5ad2e5c-7bf5-4542-8024-6999ebb096bc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+
+
+    <list default="true" id="d5ad2e5c-7bf5-4542-8024-6999ebb096bc" name="Default Changelist" comment=""/>
+
+      <change afterPath="$PROJECT_DIR$/pronouns" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unions" afterDir="false" />
+
+    <list default="true" id="d5ad2e5c-7bf5-4542-8024-6999ebb096bc" name="Default Changelist" comment="союзы и предлоги">
+
+
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReaderResults.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ReaderResults.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pronouns" beforeDir="false" afterPath="$PROJECT_DIR$/pronouns" afterDir="false" />
