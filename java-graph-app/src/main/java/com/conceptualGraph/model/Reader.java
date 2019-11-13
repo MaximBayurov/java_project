@@ -132,7 +132,7 @@ public class Reader {
                     String[] words = sentence.replace(".","").split(" ");
                     for (String word:words){
                         word = WordChecker.bringTo(word);
-                        if (word.equals(" ")||word.isEmpty()) continue;
+                        if (word.isEmpty()) continue;
                         else if (WordChecker.check(word)) countDictWords++;
                         wordsNumber++;
                     }
@@ -181,5 +181,4 @@ public class Reader {
             ex.printStackTrace();
         }
     }
-
 }
