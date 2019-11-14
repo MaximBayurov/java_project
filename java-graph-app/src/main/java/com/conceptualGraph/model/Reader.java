@@ -30,9 +30,10 @@ public class Reader {
 
     }
 
+    //работает некорректно
     private static void readTXT(File chosenFile) {
         try{
-            readDict();
+            //readDict();
             BufferedReader bfr = new BufferedReader(new FileReader(chosenFile));
             BufferedWriter bfw = new BufferedWriter(new FileWriter("ReaderResults.txt"));
             int wordsNumber = 0;
@@ -135,7 +136,6 @@ public class Reader {
             InputStream inputStream = new FileInputStream(chosenFile);
             BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
             XWPFDocument exampleDoc = new XWPFDocument(bufferedInputStream);
-            BufferedWriter bfw = new BufferedWriter(new FileWriter("ReaderResults.txt"));
             List<XWPFParagraph> paragraphs = exampleDoc.getParagraphs();
             int wordsNumber = 1;
             int countDictWords = 0;
@@ -152,9 +152,8 @@ public class Reader {
                     }
                 }
             }
-            bfw.write("Количество слов в книге:" + wordsNumber + "\n");
-            bfw.write("Количество совпавших с словарём слов:" + countDictWords + "\n");
-            bfw.close();
+            System.out.println("Количество слов в книге:" + wordsNumber );
+            System.out.println("Количество совпавших с словарём слов:" + countDictWords);
             exampleDoc.close();
         } catch (IOException ex) {
             System.err.println(ex.getMessage() + "\n");
@@ -162,37 +161,4 @@ public class Reader {
 
     }
 
-    private static void readDict() {
-        File dict = new File("word_rus.txt");
-        try {
-            String dictWord;
-            FileReader dictReader = new FileReader(dict);
-            BufferedReader bufferedDictReader = new BufferedReader(dictReader);
-            dictWord = bufferedDictReader.readLine();
-            while(dictWord != null){
-                dictionary.add(dictWord);
-                dictWord=bufferedDictReader.readLine();
-            }
-            System.out.println("Словарь прочитан!");
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-            System.out.println("\nНеудалось открыть словарь!");
-        }
-    }
-
-    public static void stemTheDict(){
-        File stemDict = new File("stemed_word_rus.txt");
-        try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter(stemDict));
-            System.out.println("Начало стемминга!");
-            readDict();
-            for (String word : dictionary) {
-                bw.write(Stemmer.stem(word)+" ");
-            }
-            System.out.println("Конец стемминга!");
-            bw.close();
-        } catch (IOException ex){
-            ex.printStackTrace();
-        }
-    }
 }
