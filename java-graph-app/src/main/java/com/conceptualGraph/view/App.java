@@ -1,6 +1,7 @@
 package com.conceptualGraph.view;
 
 import com.conceptualGraph.BookGenerator;
+import com.conceptualGraph.controller.Interrogator;
 import com.conceptualGraph.controller.WordChecker;
 import com.conceptualGraph.model.Reader;
 
@@ -49,14 +50,17 @@ public class App
         JMenuItem selectFileItem = new JMenuItem("Выбрать файл");
         JMenuItem generateBookItem  = new JMenuItem("Сгенерировать книгу");
         JMenuItem readTxtItem  = new JMenuItem("Прочитать книгу txt");
+        JMenuItem wikiTestItem  = new JMenuItem("Взять страницу");
         selectDirItem.addActionListener(new selectDirItemActionListener());
         selectFileItem.addActionListener(new selectFileItemActionListener());
         generateBookItem.addActionListener(new generateBookActionListener());
         readTxtItem.addActionListener(new readTxtActionListener());
+        wikiTestItem.addActionListener(new wikiTestItemActionListener());
         mainMenu.add(selectDirItem);
         mainMenu.add(selectFileItem);
         testMenu.add(generateBookItem);
         testMenu.add(readTxtItem);
+        testMenu.add(wikiTestItem);
         menuBar.add(mainMenu);
         menuBar.add(testMenu);
         frame.setJMenuBar(menuBar);
@@ -150,6 +154,13 @@ public class App
             if (result == JFileChooser.APPROVE_OPTION) {
                 Reader.checkAndRead(fileChooser.getSelectedFile());
             }
+        }
+    }
+
+    private class wikiTestItemActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            new Interrogator().getPage("Москва");
         }
     }
 }
