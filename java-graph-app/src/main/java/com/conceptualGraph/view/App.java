@@ -1,6 +1,8 @@
 package com.conceptualGraph.view;
 
 import com.conceptualGraph.BookGenerator;
+import com.conceptualGraph.controller.Interrogator;
+import com.conceptualGraph.controller.WordChecker;
 import com.conceptualGraph.model.Reader;
 
 import javax.swing.*;
@@ -48,17 +50,17 @@ public class App
         JMenuItem selectFileItem = new JMenuItem("Выбрать файл");
         JMenuItem generateBookItem  = new JMenuItem("Сгенерировать книгу");
         JMenuItem readTxtItem  = new JMenuItem("Прочитать книгу txt");
-        JMenuItem stemDictItem = new JMenuItem("Стемминг словаря");
+        JMenuItem wikiTestItem  = new JMenuItem("Взять страницу");
         selectDirItem.addActionListener(new selectDirItemActionListener());
         selectFileItem.addActionListener(new selectFileItemActionListener());
         generateBookItem.addActionListener(new generateBookActionListener());
         readTxtItem.addActionListener(new readTxtActionListener());
-        stemDictItem.addActionListener(new stemDictItemActionListener());
+        wikiTestItem.addActionListener(new wikiTestItemActionListener());
         mainMenu.add(selectDirItem);
         mainMenu.add(selectFileItem);
         testMenu.add(generateBookItem);
         testMenu.add(readTxtItem);
-        testMenu.add(stemDictItem);
+        testMenu.add(wikiTestItem);
         menuBar.add(mainMenu);
         menuBar.add(testMenu);
         frame.setJMenuBar(menuBar);
@@ -155,10 +157,10 @@ public class App
         }
     }
 
-    private class stemDictItemActionListener implements ActionListener {
+    private class wikiTestItemActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            Reader.stemTheDict();
+            new Interrogator().getPage("Москва");
         }
     }
 }
