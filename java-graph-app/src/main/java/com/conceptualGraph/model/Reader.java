@@ -142,6 +142,8 @@ public class Reader {
             bfw.write("Количество совпавших с словарём слов:" + countDictWords + "\n");
             bfw.close();
             exampleDoc.close();
+            System.out.println("Количество слов в книге: " + wordsNumber);
+            System.out.println("Количество совпавших с словарём слов: " + countDictWords);
         } catch (IOException ex) {
             System.err.println(ex.getMessage() + "\n");
         }
