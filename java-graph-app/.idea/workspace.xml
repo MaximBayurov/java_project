@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d5ad2e5c-7bf5-4542-8024-6999ebb096bc" name="Default Changelist" comment="dictOptimizer">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="d5ad2e5c-7bf5-4542-8024-6999ebb096bc" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574240627520</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="gitignore changes">
+      <created>1574524227658</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1574524227658</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -253,6 +258,7 @@
     <MESSAGE value="new class Interrogorator 4 wiki requests" />
     <MESSAGE value="Interrogator.getPage()" />
     <MESSAGE value="?workspace.xml?" />
-    <option name="LAST_COMMIT_MESSAGE" value="?workspace.xml?" />
+    <MESSAGE value="gitignore changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="gitignore changes" />
   </component>
 </project>
