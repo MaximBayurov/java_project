@@ -1,6 +1,7 @@
 package com.conceptualGraph.view;
 
 import com.conceptualGraph.BookGenerator;
+import com.conceptualGraph.controller.DictOptimizer;
 import com.conceptualGraph.controller.Interrogator;
 import com.conceptualGraph.controller.WordChecker;
 import com.conceptualGraph.model.Reader;
@@ -51,16 +52,19 @@ public class App
         JMenuItem generateBookItem  = new JMenuItem("Сгенерировать книгу");
         JMenuItem readTxtItem  = new JMenuItem("Прочитать книгу txt");
         JMenuItem wikiTestItem  = new JMenuItem("Взять страницу");
+        JMenuItem MyTestItem  = new JMenuItem("Тест словаря");
         selectDirItem.addActionListener(new selectDirItemActionListener());
         selectFileItem.addActionListener(new selectFileItemActionListener());
         generateBookItem.addActionListener(new generateBookActionListener());
         readTxtItem.addActionListener(new readTxtActionListener());
         wikiTestItem.addActionListener(new wikiTestItemActionListener());
+        MyTestItem.addActionListener(new MyTestItemActionListener());
         mainMenu.add(selectDirItem);
         mainMenu.add(selectFileItem);
         testMenu.add(generateBookItem);
         testMenu.add(readTxtItem);
         testMenu.add(wikiTestItem);
+        testMenu.add(MyTestItem);
         menuBar.add(mainMenu);
         menuBar.add(testMenu);
         frame.setJMenuBar(menuBar);
@@ -160,7 +164,22 @@ public class App
     private class wikiTestItemActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            new Interrogator().getPage("Москва");
+            new Interrogator().wikiOpenSearch("Москвой");
+        }
+    }
+
+    private class MyTestItemActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            DictOptimizer dictOptimizer = new DictOptimizer();
+            dictOptimizer.makeUpMap("https://ru.wikipedia.org/wiki/%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F");
+            dictOptimizer.makeUpMap("https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%BE%D1%80%D1%82");
+            dictOptimizer.makeUpMap("https://ru.wikipedia.org/wiki/%D0%9F%D1%80%D0%B8%D1%80%D0%BE%D0%B4%D0%B0");
+            dictOptimizer.makeUpMap("https://ru.wikipedia.org/w/index.php?search=%D0%A2%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B0&title=%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F%3A%D0%9F%D0%BE%D0%B8%D1%81%D0%BA&go=%D0%9F%D0%B5%D1%80%D0%B5%D0%B9%D1%82%D0%B8");
+            dictOptimizer.makeUpMap("https://ru.wikipedia.org/wiki/%D0%A7%D0%B5%D0%BB%D0%BE%D0%B2%D0%B5%D0%BA");
+            dictOptimizer.makeUpMap("https://ru.wikipedia.org/w/index.php?search=%D0%95%D1%81%D1%82%D0%B5%D1%81%D1%82%D0%B2%D0%BE%D0%B7%D0%BD%D0%B0%D0%BD%D0%B8%D0%B5&title=%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F%3A%D0%9F%D0%BE%D0%B8%D1%81%D0%BA&go=%D0%9F%D0%B5%D1%80%D0%B5%D0%B9%D1%82%D0%B8");
+            dictOptimizer.makeUpMap("https://ru.wikipedia.org/w/index.php?search=%D0%96%D0%B8%D0%B7%D0%BD%D1%8C&title=%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F%3A%D0%9F%D0%BE%D0%B8%D1%81%D0%BA&go=%D0%9F%D0%B5%D1%80%D0%B5%D0%B9%D1%82%D0%B8");
+            dictOptimizer.sortMap();
         }
     }
 }
