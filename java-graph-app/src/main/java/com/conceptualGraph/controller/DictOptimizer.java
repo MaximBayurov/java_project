@@ -31,7 +31,7 @@ public class DictOptimizer {
             while (scanner.hasNext()){
                 word=scanner.next();
                 String stemmedWord = Stemmer.stem(WordChecker.bringTo(word));
-//                System.out.println(stemmedWord+" | "+word);
+                System.out.println(stemmedWord+" | "+word);
                 if (!stemmedWord.equals("")){
                     if (!dictMap.containsKey(stemmedWord)){
                         dictMap.put(stemmedWord,1);
