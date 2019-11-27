@@ -1,5 +1,6 @@
 package com.conceptualGraph.model;
 
+import com.conceptualGraph.controller.PreChecker;
 import com.conceptualGraph.controller.Stemmer;
 import com.conceptualGraph.controller.WordChecker;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;

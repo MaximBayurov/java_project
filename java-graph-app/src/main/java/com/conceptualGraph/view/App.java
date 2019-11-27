@@ -3,6 +3,7 @@ package com.conceptualGraph.view;
 import com.conceptualGraph.BookGenerator;
 import com.conceptualGraph.controller.DictOptimizer;
 import com.conceptualGraph.controller.Interrogator;
+import com.conceptualGraph.controller.PreChecker;
 import com.conceptualGraph.controller.WordChecker;
 import com.conceptualGraph.model.Reader;
 
@@ -53,18 +54,21 @@ public class App
         JMenuItem readTxtItem  = new JMenuItem("Прочитать книгу txt");
         JMenuItem wikiTestItem  = new JMenuItem("Взять страницу");
         JMenuItem MyTestItem  = new JMenuItem("Тест словаря");
+        JMenuItem NewTestItem  = new JMenuItem("Новый тест");
         selectDirItem.addActionListener(new selectDirItemActionListener());
         selectFileItem.addActionListener(new selectFileItemActionListener());
         generateBookItem.addActionListener(new generateBookActionListener());
         readTxtItem.addActionListener(new readTxtActionListener());
         wikiTestItem.addActionListener(new wikiTestItemActionListener());
         MyTestItem.addActionListener(new MyTestItemActionListener());
+        NewTestItem.addActionListener(new NewActionListener());
         mainMenu.add(selectDirItem);
         mainMenu.add(selectFileItem);
         testMenu.add(generateBookItem);
         testMenu.add(readTxtItem);
         testMenu.add(wikiTestItem);
         testMenu.add(MyTestItem);
+        testMenu.add(NewTestItem);
         menuBar.add(mainMenu);
         menuBar.add(testMenu);
         frame.setJMenuBar(menuBar);
@@ -180,6 +184,15 @@ public class App
             dictOptimizer.makeUpMap("https://ru.wikipedia.org/w/index.php?search=%D0%95%D1%81%D1%82%D0%B5%D1%81%D1%82%D0%B2%D0%BE%D0%B7%D0%BD%D0%B0%D0%BD%D0%B8%D0%B5&title=%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F%3A%D0%9F%D0%BE%D0%B8%D1%81%D0%BA&go=%D0%9F%D0%B5%D1%80%D0%B5%D0%B9%D1%82%D0%B8");
             dictOptimizer.makeUpMap("https://ru.wikipedia.org/w/index.php?search=%D0%96%D0%B8%D0%B7%D0%BD%D1%8C&title=%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F%3A%D0%9F%D0%BE%D0%B8%D1%81%D0%BA&go=%D0%9F%D0%B5%D1%80%D0%B5%D0%B9%D1%82%D0%B8");
             dictOptimizer.sortMap();
+        }
+    }
+
+    private class NewActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String sentence = "Если использовать свойство массива length, длина массива будет подсчитана автоматически.";
+            String[] words = sentence.split(" ");
+            Boolean[] booleans = PreChecker.arrayCheck(words);
         }
     }
 }
