@@ -81,6 +81,7 @@ public class Reader {
         ArrayList<Integer> indexList = new ArrayList<>();
         int wordsNumber = 1;
         int countDictWords = 0;
+        PreChecker.readDicts();
         for (int i = 0; i < text.size(); i++) {
 //            ПОКА НЕ УДАЛЯТЬ!!!
 //            bw.write(text.get(i).text() + "\n");
@@ -97,16 +98,9 @@ public class Reader {
                 a = false;
             }
 
-            String[] sentences = text.get(i).text().split("\\.");
-            for (String sentence: sentences) {
-                String[] words = sentence.replace(".","").split(" ");
-                for (String word:words){
-                    word = WordChecker.bringTo(word);
-                    if (word.equals(" ")||word.isEmpty()) continue;
-                    else if (WordChecker.check(word)) countDictWords++;
-                    wordsNumber++;
-                }
-            }
+            int[]counts = WordChecker.paragraphCheck(text.get(i).text(),countDictWords,wordsNumber);
+            countDictWords =counts[0];
+            wordsNumber = counts[1];
         }
         bw.close();
         System.out.println("readHTML end");
@@ -116,7 +110,7 @@ public class Reader {
         System.out.println("Количество совпавших с словарём слов: " + countDictWords);
     }
 
-    //Просто сигнатура
+
     private static void readDocx(File chosenFile) {
         try{
             WordChecker.readFullDict();
@@ -126,24 +120,17 @@ public class Reader {
             List<XWPFParagraph> paragraphs = exampleDoc.getParagraphs();
             int wordsNumber = 1;
             int countDictWords = 0;
+            PreChecker.readDicts();
             for (XWPFParagraph paragraph:paragraphs) {
                 System.out.println("Начинается с " + wordsNumber + " слова|");
-                String[] sentences = paragraph.getText().split("\\.");
-                for (String sentence:sentences){
-                    String[] words = sentence.replace(".","").split(" ");
-                    for (String word:words){
-                        word = WordChecker.bringTo(word);
-                        if (word.isEmpty()) continue;
-                        else if (WordChecker.check(word)) countDictWords++;
-                        wordsNumber++;
-                    }
-                }
+                WordChecker.paragraphCheck(paragraph.getText(),countDictWords,wordsNumber);
+                int[]counts = WordChecker.paragraphCheck(paragraph.getText(),countDictWords,wordsNumber);
+                countDictWords =counts[0];
+                wordsNumber = counts[1];
             }
             System.out.println("Количество слов в книге:" + wordsNumber );
             System.out.println("Количество совпавших с словарём слов:" + countDictWords);
             exampleDoc.close();
-            System.out.println("Количество слов в книге: " + wordsNumber);
-            System.out.println("Количество совпавших с словарём слов: " + countDictWords);
         } catch (IOException ex) {
             System.err.println(ex.getMessage() + "\n");
         }

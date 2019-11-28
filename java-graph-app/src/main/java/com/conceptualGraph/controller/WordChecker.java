@@ -122,4 +122,26 @@ public class WordChecker {
             ex.printStackTrace();
         }
     }
+
+    public static int[] paragraphCheck(String paragraph, int countDictWords, int wordsNumber) {
+        String[] sentences = paragraph.split("(?<![\\. ][A-ZА-ЯЁ])[\\.\\?\\;\\!]");
+        for (String sentence: sentences) {
+            sentence= sentence.toLowerCase().replaceAll("[^a-zа-яё\\-/ ]","").replaceAll(" +"," ");
+            String[] words = sentence.trim().replace(".","").split(" ");
+            Boolean[] booleans = PreChecker.arrayCheck(words);
+            String word;
+            for (int j = 0; j<words.length; j++){
+                word = WordChecker.bringTo(words[j]);
+                if (word.isEmpty()) {
+                    continue;
+                }
+                if (booleans[j]){
+                    countDictWords++;
+                    continue;
+                }else if (WordChecker.check(word)) countDictWords++;
+                wordsNumber++;
+            }
+        }
+        return new int[]{countDictWords,wordsNumber};
+    }
 }

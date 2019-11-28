@@ -190,6 +190,7 @@ public class App
     private class NewActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            PreChecker.readDicts();
             String sentence = "Если использовать свойство массива length, длина массива будет подсчитана автоматически.";
             String[] words = sentence.split(" ");
             Boolean[] booleans = PreChecker.arrayCheck(words);
