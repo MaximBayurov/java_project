@@ -8,10 +8,6 @@ public class WordChecker {
 
     private static ArrayList<String> dictionary = new ArrayList<>();
 
-    public static String bringTo(String word) {
-        return word.toLowerCase().replaceAll("[^а-яё]","");
-    }
-
     public static void readStemDict(){
         File dict = new File("stemed_word_rus.txt");
         try {
@@ -31,49 +27,49 @@ public class WordChecker {
         }
     }
 
-    public static void readPronouns(){
-        File pronounsFile = new File("pronouns");
-        ArrayList<String> pronouns = new ArrayList<>();
-        try {
-            Scanner in = new Scanner(pronounsFile);
-            while (in.hasNext()){
-                if (!in.equals(' ')){
-                    String pronoun = Stemmer.stem(bringTo(in.next()));
-                    if (!pronouns.contains(pronoun)){
-                        pronouns.add(pronoun);
-                    };
-                }
-            }
-            dictionary.addAll(pronouns);
-            in.close();
-        } catch (IOException ex){
-            ex.printStackTrace();
-        }
-    }
+//    public static void readPronouns(){
+//        File pronounsFile = new File("pronouns");
+//        ArrayList<String> pronouns = new ArrayList<>();
+//        try {
+//            Scanner in = new Scanner(pronounsFile);
+//            while (in.hasNext()){
+//                if (!in.equals(' ')){
+//                    String pronoun = Stemmer.stem(bringTo(in.next()));
+//                    if (!pronouns.contains(pronoun)){
+//                        pronouns.add(pronoun);
+//                    };
+//                }
+//            }
+//            dictionary.addAll(pronouns);
+//            in.close();
+//        } catch (IOException ex){
+//            ex.printStackTrace();
+//        }
+//    }
 
-    protected static void readUnions(){
-        File unionsFile = new File("unions");
-        ArrayList<String> unions = new ArrayList<String>();
-        try {
-            Scanner in = new Scanner(unionsFile);
-            while (in.hasNext()){
-                if (!in.equals(' ')){
-                    String union = Stemmer.stem(bringTo(in.next()));
-                    if (!unions.contains(union)) unions.add(union);
-                }
-            }
-            dictionary.addAll(unions);
-            in.close();
-        } catch (IOException ex){
-            ex.printStackTrace();
-        }
-    }
+//    protected static void readUnions(){
+//                    File unionsFile = new File("unions");
+//                    ArrayList<String> unions = new ArrayList<String>();
+//                    try {
+//                        Scanner in = new Scanner(unionsFile);
+//                        while (in.hasNext()){
+//                            if (!in.equals(' ')){
+//                                String union = Stemmer.stem(bringTo(in.next()));
+//                                if (!unions.contains(union)) unions.add(union);
+//                            }
+//            }
+//            dictionary.addAll(unions);
+//            in.close();
+//        } catch (IOException ex){
+//            ex.printStackTrace();
+//        }
+//    }
 
     public static void readFullDict() {
         stemTheDict();
         readStemDict();
-        readPronouns();
-        readUnions();
+//        readPronouns();
+//        readUnions();
     }
 
     /**
@@ -126,19 +122,23 @@ public class WordChecker {
     public static int[] paragraphCheck(String paragraph, int countDictWords, int wordsNumber) {
         String[] sentences = paragraph.split("(?<![\\. ][A-ZА-ЯЁ])[\\.\\?\\;\\!]");
         for (String sentence: sentences) {
-            sentence= sentence.toLowerCase().replaceAll("[^a-zа-яё\\-/ ]","").replaceAll(" +"," ");
-            String[] words = sentence.trim().replace(".","").split(" ");
+            sentence= sentence.toLowerCase().replaceAll("[^a-zа-яё\\-/ ]","")
+                    .replaceAll("^-| -|- ", " ").replaceAll(" +"," ");
+            String[] words = sentence.trim().split(" ");
             Boolean[] booleans = PreChecker.arrayCheck(words);
             String word;
             for (int j = 0; j<words.length; j++){
-                word = WordChecker.bringTo(words[j]);
+                word = words[j].trim();
                 if (word.isEmpty()) {
                     continue;
                 }
                 if (booleans[j]){
                     countDictWords++;
                     continue;
-                }else if (WordChecker.check(word)) countDictWords++;
+                }else if (check(word)) {
+                    DataBase.insertTerm(word, 1, 1);
+                    countDictWords++;
+                }
                 wordsNumber++;
             }
         }

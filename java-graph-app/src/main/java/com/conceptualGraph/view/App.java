@@ -168,7 +168,7 @@ public class App
     private class wikiTestItemActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            new Interrogator().wikiOpenSearch("Москвой");
+//            new Interrogator().wikiOpenSearch("Москвой");
         }
     }
 

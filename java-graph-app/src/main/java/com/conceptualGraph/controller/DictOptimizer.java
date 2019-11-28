@@ -30,7 +30,7 @@ public class DictOptimizer {
             String word="";
             while (scanner.hasNext()){
                 word=scanner.next();
-                String stemmedWord = Stemmer.stem(WordChecker.bringTo(word));
+                String stemmedWord = Stemmer.stem(bringTo(word));
                 System.out.println(stemmedWord+" | "+word);
                 if (!stemmedWord.equals("")){
                     if (!dictMap.containsKey(stemmedWord)){
@@ -44,6 +44,10 @@ public class DictOptimizer {
         }catch (IOException ex){
             ex.printStackTrace();
         }
+    }
+
+    private String bringTo(String word) {
+        return word.replaceAll("[^a-zа-яё\\-/ ]","");
     }
 
     public List sortMap() {

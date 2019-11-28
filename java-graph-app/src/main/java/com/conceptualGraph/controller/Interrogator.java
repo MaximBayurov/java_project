@@ -48,22 +48,23 @@ public class Interrogator {
         }
     }
 
-    public void wikiOpenSearch(String searchWord){
+    /**
+     * Возвращает массивы [0] названий статей, [1] краткое описание и [2]ссылки
+     * в Wikipedia по searchWord'у
+     * @param searchWord - искомое слово в Wiki
+     * @return JSONArray
+     * @throws IOException в случае неудачного соединения с Wiki
+     */
+    public static JSONArray wikiOpenSearch(String searchWord) throws IOException{
         String HTTPRequest = "https://ru.wikipedia.org/w/api.php?action=opensearch&search="+searchWord+"&format=json";
-        try{
-            JSONArray jo = readJsonFromUrl(HTTPRequest);
-            System.out.println(jo.getJSONArray(1).toString());
-            System.out.println(jo.getJSONArray(2).toString());
-            System.out.println(jo.getJSONArray(3).toString()); //массив с ссылками, из него нужно будет убрать все пробелы
-//            selectLinks(jo.getJSONArray(3).getString(1));
-//            System.out.println(countWords(searchWord));
-        }catch (Exception ex){
-            System.out.println("Неудалось получить результаты запроса: " + HTTPRequest);
-            ex.printStackTrace();
-        }
+        JSONArray jo = readJsonFromUrl(HTTPRequest);
+        System.out.println(jo.getJSONArray(1).toString());
+        System.out.println(jo.getJSONArray(2).toString());
+        System.out.println(jo.getJSONArray(3).toString()); //массив с ссылками, из него нужно будет убрать все пробелы
+        return jo;
     }
 
-    private int countWords(String searchWord) {
+    private static int countWords(String searchWord) {
         try{
             URL url = new URL("https://ru.wikipedia.org/w/" +
                     "api.php?action=query&list=search&srwhat=nearmatch&srsearch="+searchWord+"&format=json");
@@ -78,7 +79,7 @@ public class Interrogator {
         return 0;
     }
 
-    public void selectLinks(String pageLink){
+    public static void selectLinks(String pageLink){
         try{
             Document doc = Jsoup.connect(pageLink).get();
             Elements links = doc.select(
