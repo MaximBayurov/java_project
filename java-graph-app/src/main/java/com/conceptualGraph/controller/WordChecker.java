@@ -36,7 +36,6 @@ public class WordChecker {
         ArrayList<String> pronouns = new ArrayList<>();
         try {
             Scanner in = new Scanner(pronounsFile);
-            pronouns.clear();
             while (in.hasNext()){
                 if (!in.equals(' ')){
                     String pronoun = Stemmer.stem(bringTo(in.next()));
