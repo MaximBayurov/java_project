@@ -58,13 +58,14 @@ public class DataBase {
     public static void insertTerm(String term, int termPosition, int sentenceNumber){
         try{
             JSONArray jo = Interrogator.wikiOpenSearch(term);
-            PreparedStatement pst = conn.prepareStatement("INSERT INTO `words` VALUES (null, ?,?,?);");
-            //проверить работу инсёрта с null значением
-            //проверить SELECT
+            PreparedStatement pst = conn.prepareStatement("INSERT INTO `words` (word, link, article) VALUES (?,?,?);", Statement.RETURN_GENERATED_KEYS);
             pst.setString(1, term);
             System.out.println(jo.getJSONArray(3).get(0).toString());
             pst.setString(2, jo.getJSONArray(3).get(0).toString());
             pst.setString(3, jo.getJSONArray(1).get(0).toString());
+            pst.executeUpdate();
+            ResultSet generatedKeys = pst.getGeneratedKeys();
+            System.out.println(generatedKeys);
         }catch (Exception ex) {
             ex.printStackTrace();
         }
