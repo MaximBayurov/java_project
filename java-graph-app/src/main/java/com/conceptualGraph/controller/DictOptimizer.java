@@ -1,5 +1,8 @@
 package com.conceptualGraph.controller;
 
+import org.json.JSONArray;
+import org.jsoup.Connection;
+import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
@@ -13,9 +16,10 @@ public class DictOptimizer {
 
     public DictOptimizer(){
         dictMap = new HashMap<String, Integer>();
+        PreChecker.readDicts();
     }
 
-    private String getPage(String pageURL) throws IOException {
+    private String getPage(String pageURL) throws IOException, HttpStatusException {
         Document doc = Jsoup.connect(pageURL).get();
         String docText = doc.select("" +
                 "div#mw-content-text > div.mw-parser-output > p," +
@@ -31,8 +35,8 @@ public class DictOptimizer {
             while (scanner.hasNext()){
                 word=scanner.next();
                 String stemmedWord = Stemmer.stem(bringTo(word));
-                System.out.println(stemmedWord+" | "+word);
-                if (!stemmedWord.equals("")){
+                if (!stemmedWord.equals("")&&!PreChecker.checkContent(stemmedWord,1)){
+                    System.out.println(stemmedWord+" | "+word);
                     if (!dictMap.containsKey(stemmedWord)){
                         dictMap.put(stemmedWord,1);
                     } else{
@@ -41,13 +45,16 @@ public class DictOptimizer {
                 }
             }
             System.out.println("Страница: "+pageURL+" прочитана.");
-        }catch (IOException ex){
+        }catch (HttpStatusException HttpEx){
+            System.out.println("Нет такой страницы: "+pageURL);
+        }
+        catch (IOException ex){
             ex.printStackTrace();
         }
     }
 
     private String bringTo(String word) {
-        return word.replaceAll("[^a-zа-яё\\-/ ]","");
+        return word.toLowerCase().replaceAll("[^a-zа-яё\\-/ ]","");
     }
 
     public List sortMap() {
@@ -63,4 +70,9 @@ public class DictOptimizer {
         return list;
     }
 
+    public int[] getIDs(String requestURL) throws IOException{
+        int[] IDs;
+        System.out.println(Interrogator.readJsonFromUrl(requestURL));
+        return new int[]{1,2,3,4};
+    }
 }
