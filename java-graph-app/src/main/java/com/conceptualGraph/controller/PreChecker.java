@@ -95,7 +95,7 @@ public class PreChecker {
      * @param wordsCount - количество слов содержащихся в words (от 1 до 3)
      * @return true - если содержится, false - если нет
      */
-    private static boolean checkContent(String words, int wordsCount) {
+    public static boolean checkContent(String words, int wordsCount) {
         if (pronounsDicts[wordsCount-1].contains(words)||partsDicts[wordsCount-1].contains(words)||
                 unionsDicts[wordsCount-1].contains(words)||prepsDicts[wordsCount-1].contains(words)){
             return true;
