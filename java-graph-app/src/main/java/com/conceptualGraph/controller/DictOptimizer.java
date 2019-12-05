@@ -1,11 +1,14 @@
 package com.conceptualGraph.controller;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 import org.jsoup.Connection;
 import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
@@ -35,7 +38,7 @@ public class DictOptimizer {
             while (scanner.hasNext()){
                 word=scanner.next();
                 String stemmedWord = Stemmer.stem(bringTo(word));
-                if (!stemmedWord.equals("")&&!PreChecker.checkContent(stemmedWord,1)){
+                if (!stemmedWord.equals("")&&!PreChecker.checkContent(word,1)){
                     System.out.println(stemmedWord+" | "+word);
                     if (!dictMap.containsKey(stemmedWord)){
                         dictMap.put(stemmedWord,1);
@@ -70,9 +73,16 @@ public class DictOptimizer {
         return list;
     }
 
-    public int[] getIDs(String requestURL) throws IOException{
-        int[] IDs;
-        System.out.println(Interrogator.readJsonFromUrl(requestURL));
-        return new int[]{1,2,3,4};
+    public ArrayList<Integer> getIDs(String requestURL) throws IOException{
+        ArrayList<Integer> IDs = new ArrayList<Integer>();
+        Connection connection= Jsoup.connect(requestURL).ignoreContentType(true);
+        Connection.Response response = connection.execute();
+        JSONObject jsonObject = new JSONObject(response.body());
+        JSONArray randArticles = jsonObject.getJSONObject("query").getJSONArray("random");
+        for (Object randArticle: randArticles){
+            Integer id = (Integer)((JSONObject) randArticle).get("id");
+            IDs.add(id);
+        }
+        return IDs;
     }
 }

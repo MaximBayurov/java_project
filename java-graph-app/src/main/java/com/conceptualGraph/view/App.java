@@ -179,18 +179,18 @@ public class App
         public void actionPerformed(ActionEvent e) {
             DictOptimizer dictOptimizer = new DictOptimizer();
             try{
-                int[] ids = dictOptimizer.getIDs(
+                ArrayList<Integer> ids = dictOptimizer.getIDs(
                         "https://ru.wikipedia.org/w/api.php?" +
                                 "action=query&list=random&rnlimit=100&rnnamespace=0&format=json"
                 );
+                for(Integer id: ids){
+                    dictOptimizer.makeUpMap("https://ru.wikipedia.org/?curid="+id);
+                }
+                dictOptimizer.sortMap();
             }catch (IOException ex){
                 ex.printStackTrace();
             }
-//            for(int i=0; i<20; i++){
-//                dictOptimizer.makeUpMap("https://ru.wikipedia.org/?curid="+i);
-//            }
 
-//            dictOptimizer.sortMap();
         }
     }
 
