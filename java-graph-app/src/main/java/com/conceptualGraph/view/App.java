@@ -2,11 +2,8 @@ package com.conceptualGraph.view;
 
 import com.conceptualGraph.BookGenerator;
 import com.conceptualGraph.controller.DictOptimizer;
-import com.conceptualGraph.controller.Interrogator;
 import com.conceptualGraph.controller.PreChecker;
-import com.conceptualGraph.controller.WordChecker;
 import com.conceptualGraph.model.Reader;
-import org.jsoup.HttpStatusException;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -19,18 +16,18 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 
-public class App 
-{
-    private int fileListCounter = 1;
-    private JFrame frame;
+public class App {
     private final JFileChooser dirChooser = new JFileChooser(); //позволяет выбирать директории
     private final JFileChooser fileChooser = new JFileChooser(); //позволяет выбирать файл
+    private int fileListCounter = 1;
+    private JFrame frame;
     private ArrayList<File> fileArrayList = new ArrayList<>();
     private TextArea textArea;
     private TextField chooseFileTextField;
 
     /**
      * Конструктор устанавливающий свойства,здесь нужно устанавливать значения полученных полей из полученных свойств
+     *
      * @param properties свойства, передаваемые Configurator
      */
     public App(Properties properties) {
@@ -52,11 +49,11 @@ public class App
         JMenu testMenu = new JMenu("Тесты");
         JMenuItem selectDirItem = new JMenuItem("Выбрать директорию");
         JMenuItem selectFileItem = new JMenuItem("Выбрать файл");
-        JMenuItem generateBookItem  = new JMenuItem("Сгенерировать книгу");
-        JMenuItem readTxtItem  = new JMenuItem("Прочитать книгу txt");
-        JMenuItem wikiTestItem  = new JMenuItem("Взять страницу");
-        JMenuItem MyTestItem  = new JMenuItem("Тест словаря");
-        JMenuItem NewTestItem  = new JMenuItem("Новый тест");
+        JMenuItem generateBookItem = new JMenuItem("Сгенерировать книгу");
+        JMenuItem readTxtItem = new JMenuItem("Прочитать книгу txt");
+        JMenuItem wikiTestItem = new JMenuItem("Взять страницу");
+        JMenuItem MyTestItem = new JMenuItem("Тест словаря");
+        JMenuItem NewTestItem = new JMenuItem("Новый тест");
         selectDirItem.addActionListener(new selectDirItemActionListener());
         selectFileItem.addActionListener(new selectFileItemActionListener());
         generateBookItem.addActionListener(new generateBookActionListener());
@@ -79,7 +76,7 @@ public class App
         setFileChooserFilters(dirChooser);
         textArea.setEditable(false);
         textArea.setFocusable(false);
-        frame.setSize(500,500);
+        frame.setSize(500, 500);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
@@ -91,25 +88,8 @@ public class App
         fileChooser.setAcceptAllFileFilterUsed(true);
     }
 
-    private class selectDirItemActionListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            if (dirChooser.getSelectedFile()!=null) dirChooser.setCurrentDirectory(dirChooser.getSelectedFile());
-            else {
-                dirChooser.setCurrentDirectory(new File("./"));
-            }
-            int result = dirChooser.showOpenDialog(frame);
-            if (result == JFileChooser.APPROVE_OPTION) {
-                fileArrayList.clear();
-                textArea.setText("");
-                fileListCounter = 1;
-                scanDirectory(dirChooser.getSelectedFile());
-            }
-        }
-    }
-
     private void scanDirectory(File selectedFile) {
-        final String[] okFileExtensions = new String[] {"docx", "doc", "html","txt"};
+        final String[] okFileExtensions = new String[]{"docx", "doc", "html", "txt"};
         try {
             for (File file : selectedFile.listFiles()) {
                 if (file.isDirectory()) {
@@ -126,6 +106,23 @@ public class App
             }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
+        }
+    }
+
+    private class selectDirItemActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (dirChooser.getSelectedFile() != null) dirChooser.setCurrentDirectory(dirChooser.getSelectedFile());
+            else {
+                dirChooser.setCurrentDirectory(new File("./"));
+            }
+            int result = dirChooser.showOpenDialog(frame);
+            if (result == JFileChooser.APPROVE_OPTION) {
+                fileArrayList.clear();
+                textArea.setText("");
+                fileListCounter = 1;
+                scanDirectory(dirChooser.getSelectedFile());
+            }
         }
     }
 
@@ -156,7 +153,7 @@ public class App
     private class selectFileItemActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (fileChooser.getSelectedFile()!=null) fileChooser.setCurrentDirectory(fileChooser.getSelectedFile());
+            if (fileChooser.getSelectedFile() != null) fileChooser.setCurrentDirectory(fileChooser.getSelectedFile());
             else {
                 fileChooser.setCurrentDirectory(new File("./"));
             }
@@ -170,7 +167,10 @@ public class App
     private class wikiTestItemActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-//            new Interrogator().wikiOpenSearch("Москвой");
+            DictOptimizer dictOptimizer = new DictOptimizer();
+            dictOptimizer.makeUpMap("https://ru.wikipedia.org/wiki/Робоцып");
+
+
         }
     }
 
@@ -178,16 +178,16 @@ public class App
         @Override
         public void actionPerformed(ActionEvent e) {
             DictOptimizer dictOptimizer = new DictOptimizer();
-            try{
+            try {
                 ArrayList<Integer> ids = dictOptimizer.getIDs(
                         "https://ru.wikipedia.org/w/api.php?" +
                                 "action=query&list=random&rnlimit=100&rnnamespace=0&format=json"
                 );
-                for(Integer id: ids){
-                    dictOptimizer.makeUpMap("https://ru.wikipedia.org/?curid="+id);
+                for (Integer id : ids) {
+                    dictOptimizer.makeUpMap("https://ru.wikipedia.org/?curid=" + id);
                 }
                 dictOptimizer.sortMap();
-            }catch (IOException ex){
+            } catch (IOException ex) {
                 ex.printStackTrace();
             }
 
@@ -198,9 +198,12 @@ public class App
         @Override
         public void actionPerformed(ActionEvent e) {
             PreChecker.readDicts();
-            String sentence = "Если использовать свойство массива length, длина массива будет подсчитана автоматически.";
+            String sentence = "География каналы сбыта и дистрибуции";
             String[] words = sentence.split(" ");
             Boolean[] booleans = PreChecker.arrayCheck(words);
+            for (int i = 0; i < booleans.length; i++) {
+                System.out.println(words[i] + " | " + booleans[i]);
+            }
         }
     }
 }
