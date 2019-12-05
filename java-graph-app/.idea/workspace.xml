@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d5ad2e5c-7bf5-4542-8024-6999ebb096bc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/DictOptimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/DictOptimizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/PreChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/PreChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/view/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/view/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/WordChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/WordChecker.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -269,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575549558311</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="PreChecker.arrayCheck corrections">
+      <created>1575554651247</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1575554651247</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -307,6 +312,7 @@
     <MESSAGE value="DataBase object" />
     <MESSAGE value="DictOptimize changes" />
     <MESSAGE value="DictOptimizer optimize" />
-    <option name="LAST_COMMIT_MESSAGE" value="DictOptimizer optimize" />
+    <MESSAGE value="PreChecker.arrayCheck corrections" />
+    <option name="LAST_COMMIT_MESSAGE" value="PreChecker.arrayCheck corrections" />
   </component>
 </project>
