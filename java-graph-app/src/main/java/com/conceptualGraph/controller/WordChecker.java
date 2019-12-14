@@ -2,11 +2,15 @@ package com.conceptualGraph.controller;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class WordChecker {
 
     private static ArrayList<String> dictionary = new ArrayList<>();
+    private static final Pattern namesPattern = Pattern.compile("(?:[А-ЯЁA-Z][а-яa-zё]+(?:\\s|-|[.]|\\n)){2,}|(?:[А-ЯЁA-][.]\\s?(?:[А-ЯЁA-Я][.]?\\s?)?[А-ЯЁA-Z][а-яa-zё]+(?:-[А-ЯЁA-Z][а-яa-zё])*?)");
 
     public static void readStemDict(){
         File dict = new File("stemed_word_rus.txt");
@@ -27,49 +31,10 @@ public class WordChecker {
         }
     }
 
-//    public static void readPronouns(){
-//        File pronounsFile = new File("pronouns");
-//        ArrayList<String> pronouns = new ArrayList<>();
-//        try {
-//            Scanner in = new Scanner(pronounsFile);
-//            while (in.hasNext()){
-//                if (!in.equals(' ')){
-//                    String pronoun = Stemmer.stem(bringTo(in.next()));
-//                    if (!pronouns.contains(pronoun)){
-//                        pronouns.add(pronoun);
-//                    };
-//                }
-//            }
-//            dictionary.addAll(pronouns);
-//            in.close();
-//        } catch (IOException ex){
-//            ex.printStackTrace();
-//        }
-//    }
-
-//    protected static void readUnions(){
-//                    File unionsFile = new File("unions");
-//                    ArrayList<String> unions = new ArrayList<String>();
-//                    try {
-//                        Scanner in = new Scanner(unionsFile);
-//                        while (in.hasNext()){
-//                            if (!in.equals(' ')){
-//                                String union = Stemmer.stem(bringTo(in.next()));
-//                                if (!unions.contains(union)) unions.add(union);
-//                            }
-//            }
-//            dictionary.addAll(unions);
-//            in.close();
-//        } catch (IOException ex){
-//            ex.printStackTrace();
-//        }
-//    }
 
     public static void readFullDict() {
         stemTheDict();
         readStemDict();
-//        readPronouns();
-//        readUnions();
     }
 
     /**
@@ -120,8 +85,11 @@ public class WordChecker {
     }
 
     public static int[] paragraphCheck(String paragraph, int countDictWords, int wordsNumber) {
-        String[] sentences = paragraph.split("(?<![\\. ][A-ZА-ЯЁ])[\\.\\?\\;\\!]");
+
+
+        String[] sentences = paragraph.split("(?<![A-ZА-ЯЁ])[\\.\\?\\;\\!]+"); //(?<![\\. ][A-ZА-ЯЁ])[\\.\\?\\;\\!]
         for (String sentence: sentences) {
+<<<<<<< HEAD
             System.out.println("START");
             sentence = sentence.toLowerCase().replaceAll("[^a-zа-яё\\-/ ]","")
                     .replaceAll("^-| -|- ", " ").replaceAll(" +"," ")
@@ -132,7 +100,18 @@ public class WordChecker {
                 System.out.print(str + " ");
             }
 
+=======
+            Boolean[] nameBools = findNames(sentence);
+            sentence= sentence.toLowerCase().replaceAll("[^a-zа-яё\\-/ ]","")
+                    .replaceAll("^-| -|- ", " ").replaceAll(" +"," ");
+            String[] words = sentence.trim().split(" ");
+>>>>>>> 74ae9c8d47cec5a2c32b8d048c8959998f7186ae
             Boolean[] booleans = PreChecker.arrayCheck(words);
+            for (int k=0; k<booleans.length; k++){
+                if (nameBools[k]==true){
+                    booleans[k]=true;
+                }
+            }
             String word;
             for (int i=0; i<words.length; i++) {
                 System.out.println(booleans[i] + " " + words[i]);
@@ -153,5 +132,27 @@ public class WordChecker {
             }
         }
         return new int[]{countDictWords,wordsNumber};
+    }
+
+    public static Boolean[] findNames(String sentence){
+        ArrayList<String> names = new ArrayList<>();
+        Matcher matcher = namesPattern.matcher(sentence);
+        while (matcher.find()){
+            names.add(matcher.group().trim());
+            /*Вставить имя в БД
+            DataBase.insertTerm(word, 1, 1);*/
+        }
+        String[] words = sentence.trim().replaceAll(" +"," ").split(" ");
+        Boolean[] booleans = new Boolean[words.length];
+        for (int i=0; i < words.length; i++){
+            String word = words[i];
+            for (String name: names){
+                if (name.contains(word)){
+                    booleans[i] = true;
+                    break;
+                }else booleans[i]=false;
+            }
+        }
+        return booleans;
     }
 }

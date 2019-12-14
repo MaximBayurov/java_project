@@ -72,13 +72,19 @@ public class PreChecker {
         }
         if (words.length>=2){
             words2=words[words.length-2]+" "+words[words.length-1];
+            System.out.println(words2);
             if (checkContent(words2,2)){
                 booleans[booleans.length-1] = true;
                 booleans[booleans.length-2] = true;
-            }else booleans[booleans.length-2] = false;
+                return booleans;
+            }else if (checkContent(words[words.length-2],1)){
+                booleans[booleans.length-2] = true;
+            }else
+                booleans[booleans.length-2] = false;
         }
         if (words.length>=1){
             words1=words[words.length-1];
+            System.out.println(words1);
             if (checkContent(words1,1)){
                 booleans[booleans.length-1] = true;
             } else booleans[booleans.length-1] = false;

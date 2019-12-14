@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="d5ad2e5c-7bf5-4542-8024-6999ebb096bc" name="Default Changelist" comment="DictOpti">
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -10,6 +11,11 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/PreChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/PreChecker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/WordChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/WordChecker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/view/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/view/App.java" afterDir="false" />
+=======
+    <list default="true" id="d5ad2e5c-7bf5-4542-8024-6999ebb096bc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/WordChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/WordChecker.java" afterDir="false" />
+>>>>>>> 74ae9c8d47cec5a2c32b8d048c8959998f7186ae
       <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/view/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/view/Test.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -280,7 +286,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.Test">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="13" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -289,6 +295,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.conceptualGraph.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.conceptualGraph.view.Test" />
+      <module name="java-graph-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.conceptualGraph.view.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -312,10 +331,12 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.AppTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.AppTest" />
       </list>
@@ -465,7 +486,35 @@
       <option name="project" value="LOCAL" />
       <updated>1574953628715</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="DictOptimize changes">
+      <created>1575461782655</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1575461782655</updated>
+    </task>
+    <task id="LOCAL-00021" summary="DictOptimizer optimize">
+      <created>1575549558311</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1575549558311</updated>
+    </task>
+    <task id="LOCAL-00022" summary="PreChecker.arrayCheck corrections">
+      <created>1575554651247</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1575554651247</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Псевдокод для вычленения ФИО">
+      <created>1575561864569</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1575561864569</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -541,7 +590,11 @@
     <MESSAGE value="wrksps" />
     <MESSAGE value="PreChecker - союзы, частицы, предлоги, местоимения" />
     <MESSAGE value="DataBase object" />
-    <option name="LAST_COMMIT_MESSAGE" value="DataBase object" />
+    <MESSAGE value="DictOptimize changes" />
+    <MESSAGE value="DictOptimizer optimize" />
+    <MESSAGE value="PreChecker.arrayCheck corrections" />
+    <MESSAGE value="Псевдокод для вычленения ФИО" />
+    <option name="LAST_COMMIT_MESSAGE" value="Псевдокод для вычленения ФИО" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/DataBase.java">

@@ -1,5 +1,7 @@
 package com.conceptualGraph.view;
 
+import com.conceptualGraph.controller.WordChecker;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -8,6 +10,7 @@ import java.sql.Statement;
 
 public class Test {
     public static void main(String[] args) {
+<<<<<<< HEAD
         try {
 //            Class.forName("org.h2.Driver");
 //            Connection conn = DriverManager.getConnection("jdbc:h2:./db/test");
@@ -56,6 +59,10 @@ public class Test {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+=======
+        WordChecker.findNames("Максим Баюров предложил купить слона Никите Будкину за символическую сумму 1000$.");
+    }
+>>>>>>> 74ae9c8d47cec5a2c32b8d048c8959998f7186ae
 
     }
 
