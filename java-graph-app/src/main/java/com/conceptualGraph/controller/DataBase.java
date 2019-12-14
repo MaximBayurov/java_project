@@ -29,9 +29,9 @@ public class DataBase {
                     ");\n" +
                     "\n" +
                     "CREATE TABLE `positions` (\n" +
-                    "  `sentence` int PRIMARY KEY NOT NULL,\n" +
                     "  `id` int NOT NULL,\n" +
                     "  `position` int NOT NULL\n" +
+                    "  `sentence` int PRIMARY KEY NOT NULL,\n" +
                     ");\n" +
                     "\n" +
                     "CREATE TABLE `articles` (\n" +

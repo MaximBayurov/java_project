@@ -198,19 +198,11 @@ public class App {
         @Override
         public void actionPerformed(ActionEvent e) {
             PreChecker.readDicts();
-<<<<<<< HEAD
             String sentence = "география каналы сбыта и твоей дистрибуции";
             String[] words = sentence.split(" ");
             Boolean[] booleans = PreChecker.arrayCheck(words);
             for (int i=0; i<words.length; i++) {
                 System.out.println(booleans[i] + " " + words[i]);
-=======
-            String sentence = "География каналы сбыта и дистрибуции";
-            String[] words = sentence.split(" ");
-            Boolean[] booleans = PreChecker.arrayCheck(words);
-            for (int i = 0; i < booleans.length; i++) {
-                System.out.println(words[i] + " | " + booleans[i]);
->>>>>>> 74ae9c8d47cec5a2c32b8d048c8959998f7186ae
             }
         }
     }
