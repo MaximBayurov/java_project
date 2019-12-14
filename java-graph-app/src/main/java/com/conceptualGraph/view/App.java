@@ -198,9 +198,12 @@ public class App
         @Override
         public void actionPerformed(ActionEvent e) {
             PreChecker.readDicts();
-            String sentence = "Если использовать свойство массива length, длина массива будет подсчитана автоматически.";
+            String sentence = "география каналы сбыта и твоей дистрибуции";
             String[] words = sentence.split(" ");
             Boolean[] booleans = PreChecker.arrayCheck(words);
+            for (int i=0; i<words.length; i++) {
+                System.out.println(booleans[i] + " " + words[i]);
+            }
         }
     }
 }
