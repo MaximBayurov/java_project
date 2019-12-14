@@ -23,3 +23,86 @@ Wrong user name or password [28000-199]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:459)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
 	... 17 more
+2019-12-14 15:48:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "WORDS" уже существует
+Table "WORDS" already exists; SQL statement:
+CREATE TABLE `words` (
+  `id` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  `word` char NOT NULL,
+  `article` int NULL
+); [42101-200]
+2019-12-14 15:52:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "CREATE TABLE IF NOT EXIST[*]  `WORDS` (
+  `ID` INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  `WORD` CHAR NOT NULL,
+  `ARTICLE` INT NULL
+);
+"; ожидалось "EXISTS"
+Syntax error in SQL statement "CREATE TABLE IF NOT EXIST[*]  `WORDS` (
+  `ID` INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  `WORD` CHAR NOT NULL,
+  `ARTICLE` INT NULL
+);
+"; expected "EXISTS"; SQL statement:
+CREATE TABLE IF NOT EXIST  `words` (
+  `id` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  `word` char NOT NULL,
+  `article` int NULL
+);
+ [42001-200]
+2019-12-14 15:53:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "CREATE TABLE IF NOT EXIST[*]  `WORDS` (
+  `ID` INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  `WORD` CHAR NOT NULL,
+  `ARTICLE` INT NULL
+);
+"; ожидалось "EXISTS"
+Syntax error in SQL statement "CREATE TABLE IF NOT EXIST[*]  `WORDS` (
+  `ID` INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  `WORD` CHAR NOT NULL,
+  `ARTICLE` INT NULL
+);
+"; expected "EXISTS"; SQL statement:
+CREATE TABLE IF NOT EXIST  `words` (
+  `id` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  `word` char NOT NULL,
+  `article` int NULL
+);
+ [42001-200]
+2019-12-14 15:53:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Невозможно удалить "WORDS", пока существует зависимый объект "CONSTRAINT_BD8, CONSTRAINT_30"
+Cannot drop "WORDS" because "CONSTRAINT_BD8, CONSTRAINT_30" depends on it; SQL statement:
+drop table words [90107-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:576)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:98)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:124)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at com.conceptualGraph.dBServise.executor.Executor.execUpdate(Executor.java:17)
+	at com.conceptualGraph.dBServise.dao.WordsDAO.dropTable(WordsDAO.java:47)
+	at com.conceptualGraph.dBServise.DBService.dropWords(DBService.java:95)
+	at com.conceptualGraph.view.Test.main(Test.java:22)
+2019-12-14 15:58:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Неверное количество столбцов
+Column count does not match; SQL statement:
+insert into words (word, article) values (null,'penis',3) [21002-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.dml.Insert.prepare(Insert.java:319)
+	at org.h2.command.Parser.prepareCommand(Parser.java:744)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at com.conceptualGraph.dBServise.executor.Executor.execUpdate(Executor.java:17)
+	at com.conceptualGraph.dBServise.dao.WordsDAO.insertWord(WordsDAO.java:36)
+	at com.conceptualGraph.dBServise.DBService.addWord(DBService.java:64)
+	at com.conceptualGraph.view.Test.main(Test.java:19)
