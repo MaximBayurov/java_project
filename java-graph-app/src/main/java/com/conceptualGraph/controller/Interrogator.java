@@ -58,9 +58,10 @@ public class Interrogator {
     public static JSONArray wikiOpenSearch(String searchWord) throws IOException{
         String HTTPRequest = "https://ru.wikipedia.org/w/api.php?action=opensearch&search="+searchWord+"&format=json";
         JSONArray jo = readJsonFromUrl(HTTPRequest);
-        System.out.println(jo.getJSONArray(1).toString());
-        System.out.println(jo.getJSONArray(2).toString());
-        System.out.println(jo.getJSONArray(3).toString()); //массив с ссылками, из него нужно будет убрать все пробелы
+        System.out.println(jo.getJSONArray(3).get(0).toString());
+//        System.out.println(jo.getJSONArray(1).toString());
+//        System.out.println(jo.getJSONArray(2).toString());
+//        System.out.println(jo.getJSONArray(3).toString()); //массив с ссылками, из него нужно будет убрать все пробелы
         return jo;
     }
 

@@ -89,10 +89,23 @@ public class WordChecker {
 
         String[] sentences = paragraph.split("(?<![A-ZА-ЯЁ])[\\.\\?\\;\\!]+"); //(?<![\\. ][A-ZА-ЯЁ])[\\.\\?\\;\\!]
         for (String sentence: sentences) {
+<<<<<<< HEAD
+            System.out.println("START");
+            sentence = sentence.toLowerCase().replaceAll("[^a-zа-яё\\-/ ]","")
+                    .replaceAll("^-| -|- ", " ").replaceAll(" +"," ")
+                    .trim();
+            if (sentence.isEmpty()) continue;
+            String[] words = sentence.split(" ");
+            for (String str: words) {
+                System.out.print(str + " ");
+            }
+
+=======
             Boolean[] nameBools = findNames(sentence);
             sentence= sentence.toLowerCase().replaceAll("[^a-zа-яё\\-/ ]","")
                     .replaceAll("^-| -|- ", " ").replaceAll(" +"," ");
             String[] words = sentence.trim().split(" ");
+>>>>>>> 74ae9c8d47cec5a2c32b8d048c8959998f7186ae
             Boolean[] booleans = PreChecker.arrayCheck(words);
             for (int k=0; k<booleans.length; k++){
                 if (nameBools[k]==true){
@@ -100,6 +113,9 @@ public class WordChecker {
                 }
             }
             String word;
+            for (int i=0; i<words.length; i++) {
+                System.out.println(booleans[i] + " " + words[i]);
+            }
             for (int j = 0; j<words.length; j++){
                 word = words[j].trim();
                 if (word.isEmpty()) {

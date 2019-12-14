@@ -46,9 +46,6 @@ public class PreChecker {
         String words3;
         String words2;
         String words1;
-        for (int k=0; k<words.length; k++){
-            words[k]=bringTo(words[k]);
-        }
         if (words.length>=3) {
             for (int i = 0; i < words.length - 2; i++) {
                 words3 = words[i] + " " + words[i + 1] + " " + words[i + 2];
@@ -107,10 +104,6 @@ public class PreChecker {
             return true;
         } else return false;
     }
-    protected static String bringTo(String word){
-        return word.toLowerCase().replaceAll("[^a-zа-яё/-]","");
-    }
-
     public static void readDicts(){
         try{
             if (!dictsFlag){
