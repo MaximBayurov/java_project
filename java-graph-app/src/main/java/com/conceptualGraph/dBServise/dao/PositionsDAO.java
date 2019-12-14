@@ -1,9 +1,10 @@
 package com.conceptualGraph.dBServise.dao;
 
-import com.conceptualGraph.dBServise.dataSets.UsersDataSet;
 import com.conceptualGraph.dBServise.executor.Executor;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class PositionsDAO {
@@ -25,25 +26,38 @@ public class PositionsDAO {
 //    }
 
     public void createTable() throws SQLException {
-        executor.execUpdate("CREATE TABLE `positions` (\n" +
-                "  `sentence` int PRIMARY KEY NOT NULL,\n" +
+        executor.execUpdate("CREATE TABLE IF NOT EXISTS `positions` (\n" +
                 "  `id` int NOT NULL,\n" +
-                "  `position` int NOT NULL\n" +
+                "  `position` int NOT NULL,\n" +
+                "  `sentence` int NOT NULL,\n" +
+                "  PRIMARY KEY (position, sentence)\n" +
                 ");");
+//        executor.execUpdate("ALTER TABLE `positions` ADD PRIMARY KEY (position, sentence);");//ОБРАБОТАТЬ ЭКСЕПТИОН
     }
 
-    public void insertPosition(int postion, int sentence) throws SQLException {
-        executor.execUpdate("INSERT INTO positions values ('" + login + "','" + password + "')");
+    public void insertPosition(long id, int postion, int sentence) throws SQLException {
+        String sql;
+        sql = "INSERT INTO positions VALUES (?, ?, ?)";
+        executor.prepareQuery(sql);
+        executor.preparedStatement.setLong(1, id);
+        executor.preparedStatement.setInt(2, postion);
+        executor.preparedStatement.setInt(3, sentence);
+        executor.preparedStatement.execute();
     }
 
-    public long getUserId(String login) throws SQLException {
-        return executor.execQuery("select * from users where login='" + login + "'", result -> {
-            result.next();
-            return result.getLong(1);
-        });
+    public int getWordCount(long id) throws SQLException {
+        String sql;
+        sql = "SELECT COUNT(*) FROM positions WHERE id = ?";
+        executor.prepareQuery(sql);
+        executor.preparedStatement.setLong(1, id);
+        executor.preparedStatement.execute();
+        ResultSet rs = executor.preparedStatement.getResultSet();
+        int count = -1;
+        if (rs.next()) { count = rs.getInt(1); }
+        return count;
     }
 
     public void dropTable() throws  SQLException{
-        executor.execUpdate("drop table users");
+        executor.execUpdate("drop table positions");
     }
 }

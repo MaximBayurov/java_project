@@ -28,29 +28,29 @@ public class Executor {
         return value;
     }
 
-    private PreparedStatement preparedStatement;
+    public PreparedStatement preparedStatement;
 
-    public void preparePrepQuery(String SQLupdate) throws SQLException {
+    public void prepareQuery(String SQLupdate) throws SQLException {
         preparedStatement = connection.prepareStatement(SQLupdate);
     }
 
-    public <T> void setPrepString(int pos, T value) throws SQLException {
-        if (value instanceof String) {
-            preparedStatement.setString(pos, (String) value);
-        } else if (value instanceof  Integer) {
-            preparedStatement.setInt(pos, (int) value);
-        } else {
-            System.out.println("Неподдерживаемый тип переменной");
-        }
-    }
-
-    public <T> T execPrerpQuery(String query,
-                           ResultHandler<T> handler)
-            throws SQLException {
-        preparedStatement.execute(query);
-        ResultSet result = preparedStatement.getResultSet();
-        T value = handler.handle(result);
-        result.close();
-        return value;
-    }
+//
+//    public <T> void setPrep(int pos, T value) throws SQLException {
+//        if (value instanceof String) {
+//            preparedStatement.setString(pos, (String) value);
+//        } else if (value instanceof  Integer) {
+//            preparedStatement.setInt(pos, (int) value);
+//        } else {
+//            System.out.println("Неподдерживаемый тип переменной");
+//        }
+//    }
+//
+//    public <T> T execPrep(ResultHandler<T> handler)
+//            throws SQLException {
+//        preparedStatement.execute();
+//        ResultSet result = preparedStatement.getResultSet();
+//        T value = handler.handle(result);
+//        result.close();
+//        return value;
+//    }
 }

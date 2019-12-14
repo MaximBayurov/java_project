@@ -1,12 +1,14 @@
 package com.conceptualGraph.dBServise;
 
-import com.conceptualGraph.dBServise.dao.UsersDAO;
-import com.conceptualGraph.dBServise.dataSets.UsersDataSet;
+import com.conceptualGraph.dBServise.dao.PositionsDAO;
+import com.conceptualGraph.dBServise.dao.WordsDAO;
+import com.conceptualGraph.dBServise.dataSets.WordsDataSet;
 import org.h2.jdbcx.JdbcDataSource;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.List;
 
 public class DBService {
 
@@ -46,39 +48,49 @@ public class DBService {
         }
     }
 
-    public UsersDataSet getUser(long id) throws DBException {
+    public WordsDataSet getWord(long id) throws  DBException{
         try {
-            return (new UsersDAO(connection).get(id));
+            return (new WordsDAO(connection).get(id));
         } catch (SQLException e) {
             throw new DBException(e);
         }
     }
 
-
-    public long addUser(String login, String password) throws DBException {
+    public void addWord(String word, int article) throws  DBException{
         try {
             connection.setAutoCommit(false);
-            UsersDAO dao = new UsersDAO(connection);
+            WordsDAO dao = new WordsDAO(connection);
             dao.createTable();
-            dao.insertUser(login,password);
+            dao.insertWord(word,article);
+            System.out.println("Создана таблица и добавлено слово:"+word);
             connection.commit();
-            return dao.getUserId(login);
-        } catch (SQLException e) {
-            try {
+        } catch (SQLException e){
+            try{
                 connection.rollback();
-            } catch (SQLException ignore) {
+            }catch (SQLException ignore){
             }
-            throw new DBException(e);
+            throw  new DBException(e);
         } finally {
-            try {
+            try{
                 connection.setAutoCommit(true);
-            } catch (SQLException ignore) {
+            }catch (SQLException ignore){
             }
         }
     }
 
-    public void cleanUp() throws DBException {
-        UsersDAO dao = new UsersDAO(connection);
+    public WordsDataSet getWordByText(String text) throws DBException {
+        try {
+            return (new WordsDAO((connection)).get(
+                    new WordsDAO((connection)).getWordId(text)
+            ));
+        }catch (SQLException e){
+            throw new DBException(e);
+        }
+    }
+
+
+    public void dropWords() throws DBException {
+        WordsDAO dao = new WordsDAO(connection);
         try {
             dao.dropTable();
         } catch (SQLException e) {
@@ -86,10 +98,51 @@ public class DBService {
         }
     }
 
-    public UsersDataSet getUserByLogin(String login) throws DBException {
+    public List<WordsDataSet> getAllMatches(String text) throws DBException {
+        WordsDAO dao = new WordsDAO(connection);
+        try{
+            List<WordsDataSet> wordsDataSets = dao.getAllByText(text);
+            return wordsDataSets;
+        }catch (SQLException e){
+            throw new DBException(e);
+        }
+    }
+
+    /**ПОЗИЦИИ*/
+    public void addPosition(long id, int position, int sentence) throws  DBException{
         try {
-            return (new UsersDAO(connection).get(
-                    new UsersDAO(connection).getUserId(login)));
+            connection.setAutoCommit(false);
+            PositionsDAO dao = new PositionsDAO(connection);
+            dao.createTable();
+            dao.insertPosition(id, position, sentence);
+            System.out.println("Создана таблица и добавлены позиции и предложения: " + position + " kek " + sentence);
+            connection.commit();
+        }catch (SQLException e){
+            try{
+                connection.rollback();
+            }catch (SQLException ignore){
+            }
+            throw  new DBException(e);
+        } finally {
+            try{
+                connection.setAutoCommit(true);
+            }catch (SQLException ignore){
+            }
+        }
+    }
+
+    public int getCount(long id) throws DBException {
+        try {
+            return (new PositionsDAO(connection).getWordCount(id));
+        }catch (SQLException e){
+            throw new DBException(e);
+        }
+    }
+
+    public void dropPositions() throws DBException {
+        PositionsDAO dao = new PositionsDAO(connection);
+        try {
+            dao.dropTable();
         } catch (SQLException e) {
             throw new DBException(e);
         }

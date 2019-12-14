@@ -23,3 +23,341 @@ Wrong user name or password [28000-199]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:459)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
 	... 17 more
+2019-12-14 15:48:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "WORDS" уже существует
+Table "WORDS" already exists; SQL statement:
+CREATE TABLE `words` (
+  `id` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  `word` char NOT NULL,
+  `article` int NULL
+); [42101-200]
+2019-12-14 15:52:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "CREATE TABLE IF NOT EXIST[*]  `WORDS` (
+  `ID` INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  `WORD` CHAR NOT NULL,
+  `ARTICLE` INT NULL
+);
+"; ожидалось "EXISTS"
+Syntax error in SQL statement "CREATE TABLE IF NOT EXIST[*]  `WORDS` (
+  `ID` INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  `WORD` CHAR NOT NULL,
+  `ARTICLE` INT NULL
+);
+"; expected "EXISTS"; SQL statement:
+CREATE TABLE IF NOT EXIST  `words` (
+  `id` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  `word` char NOT NULL,
+  `article` int NULL
+);
+ [42001-200]
+2019-12-14 15:53:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "CREATE TABLE IF NOT EXIST[*]  `WORDS` (
+  `ID` INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  `WORD` CHAR NOT NULL,
+  `ARTICLE` INT NULL
+);
+"; ожидалось "EXISTS"
+Syntax error in SQL statement "CREATE TABLE IF NOT EXIST[*]  `WORDS` (
+  `ID` INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  `WORD` CHAR NOT NULL,
+  `ARTICLE` INT NULL
+);
+"; expected "EXISTS"; SQL statement:
+CREATE TABLE IF NOT EXIST  `words` (
+  `id` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  `word` char NOT NULL,
+  `article` int NULL
+);
+ [42001-200]
+2019-12-14 15:53:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Невозможно удалить "WORDS", пока существует зависимый объект "CONSTRAINT_BD8, CONSTRAINT_30"
+Cannot drop "WORDS" because "CONSTRAINT_BD8, CONSTRAINT_30" depends on it; SQL statement:
+drop table words [90107-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:576)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:98)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:124)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at com.conceptualGraph.dBServise.executor.Executor.execUpdate(Executor.java:17)
+	at com.conceptualGraph.dBServise.dao.WordsDAO.dropTable(WordsDAO.java:47)
+	at com.conceptualGraph.dBServise.DBService.dropWords(DBService.java:95)
+	at com.conceptualGraph.view.Test.main(Test.java:22)
+2019-12-14 15:58:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Неверное количество столбцов
+Column count does not match; SQL statement:
+insert into words (word, article) values (null,'penis',3) [21002-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.dml.Insert.prepare(Insert.java:319)
+	at org.h2.command.Parser.prepareCommand(Parser.java:744)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at com.conceptualGraph.dBServise.executor.Executor.execUpdate(Executor.java:17)
+	at com.conceptualGraph.dBServise.dao.WordsDAO.insertWord(WordsDAO.java:36)
+	at com.conceptualGraph.dBServise.DBService.addWord(DBService.java:64)
+	at com.conceptualGraph.view.Test.main(Test.java:19)
+2019-12-14 18:47:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "CREATE TABLE `POSITIONS` (
+  `ID` INT NOT NULL,
+  `POSITION` INT NOT NULL
+  `SENTENCE`[*] INT PRIMARY KEY NOT NULL,
+);"; ожидалось "AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, COMMENT, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE `POSITIONS` (
+  `ID` INT NOT NULL,
+  `POSITION` INT NOT NULL
+  `SENTENCE`[*] INT PRIMARY KEY NOT NULL,
+);"; expected "AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, COMMENT, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE `positions` (
+  `id` int NOT NULL,
+  `position` int NOT NULL
+  `sentence` int PRIMARY KEY NOT NULL,
+); [42001-200]
+2019-12-14 18:49:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "CREATE TABLE `POSITIONS` (
+  `ID` INT NOT NULL,
+  `POSITION` INT NOT NULL
+  `SENTENCE`[*] INT PRIMARY KEY NOT NULL,
+);"; ожидалось "AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, COMMENT, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE `POSITIONS` (
+  `ID` INT NOT NULL,
+  `POSITION` INT NOT NULL
+  `SENTENCE`[*] INT PRIMARY KEY NOT NULL,
+);"; expected "AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, COMMENT, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE `positions` (
+  `id` int NOT NULL,
+  `position` int NOT NULL
+  `sentence` int PRIMARY KEY NOT NULL,
+); [42001-200]
+2019-12-14 18:50:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "CREATE TABLE `POSITIONS` (
+  `ID` INT NOT NULL,
+  `POSITION` INT NOT NULL,
+  `SENTENCE` INT PRIMARY KEY NOT NULL,
+)[*];"; ожидалось "identifier"
+Syntax error in SQL statement "CREATE TABLE `POSITIONS` (
+  `ID` INT NOT NULL,
+  `POSITION` INT NOT NULL,
+  `SENTENCE` INT PRIMARY KEY NOT NULL,
+)[*];"; expected "identifier"; SQL statement:
+CREATE TABLE `positions` (
+  `id` int NOT NULL,
+  `position` int NOT NULL,
+  `sentence` int PRIMARY KEY NOT NULL,
+); [42001-200]
+2019-12-14 18:51:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "POSITIONS" уже существует
+Table "POSITIONS" already exists; SQL statement:
+CREATE TABLE `positions` (
+  `id` int NOT NULL,
+  `position` int NOT NULL,
+  `sentence` int PRIMARY KEY NOT NULL
+); [42101-200]
+2019-12-14 18:51:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "INSERT INTO POSITIONS VALUE[*] (DEFAULT, ?, ?)"; ожидалось "., (, DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO POSITIONS VALUE[*] (DEFAULT, ?, ?)"; expected "., (, DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO positions VALUE (default, ?, ?) [42001-200]
+2019-12-14 18:56:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "POSITIONS" уже существует
+Table "POSITIONS" already exists; SQL statement:
+CREATE TABLE `positions` (
+  `id` int NOT NULL,
+  `position` int NOT NULL,
+  `sentence` int PRIMARY KEY NOT NULL
+); [42101-200]
+2019-12-14 18:56:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "SELECT SUM(*[*]) FROM POSITIONS WHERE ID = ?"; ожидалось "DISTINCT, ALL, NOT, EXISTS, INTERSECTS, UNIQUE"
+Syntax error in SQL statement "SELECT SUM(*[*]) FROM POSITIONS WHERE ID = ?"; expected "DISTINCT, ALL, NOT, EXISTS, INTERSECTS, UNIQUE"; SQL statement:
+SELECT SUM(*) FROM positions WHERE id = ? [42001-200]
+2019-12-14 18:56:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "POSITIONS" уже существует
+Table "POSITIONS" already exists; SQL statement:
+CREATE TABLE `positions` (
+  `id` int NOT NULL,
+  `position` int NOT NULL,
+  `sentence` int PRIMARY KEY NOT NULL
+); [42101-200]
+2019-12-14 18:59:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "POSITIONS" уже существует
+Table "POSITIONS" already exists; SQL statement:
+CREATE TABLE `positions` (
+  `id` int NOT NULL,
+  `position` int NOT NULL,
+  `sentence` int PRIMARY KEY NOT NULL
+); [42101-200]
+2019-12-14 19:00:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "CREATE TABLE IF NOT EXIST[*] `POSITIONS` (
+  `ID` INT NOT NULL,
+  `POSITION` INT NOT NULL,
+  `SENTENCE` INT PRIMARY KEY NOT NULL
+);"; ожидалось "EXISTS"
+Syntax error in SQL statement "CREATE TABLE IF NOT EXIST[*] `POSITIONS` (
+  `ID` INT NOT NULL,
+  `POSITION` INT NOT NULL,
+  `SENTENCE` INT PRIMARY KEY NOT NULL
+);"; expected "EXISTS"; SQL statement:
+CREATE TABLE IF NOT EXIST `positions` (
+  `id` int NOT NULL,
+  `position` int NOT NULL,
+  `sentence` int PRIMARY KEY NOT NULL
+); [42001-200]
+2019-12-14 19:00:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "POSITIONS" не найдена
+Table "POSITIONS" not found; SQL statement:
+drop table positions [42102-200]
+2019-12-14 19:04:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "ALTER TABLE 'positions'[*] ADD PRIMARY KEY (POSITION, SENTENCE)"; ожидалось "identifier"
+Syntax error in SQL statement "ALTER TABLE 'positions'[*] ADD PRIMARY KEY (POSITION, SENTENCE)"; expected "identifier"; SQL statement:
+ALTER TABLE 'positions' ADD PRIMARY KEY (position, sentence) [42001-200]
+2019-12-14 19:07:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Попытка создания второго первичного ключа
+Attempt to define a second primary key; SQL statement:
+ALTER TABLE `positions` ADD PRIMARY KEY (position, sentence) [90017-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:576)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:129)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:78)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at com.conceptualGraph.dBServise.executor.Executor.execUpdate(Executor.java:14)
+	at com.conceptualGraph.dBServise.dao.PositionsDAO.createTable(PositionsDAO.java:34)
+	at com.conceptualGraph.dBServise.DBService.addPosition(DBService.java:116)
+	at com.conceptualGraph.view.Test.main(Test.java:22)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at com.intellij.rt.execution.application.AppMainV2.main(AppMainV2.java:131)
+2019-12-14 19:11:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Попытка создания второго первичного ключа
+Attempt to define a second primary key; SQL statement:
+ALTER TABLE `positions` ADD PRIMARY KEY (position, sentence) [90017-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:576)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:129)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:78)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at com.conceptualGraph.dBServise.executor.Executor.execUpdate(Executor.java:14)
+	at com.conceptualGraph.dBServise.dao.PositionsDAO.createTable(PositionsDAO.java:34)
+	at com.conceptualGraph.dBServise.DBService.addPosition(DBService.java:116)
+	at com.conceptualGraph.view.Test.main(Test.java:22)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at com.intellij.rt.execution.application.AppMainV2.main(AppMainV2.java:131)
+2019-12-14 19:11:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Попытка создания второго первичного ключа
+Attempt to define a second primary key; SQL statement:
+ALTER TABLE `positions` ADD PRIMARY KEY (position, sentence) [90017-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:576)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:129)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:78)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at com.conceptualGraph.dBServise.executor.Executor.execUpdate(Executor.java:14)
+	at com.conceptualGraph.dBServise.dao.PositionsDAO.createTable(PositionsDAO.java:34)
+	at com.conceptualGraph.dBServise.DBService.addPosition(DBService.java:116)
+	at com.conceptualGraph.view.Test.main(Test.java:22)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at com.intellij.rt.execution.application.AppMainV2.main(AppMainV2.java:131)
+2019-12-14 19:12:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Попытка создания второго первичного ключа
+Attempt to define a second primary key; SQL statement:
+ALTER TABLE `positions` ADD PRIMARY KEY (position, sentence) [90017-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:576)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:129)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:78)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at com.conceptualGraph.dBServise.executor.Executor.execUpdate(Executor.java:14)
+	at com.conceptualGraph.dBServise.dao.PositionsDAO.createTable(PositionsDAO.java:34)
+	at com.conceptualGraph.dBServise.DBService.addPosition(DBService.java:116)
+	at com.conceptualGraph.view.Test.main(Test.java:22)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at com.intellij.rt.execution.application.AppMainV2.main(AppMainV2.java:131)
+2019-12-14 19:14:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Попытка создания второго первичного ключа
+Attempt to define a second primary key; SQL statement:
+ALTER TABLE `positions` ADD PRIMARY KEY (position, sentence); [90017-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:576)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:129)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:78)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at com.conceptualGraph.dBServise.executor.Executor.execUpdate(Executor.java:14)
+	at com.conceptualGraph.dBServise.dao.PositionsDAO.createTable(PositionsDAO.java:34)
+	at com.conceptualGraph.dBServise.DBService.addPosition(DBService.java:116)
+	at com.conceptualGraph.view.Test.main(Test.java:22)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at com.intellij.rt.execution.application.AppMainV2.main(AppMainV2.java:131)
+2019-12-14 19:16:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "CREATE TABLE IF NOT EXISTS `POSITIONS` (
+  `ID` INT NOT NULL,
+  `POSITION` INT NOT NULL,
+  `SENTENCE` INT NOT NULL
+  PRIMARY KEY ([*]POSITION, SENTENCE)
+);"; ожидалось "HASH, AUTO_INCREMENT, NOT, NULL, COMMENT, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS `POSITIONS` (
+  `ID` INT NOT NULL,
+  `POSITION` INT NOT NULL,
+  `SENTENCE` INT NOT NULL
+  PRIMARY KEY ([*]POSITION, SENTENCE)
+);"; expected "HASH, AUTO_INCREMENT, NOT, NULL, COMMENT, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE IF NOT EXISTS `positions` (
+  `id` int NOT NULL,
+  `position` int NOT NULL,
+  `sentence` int NOT NULL
+  PRIMARY KEY (position, sentence)
+); [42001-200]
+2019-12-14 19:16:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "POSITIONS" не найдена
+Table "POSITIONS" not found; SQL statement:
+drop table positions [42102-200]
