@@ -1,6 +1,7 @@
 package com.conceptualGraph.dBServise;
 
 import com.conceptualGraph.dBServise.dao.UsersDAO;
+import com.conceptualGraph.dBServise.dao.WordsDAO;
 import com.conceptualGraph.dBServise.dataSets.UsersDataSet;
 import org.h2.jdbcx.JdbcDataSource;
 
@@ -54,6 +55,25 @@ public class DBService {
         }
     }
 
+
+    public void addWord(int id, String word, int article) throws  DBException{
+        try {
+            connection.setAutoCommit(false);
+            WordsDAO dao = new WordsDAO(connection);
+            connection.commit();
+        } catch (SQLException e){
+            try{
+                connection.rollback();
+            }catch (SQLException ignore){
+            }
+            throw  new DBException(e);
+        } finally {
+            try{
+                connection.setAutoCommit(true);
+            }catch (SQLException ignore){
+            }
+        }
+    }
 
     public long addUser(String login, String password) throws DBException {
         try {
