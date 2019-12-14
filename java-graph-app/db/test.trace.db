@@ -1,0 +1,25 @@
+2019-12-14 14:22:32 database: wrong user or password; user: "TEST"
+org.h2.message.DbException: Неверное имя пользователя или пароль
+Wrong user name or password [28000-199]
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.engine.Engine.openSession(Engine.java:126)
+	at org.h2.engine.Engine.openSession(Engine.java:201)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:178)
+	at org.h2.engine.Engine.createSession(Engine.java:161)
+	at org.h2.engine.Engine.createSession(Engine.java:31)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:336)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:169)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:148)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at com.conceptualGraph.dBServise.DBService.getH2Connection(DBService.java:30)
+	at com.conceptualGraph.dBServise.DBService.<init>(DBService.java:16)
+	at com.conceptualGraph.view.Test.main(Test.java:14)
+Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Неверное имя пользователя или пароль
+Wrong user name or password [28000-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:459)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	... 17 more
