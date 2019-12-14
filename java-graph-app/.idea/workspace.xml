@@ -2,18 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5ad2e5c-7bf5-4542-8024-6999ebb096bc" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/ArticlesDAO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/WordsDAO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dataSets/ArticlesDataSet.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dataSets/WordsDataSet.java" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/PagesDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/StructureDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dataSets/PagesDataSet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dataSets/StructureDataSet.java" afterDir="false" />
+>>>>>>> bd37cda01e3bc610b09dec5419086fda4861f65e
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/test.mv.db" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/db/test.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/test.trace.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/DBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/DBService.java" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/PositionsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/PositionsDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/UsersDAO.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dataSets/UsersDataSet.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/executor/Executor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/executor/Executor.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/ArticlesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/ArticlesDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dataSets/ArticlesDataSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dataSets/ArticlesDataSet.java" afterDir="false" />
+>>>>>>> bd37cda01e3bc610b09dec5419086fda4861f65e
       <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/view/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/view/Test.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -585,7 +597,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576324418910</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="words DAO">
+      <created>1576331213201</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1576331213201</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -643,7 +662,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="jsoup, новый класс Reader, метод ReadHTML" />
     <MESSAGE value="chsn dir full scanning" />
     <MESSAGE value="new methods" />
     <MESSAGE value="new menu items" />
@@ -668,7 +686,8 @@
     <MESSAGE value="Реализация вычленения ФИО" />
     <MESSAGE value="DBService" />
     <MESSAGE value="DBService +" />
-    <option name="LAST_COMMIT_MESSAGE" value="DBService +" />
+    <MESSAGE value="words DAO" />
+    <option name="LAST_COMMIT_MESSAGE" value="words DAO" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/WordsDAO.java">

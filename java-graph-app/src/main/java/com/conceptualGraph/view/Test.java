@@ -4,6 +4,8 @@ import com.conceptualGraph.controller.WordChecker;
 import com.conceptualGraph.dBServise.DBException;
 import com.conceptualGraph.dBServise.DBService;
 import com.conceptualGraph.dBServise.dao.PositionsDAO;
+import com.conceptualGraph.dBServise.dao.ArticlesDAO;
+import com.conceptualGraph.dBServise.dataSets.ArticlesDataSet;
 import com.conceptualGraph.dBServise.dataSets.WordsDataSet;
 
 import java.sql.Connection;

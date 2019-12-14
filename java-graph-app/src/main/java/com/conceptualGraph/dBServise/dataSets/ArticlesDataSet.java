@@ -2,21 +2,21 @@ package com.conceptualGraph.dBServise.dataSets;
 
 public class ArticlesDataSet {
     private long id;
-    private String word;
-    private long article;
+    private String link;
+    private String article;
 
-    public ArticlesDataSet(long id, String word, long article) {
+    public ArticlesDataSet(long id, String link, String article) {
         this.id = id;
-        this.word = word;
+        this.link = link;
         this.article = article;
     }
 
-    public String getWord() {
-        return word;
+    public String getLink() {
+        return link;
     }
 
-    public long getArticle(){
-        return (int)article;
+    public String getArticle() {
+        return article;
     }
 
     public long getId() {
@@ -25,9 +25,9 @@ public class ArticlesDataSet {
 
     @Override
     public String toString() {
-        return "WordsDataSet{" +
+        return "ArticleDataSet{" +
                 "id=" + id +
-                ", word='" + word + '\'' +
+                ", link='" + link + '\'' +
                 ", article=" + article  +
                 '}';
     }

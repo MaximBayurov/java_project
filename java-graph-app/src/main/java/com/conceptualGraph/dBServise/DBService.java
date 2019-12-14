@@ -1,7 +1,10 @@
 package com.conceptualGraph.dBServise;
 
 import com.conceptualGraph.dBServise.dao.PositionsDAO;
+import com.conceptualGraph.dBServise.dao.ArticlesDAO;
+import com.conceptualGraph.dBServise.dao.PagesDAO;
 import com.conceptualGraph.dBServise.dao.WordsDAO;
+import com.conceptualGraph.dBServise.dataSets.ArticlesDataSet;
 import com.conceptualGraph.dBServise.dataSets.WordsDataSet;
 import org.h2.jdbcx.JdbcDataSource;
 
@@ -62,7 +65,6 @@ public class DBService {
             WordsDAO dao = new WordsDAO(connection);
             dao.createTable();
             dao.insertWord(word,article);
-            System.out.println("Создана таблица и добавлено слово:"+word);
             connection.commit();
         } catch (SQLException e){
             try{
@@ -107,9 +109,8 @@ public class DBService {
             throw new DBException(e);
         }
     }
-
     /**ПОЗИЦИИ*/
-    public void addPosition(long id, int position, int sentence) throws  DBException{
+    public void addPosition(long id, int position, int sentence) throws  DBException {
         try {
             connection.setAutoCommit(false);
             PositionsDAO dao = new PositionsDAO(connection);
@@ -117,7 +118,37 @@ public class DBService {
             dao.insertPosition(id, position, sentence);
             System.out.println("Создана таблица и добавлены позиции и предложения: " + position + " kek " + sentence);
             connection.commit();
-        }catch (SQLException e){
+        } catch (SQLException e) {
+        }
+    }
+
+    public int getCount(long id) throws DBException {
+        try {
+            return (new PositionsDAO(connection).getWordCount(id));
+        } catch (SQLException e) {
+            throw new DBException(e);
+        }
+    }
+
+
+    public void dropPositions() throws DBException {
+        PositionsDAO dao = new PositionsDAO(connection);
+        try {
+            dao.dropTable();
+        } catch (SQLException e) {
+            throw new DBException(e);
+        }
+    }
+
+
+    public void addArticle(String link, String article) throws DBException {
+        try {
+            connection.setAutoCommit(false);
+            ArticlesDAO dao = new ArticlesDAO(connection);
+            dao.createTable();
+            dao.insertArticle(link,article);
+            connection.commit();
+        } catch (SQLException e){
             try{
                 connection.rollback();
             }catch (SQLException ignore){
@@ -131,20 +162,43 @@ public class DBService {
         }
     }
 
-    public int getCount(long id) throws DBException {
+
+    public ArticlesDataSet getArticle(long id) throws  DBException{
         try {
-            return (new PositionsDAO(connection).getWordCount(id));
+            return (new ArticlesDAO(connection).get(id));
+        } catch (SQLException e) {
+            throw new DBException(e);
+        }
+    }
+
+    public ArticlesDataSet getArticleByText(String articleName)  throws DBException {
+        try {
+            return (new ArticlesDAO((connection)).get(
+                    new ArticlesDAO((connection)).getArticleId(articleName)
+            ));
         }catch (SQLException e){
             throw new DBException(e);
         }
     }
 
-    public void dropPositions() throws DBException {
-        PositionsDAO dao = new PositionsDAO(connection);
+    public void addPage(int page, int article) throws DBException{
         try {
-            dao.dropTable();
-        } catch (SQLException e) {
-            throw new DBException(e);
+            connection.setAutoCommit(false);
+            PagesDAO dao = new PagesDAO(connection);
+            dao.createTable();
+            dao.insertPage(page,article);
+            connection.commit();
+        } catch (SQLException e){
+            try{
+                connection.rollback();
+            }catch (SQLException ignore){
+            }
+            throw  new DBException(e);
+        } finally {
+            try{
+                connection.setAutoCommit(true);
+            }catch (SQLException ignore){
+            }
         }
     }
 }
