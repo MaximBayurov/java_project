@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="java-graph-app" target="1.7" />
+      <module name="java-graph-app" target="1.13" />
     </bytecodeTargetLevel>
   </component>
 </project>
