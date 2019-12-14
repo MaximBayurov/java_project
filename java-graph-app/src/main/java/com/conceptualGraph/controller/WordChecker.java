@@ -1,5 +1,9 @@
 package com.conceptualGraph.controller;
 
+import com.conceptualGraph.dBServise.DBException;
+import com.conceptualGraph.dBServise.DBService;
+import com.conceptualGraph.dBServise.dao.StructureDAO;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +13,9 @@ import java.util.regex.Pattern;
 
 public class WordChecker {
 
+    public static DBService dbService = new DBService();
+    private static int sentenceNumber = 0;
+    private static int paragraphNumber = 0;
     private static ArrayList<String> dictionary = new ArrayList<>();
     private static final Pattern namesPattern = Pattern.compile("(?:[А-ЯЁA-Z][а-яa-zё]+(?:\\s|-|[.]|\\n)){2,}|(?:[А-ЯЁA-][.]\\s?(?:[А-ЯЁA-Я][.]?\\s?)?[А-ЯЁA-Z][а-яa-zё]+(?:-[А-ЯЁA-Z][а-яa-zё])*?)");
 
@@ -84,11 +91,12 @@ public class WordChecker {
         }
     }
 
-    public static int[] paragraphCheck(String paragraph, int countDictWords, int wordsNumber) {
-
-
+    public static int[] paragraphCheck(String paragraph, int countDictWords, int wordsNumber){
+        paragraphNumber++;
         String[] sentences = paragraph.split("(?<![A-ZА-ЯЁ])[\\.\\?\\;\\!]+"); //(?<![\\. ][A-ZА-ЯЁ])[\\.\\?\\;\\!]
         for (String sentence: sentences) {
+            sentenceNumber++;
+            dbService.addStructure(paragraphNumber,sentenceNumber);
             Boolean[] nameBools = findNames(sentence);
             sentence= sentence.toLowerCase().replaceAll("[^a-zа-яё\\-/ ]","")
                     .replaceAll("^-| -|- ", " ").replaceAll(" +"," ");
@@ -111,13 +119,14 @@ public class WordChecker {
                 if (booleans[j]){
                     countDictWords++;
                     continue;
-                }else if (check(word)) {
-                    DataBase.insertTerm(word, 1, 1);
+                }else if (!check(word)) {
+                    dbService.insertTerm(word, wordsNumber, sentenceNumber);
                     countDictWords++;
                 }
                 wordsNumber++;
             }
         }
+
         return new int[]{countDictWords,wordsNumber};
     }
 
@@ -133,11 +142,12 @@ public class WordChecker {
         Boolean[] booleans = new Boolean[words.length];
         for (int i=0; i < words.length; i++){
             String word = words[i];
+            booleans[i] = false;
             for (String name: names){
                 if (name.contains(word)){
                     booleans[i] = true;
                     break;
-                }else booleans[i]=false;
+                }
             }
         }
         return booleans;

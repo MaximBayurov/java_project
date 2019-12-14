@@ -3,6 +3,7 @@ package com.conceptualGraph.model;
 import com.conceptualGraph.controller.PreChecker;
 import com.conceptualGraph.controller.Stemmer;
 import com.conceptualGraph.controller.WordChecker;
+import com.conceptualGraph.dBServise.DBException;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.jsoup.*;
@@ -111,7 +112,7 @@ public class Reader {
     }
 
 
-    private static void readDocx(File chosenFile) {
+    private static void readDocx(File chosenFile){
         try{
             WordChecker.readFullDict();
             InputStream inputStream = new FileInputStream(chosenFile);
@@ -123,17 +124,20 @@ public class Reader {
             PreChecker.readDicts();
             for (XWPFParagraph paragraph:paragraphs) {
                 System.out.println("Начинается с " + wordsNumber + " слова|");
-                WordChecker.paragraphCheck(paragraph.getText(),countDictWords,wordsNumber);
                 int[]counts = WordChecker.paragraphCheck(paragraph.getText(),countDictWords,wordsNumber);
                 countDictWords =counts[0];
                 wordsNumber = counts[1];
             }
+//            WordChecker.dbService.dropDB();
             System.out.println("Количество слов в книге:" + wordsNumber );
             System.out.println("Количество совпавших с словарём слов:" + countDictWords);
             exampleDoc.close();
         } catch (IOException ex) {
             System.err.println(ex.getMessage() + "\n");
         }
+//        catch (DBException DBEx){
+//            DBEx.printStackTrace();
+//        }
 
     }
 

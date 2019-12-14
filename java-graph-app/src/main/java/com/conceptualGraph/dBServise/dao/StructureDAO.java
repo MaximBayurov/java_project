@@ -24,7 +24,7 @@ public class StructureDAO {
     }
 
     public void insertStructure(long paragraph, long sentence) throws SQLException {
-        executor.execUpdate("insert into pages (paragraph, sentence) values (" + paragraph + ", " + sentence + ")");
+        executor.execUpdate("insert into structure (paragraph, sentence) values (" + paragraph + ", " + sentence + ")");
     }
 
     public void dropTable() throws  SQLException{

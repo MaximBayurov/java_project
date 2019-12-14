@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d5ad2e5c-7bf5-4542-8024-6999ebb096bc" name="Default Changelist" comment="">
-<<<<<<< HEAD
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/ArticlesDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/WordsDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dataSets/ArticlesDataSet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dataSets/WordsDataSet.java" afterDir="false" />
-=======
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/PagesDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/StructureDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dataSets/PagesDataSet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dataSets/StructureDataSet.java" afterDir="false" />
->>>>>>> bd37cda01e3bc610b09dec5419086fda4861f65e
+    <list default="true" id="d5ad2e5c-7bf5-4542-8024-6999ebb096bc" name="Default Changelist" comment="all DAOs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/test.mv.db" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/db/test.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/test.trace.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/Interrogator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/Interrogator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/WordChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/WordChecker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/DBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/DBService.java" afterDir="false" />
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/PositionsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/PositionsDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/UsersDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dataSets/UsersDataSet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/executor/Executor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/executor/Executor.java" afterDir="false" />
-=======
       <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/ArticlesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/ArticlesDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dataSets/ArticlesDataSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dataSets/ArticlesDataSet.java" afterDir="false" />
->>>>>>> bd37cda01e3bc610b09dec5419086fda4861f65e
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/PositionsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/PositionsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/StructureDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/StructureDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/WordsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/WordsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/executor/Executor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/executor/Executor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/model/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/model/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/model/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/model/Reader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/view/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/view/Test.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,128 +23,8 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="798454500">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="db" value="1" />
-          <entry key="java" value="7" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JAVA" value="7" />
-          <entry key="PLAIN_TEXT" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="java" value="1074" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="1074" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FavoritesManager">
     <favorites_list name="java-graph-app" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/conceptualGraph/view/Test.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
-              <caret line="18" column="37" lean-forward="true" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/test.trace.db">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4958" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/WordsDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dataSets/ArticlesDataSet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-              <folding>
-                <element signature="e#328#329#0" expanded="true" />
-                <element signature="e#355#356#0" expanded="true" />
-                <element signature="e#386#387#0" expanded="true" />
-                <element signature="e#421#422#0" expanded="true" />
-                <element signature="e#448#449#0" expanded="true" />
-                <element signature="e#473#474#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dataSets/WordsDataSet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-156">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/PositionsDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="34" column="56" selection-start-line="34" selection-start-column="56" selection-end-line="34" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/DBService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="124" selection-start-line="124" selection-end-line="124" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/executor/Executor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -165,24 +34,13 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="UPDATE_TYPE" value="MERGE" />
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$/.." value="master" />
       </map>
     </option>
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/executor/Executor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dataSets/ArticlesDataSet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/DBService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/PositionsDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/conceptualGraph/view/Test.java" />
-      </list>
-    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -191,126 +49,12 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="495" />
-    <option name="width" value="878" />
-    <option name="height" value="768" />
-  </component>
   <component name="ProjectId" id="1Rc1ceWTWotSUW1Zdp9GXnkhhQ9" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="java-graph-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-graph-app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-graph-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-graph-app" type="462c0819:PsiDirectoryNode" />
-              <item name="db" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-graph-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-graph-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-graph-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-graph-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-graph-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-graph-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-graph-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-graph-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="conceptualGraph" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-graph-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-graph-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="conceptualGraph" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-graph-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-graph-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="conceptualGraph" type="462c0819:PsiDirectoryNode" />
-              <item name="dBServise" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-graph-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-graph-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="conceptualGraph" type="462c0819:PsiDirectoryNode" />
-              <item name="dBServise" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-graph-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-graph-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="conceptualGraph" type="462c0819:PsiDirectoryNode" />
-              <item name="dBServise" type="462c0819:PsiDirectoryNode" />
-              <item name="dataSets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-graph-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-graph-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="conceptualGraph" type="462c0819:PsiDirectoryNode" />
-              <item name="dBServise" type="462c0819:PsiDirectoryNode" />
-              <item name="executor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-graph-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-graph-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="conceptualGraph" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-    </panes>
-  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576340259048" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574859177346" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -339,7 +83,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Test">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="13" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -380,6 +124,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.conceptualGraph" />
       <option name="MAIN_CLASS_NAME" value="com.conceptualGraph.AppTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -604,40 +349,15 @@
       <option name="project" value="LOCAL" />
       <updated>1576331213201</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="all DAOs">
+      <created>1576340355354</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1576340355354</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info id="Designer" order="0" />
-      <window_info id="UI Designer" order="1" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info id="Image Layers" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.24962178" />
-      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" weight="0.32923076" />
-      <window_info anchor="bottom" id="Terminal" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="2" />
-      <window_info anchor="bottom" id="Message" order="3" />
-      <window_info anchor="bottom" id="Find" order="4" />
-      <window_info active="true" anchor="bottom" id="Run" order="5" visible="true" weight="0.32923076" />
-      <window_info anchor="bottom" id="Debug" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="9" />
-      <window_info anchor="right" id="Capture Analysis" order="0" />
-      <window_info anchor="right" id="Theme Preview" order="1" />
-      <window_info anchor="right" id="Palette&#9;" order="2" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
-    </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -645,12 +365,6 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
@@ -658,11 +372,7 @@
       </map>
     </option>
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chsn dir full scanning" />
     <MESSAGE value="new methods" />
     <MESSAGE value="new menu items" />
     <MESSAGE value="change filechooser" />
@@ -687,76 +397,19 @@
     <MESSAGE value="DBService" />
     <MESSAGE value="DBService +" />
     <MESSAGE value="words DAO" />
-    <option name="LAST_COMMIT_MESSAGE" value="words DAO" />
+    <MESSAGE value="all DAOs" />
+    <option name="LAST_COMMIT_MESSAGE" value="all DAOs" />
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/WordsDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/executor/Executor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dataSets/ArticlesDataSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-          <folding>
-            <element signature="e#328#329#0" expanded="true" />
-            <element signature="e#355#356#0" expanded="true" />
-            <element signature="e#386#387#0" expanded="true" />
-            <element signature="e#421#422#0" expanded="true" />
-            <element signature="e#448#449#0" expanded="true" />
-            <element signature="e#473#474#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/DBService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="124" selection-start-line="124" selection-end-line="124" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/test.trace.db">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4958" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dataSets/WordsDataSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-156">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/PositionsDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="34" column="56" selection-start-line="34" selection-start-column="56" selection-end-line="34" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/conceptualGraph/view/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="18" column="37" lean-forward="true" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="term.value" language="JAVA" />
+        <watch expression="term.value" language="JAVA" />
+        <watch expression="term" />
+        <watch expression="term" language="JAVA" />
+        <watch expression="articlesDAO" />
+        <watch expression="articlesDAO" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

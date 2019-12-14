@@ -15,16 +15,6 @@ public class PositionsDAO {
         this.executor = new Executor(connection);
     }
 
-//    public UsersDataSet get(long id) throws SQLException {
-//        return executor.execQuery("select * from users where id=" + id, result -> {
-//            result.next();
-//            return new UsersDataSet(
-//                    result.getLong(1),
-//                    result.getString(2),
-//                    result.getString(3));
-//        });
-//    }
-
     public void createTable() throws SQLException {
         executor.execUpdate("CREATE TABLE IF NOT EXISTS `positions` (\n" +
                 "  `id` int NOT NULL,\n" +

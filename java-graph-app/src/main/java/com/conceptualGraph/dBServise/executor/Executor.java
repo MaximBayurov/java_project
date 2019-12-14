@@ -31,8 +31,9 @@ public class Executor {
     public PreparedStatement preparedStatement;
 
     public void prepareQuery(String SQLupdate) throws SQLException {
-        preparedStatement = connection.prepareStatement(SQLupdate);
+        preparedStatement = connection.prepareStatement(SQLupdate, Statement.RETURN_GENERATED_KEYS);
     }
+
 
 //
 //    public <T> void setPrep(int pos, T value) throws SQLException {
