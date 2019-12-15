@@ -57,10 +57,14 @@ public class Interrogator {
      */
     public static JSONArray wikiOpenSearch(String searchWord) throws IOException{
         String HTTPRequest = "https://ru.wikipedia.org/w/api.php?action=opensearch&search="+searchWord+"&format=json";
+//        System.out.println(HTTPRequest);
         JSONArray jo = readJsonFromUrl(HTTPRequest);
-        System.out.println(jo.getJSONArray(1).toString());
-        System.out.println(jo.getJSONArray(2).toString());
-        System.out.println(jo.getJSONArray(3).toString()); //массив с ссылками, из него нужно будет убрать все пробелы
+
+//        System.out.println(jo.getJSONArray(3).get(0).toString());
+
+//        System.out.println(jo.getJSONArray(1).toString());
+//        System.out.println(jo.getJSONArray(2).toString());
+//        System.out.println(jo.getJSONArray(3).toString()); //массив с ссылками, из него нужно будет убрать все пробелы
         return jo;
     }
 
@@ -79,22 +83,18 @@ public class Interrogator {
         return 0;
     }
 
-    public static void selectLinks(String pageLink){
-        try{
-            Document doc = Jsoup.connect(pageLink).get();
-            Elements links = doc.select(
-                    "div#mw-content-text > div.mw-parser-output > p a," +
-                            " div#mw-content-text > div.mw-parser-output > table a ");
+    public static Elements selectLinks(String pageLink) throws IOException{
+        Document doc = Jsoup.connect(pageLink).get();
+        Elements links = doc.select(
+                "div#mw-content-text > div.mw-parser-output > p a," +
+                        " div#mw-content-text > div.mw-parser-output > table a ");
 
-            for (Element link : links){
-                if (link.attr("href").contains("wiki")){
-                    System.out.print(link.attr("title") + " | ");
-                    System.out.println(link.attr("href"));
-                }
-            }
-
-        }catch (IOException ex){
-            ex.printStackTrace();
-        }
+    //            for (Element link : links){
+    //                if (link.attr("href").contains("wiki")){
+    //                    System.out.print(link.attr("title") + " | ");
+    //                    System.out.println(link.attr("href"));
+    //                }
+    //            }
+        return links;
     }
 }
