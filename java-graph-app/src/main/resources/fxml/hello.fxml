@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.Hello">
+   <children>
+      <Button alignment="BOTTOM_CENTER" layoutX="22.0" layoutY="108.0" mnemonicParsing="false" prefHeight="185.0" prefWidth="171.0" scaleShape="false" text="Проверить книгу">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button alignment="BOTTOM_CENTER" layoutX="215.0" layoutY="108.0" mnemonicParsing="false" prefHeight="185.0" prefWidth="171.0" text="Сравнить книги">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button alignment="BOTTOM_CENTER" layoutX="407.0" layoutY="108.0" mnemonicParsing="false" prefHeight="185.0" prefWidth="171.0" text="Архив">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>
