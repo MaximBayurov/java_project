@@ -330,7 +330,6 @@ public class DBService {
         }
         catch (SQLException e){
             try{
-                e.printStackTrace();
                 connection.rollback();
             }catch (SQLException ignore){
             }
@@ -343,6 +342,36 @@ public class DBService {
                 connection.setAutoCommit(true);
             }catch (SQLException ignore){
             }
+        }
+    }
+
+    public void printWordsWithArticles() {
+        try {
+            Statement st = connection.createStatement();
+            st.execute("SELECT words.id, words.word, articles.article, articles.link FROM WORDS INNER JOIN" +
+                    " articles ON words.article = articles.id");
+            ResultSet rs = st.getResultSet();
+            while (rs.next()) {
+                System.out.println(rs.getLong(1) + " |" +
+                        " " + rs.getString(2) + " |" +
+                        " " + rs.getString(3) + " |" +
+                        " " + rs.getString(4));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void printAllArticles() throws DBException {
+        ArticlesDAO dao = new ArticlesDAO(connection);
+        try{
+            List<ArticlesDataSet> all = dao.getAll();
+            for (ArticlesDataSet dataSet: all){
+                System.out.println(dataSet);
+            }
+        }catch (SQLException e){
+            throw new DBException(e);
         }
     }
 }

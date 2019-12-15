@@ -53,7 +53,7 @@ public class WordChecker {
         String stemedWord = Stemmer.stem(word);
         if (dictionary.contains(stemedWord)) return true;
         else{
-            System.out.println(word + " | " + stemedWord); //слово, на которое стоит обратить внимание
+//            System.out.println(word + " | " + stemedWord); //слово, на которое стоит обратить внимание
             return false;
         }
     }
@@ -108,9 +108,9 @@ public class WordChecker {
                 }
             }
             String word;
-            for (int i=0; i<words.length; i++) {
-                System.out.println(booleans[i] + " " + words[i]);
-            }
+//            for (int i=0; i<words.length; i++) {
+//                System.out.println(booleans[i] + " " + words[i]);
+//            }
             for (int j = 0; j<words.length; j++){
                 word = words[j].trim();
                 if (word.isEmpty()) {

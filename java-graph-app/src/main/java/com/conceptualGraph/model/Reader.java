@@ -123,7 +123,7 @@ public class Reader {
             int countDictWords = 0;
             PreChecker.readDicts();
             for (XWPFParagraph paragraph:paragraphs) {
-                System.out.println("Начинается с " + wordsNumber + " слова|");
+//                System.out.println("Начинается с " + wordsNumber + " слова|");
                 int[]counts = WordChecker.paragraphCheck(paragraph.getText(),countDictWords,wordsNumber);
                 countDictWords =counts[0];
                 wordsNumber = counts[1];

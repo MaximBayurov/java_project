@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ArticlesDAO {
     private Executor executor;
@@ -70,5 +72,19 @@ public class ArticlesDAO {
 
     public void dropTable() throws  SQLException{
         executor.execUpdate("drop table articles cascade");
+    }
+
+    public List<ArticlesDataSet> getAll() throws SQLException {
+        return executor.execQuery("select * from articles", result -> {
+            ArrayList<ArticlesDataSet> articlesDataSets = new ArrayList<>();
+            while (result.next()){
+                articlesDataSets.add( new ArticlesDataSet(
+                        result.getLong(1),
+                        result.getString(2),
+                        result.getString(3)));
+
+            }
+            return articlesDataSets;
+        } );
     }
 }
