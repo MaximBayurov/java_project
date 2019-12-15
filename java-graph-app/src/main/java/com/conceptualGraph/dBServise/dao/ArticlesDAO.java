@@ -75,7 +75,7 @@ public class ArticlesDAO {
     }
 
     public List<ArticlesDataSet> getAll() throws SQLException {
-        return executor.execQuery("select * from articles", result -> {
+        return executor.execQuery("select * from articles where link like 'https://ru.wiktionary.org%'", result -> {
             ArrayList<ArticlesDataSet> articlesDataSets = new ArrayList<>();
             while (result.next()){
                 articlesDataSets.add( new ArticlesDataSet(
