@@ -7,7 +7,15 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="ProjectRootManager" version="2" languageLevel="JDK_13" default="false" project-jdk-name="11.0.3" project-jdk-type="JavaSDK">
+=======
+<<<<<<< HEAD
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_13" default="false" project-jdk-name="11.0.3" project-jdk-type="JavaSDK">
+=======
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="false" project-jdk-name="13" project-jdk-type="JavaSDK">
+>>>>>>> 9b66e5af7cfc429b6ab7c725b7fa1ad8b0884594
+>>>>>>> dev_Max
     <output url="file://$PROJECT_DIR$/classes" />
   </component>
 </project>

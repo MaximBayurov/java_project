@@ -19,35 +19,42 @@ public class DataBase {
             st.execute("DROP ALL OBJECTS");
             st.execute("CREATE TABLE `structure` (\n" +
                     "  `paragraph` int NOT NULL,\n" +
-//                    "  `chapter` int NOT NULL,\n" + //глава, не понятно как взять
                     "  `sentence` int AUTO_INCREMENT PRIMARY KEY NOT NULL \n" +
                     ");\n" +
                     "\n" +
                     "CREATE TABLE `words` (\n" +
                     "  `id` int AUTO_INCREMENT PRIMARY KEY NOT NULL,\n" +
                     "  `word` char NOT NULL,\n" +
-                    "  `link` char NULL,\n" +
-                    "  `article` char NULL\n" + // название статьи, пока не нужно
+                    "  `article` int NULL\n" +
                     ");\n" +
                     "\n" +
                     "CREATE TABLE `positions` (\n" +
-                    "  `sentence` int PRIMARY KEY NOT NULL,\n" +
                     "  `id` int NOT NULL,\n" +
                     "  `position` int NOT NULL\n" +
-//                    "  `emphasized` bool NOT NULL DEFAULT false\n" +
+                    "  `sentence` int PRIMARY KEY NOT NULL,\n" +
                     ");\n" +
                     "\n" +
-                    "CREATE TABLE `wikipedia` (\n" +
+                    "CREATE TABLE `articles` (\n" +
                     "  `id` int AUTO_INCREMENT PRIMARY KEY NOT NULL,\n" +
-                    "  `word_id` int NOT NULL,\n" +
-                    "  `link` int NOT NULL\n" +
-//                    "  `article` int NOT NULL\n" +
+                    "  `link` char NOT NULL,\n" +
+                    "  `article` char NOT NULL\n" +
+                    ");\n" +
+                    "\n" +
+                    "CREATE TABLE `pages` (\n" +
+                    "  `page` int NOT NULL,\n" +
+                    "  `article` int NOT NULL\n" +
                     ");");
             st.execute("ALTER TABLE `positions` ADD FOREIGN KEY (`sentence`) REFERENCES `structure` (`sentence`);\n" +
                     "\n" +
-                    "ALTER TABLE `positions` ADD FOREIGN KEY (`id`) REFERENCES `words` (`word`);\n" +
+                    "ALTER TABLE `positions` ADD FOREIGN KEY (`id`) REFERENCES `words` (`id`);\n" +
                     "\n" +
-                    "ALTER TABLE `wikipedia` ADD FOREIGN KEY (`word_id`) REFERENCES `words` (`id`);");
+                    "ALTER TABLE `words` ADD FOREIGN KEY (`article`) REFERENCES `articles` (`id`);\n" +
+                    "\n" +
+                    "ALTER TABLE `pages` ADD FOREIGN KEY (`page`) REFERENCES `articles` (`id`);\n" +
+                    "\n" +
+                    "ALTER TABLE `pages` ADD FOREIGN KEY (`article`) REFERENCES `articles` (`id`);\n" +
+                    "\n" +
+                    "ALTER TABLE `wikipedia` ADD FOREIGN KEY (`id`) REFERENCES `words` (`id`);");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -58,13 +65,22 @@ public class DataBase {
     public static void insertTerm(String term, int termPosition, int sentenceNumber){
         try{
             JSONArray jo = Interrogator.wikiOpenSearch(term);
-            PreparedStatement pst = conn.prepareStatement("INSERT INTO `words` VALUES (null, ?,?,?);");
-            //проверить работу инсёрта с null значением
-            //проверить SELECT
+            PreparedStatement pst = conn.prepareStatement("INSERT INTO `words` (word, link, article) VALUES (?,?,?);", Statement.RETURN_GENERATED_KEYS);
             pst.setString(1, term);
-            System.out.println(jo.getJSONArray(3).get(0).toString());
             pst.setString(2, jo.getJSONArray(3).get(0).toString());
             pst.setString(3, jo.getJSONArray(1).get(0).toString());
+            pst.executeUpdate();
+            ResultSet generatedKeys = pst.getGeneratedKeys();
+            System.out.println(term);
+            System.out.println(generatedKeys);
+//            String sql = "SELECT * FROM words";
+//            Statement stSelect = conn.createStatement();
+//            ResultSet rs = stSelect.executeQuery(sql);
+//            while (rs.next()) {
+//                String id = rs.getString("id");
+//                String word = rs.getString("word");
+//                System.out.println(id + " " + word);
+//            }
         }catch (Exception ex) {
             ex.printStackTrace();
         }

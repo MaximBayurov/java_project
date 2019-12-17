@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="java-graph-app:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="d5ad2e5c-7bf5-4542-8024-6999ebb096bc" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/.idea/libraries/org_openjfx_javafx_base_11_0_1_ea_1.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/view/AppFX.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/hello.fxml" afterDir="false" />
@@ -10,6 +16,29 @@
       <change beforePath="$PROJECT_DIR$/java-graph-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/java-graph-app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/model/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/model/Main.java" afterDir="false" />
+=======
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_win_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/HelloFX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/test.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/test.trace.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java-graph-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/java-graph-app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/ArticlesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/ArticlesDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/view/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/view/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/conceptualGraph/AppTest.class" beforeDir="false" />
+>>>>>>> 9b66e5af7cfc429b6ab7c725b7fa1ad8b0884594
+>>>>>>> dev_Max
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,15 +87,29 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574859177346" />
     <property name="full.screen.before.presentation.mode" value="false" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.42873564" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/conceptualGraph" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+>>>>>>> dev_Max
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\work-space\java_project\java-graph-app" />
       <recent name="D:\work-space\java_project\java-graph-app\src\main\resourses" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\work-space\java_project\java-graph-app\src\main\java\com\conceptualGraph" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.conceptualGraph.dBServise.dataSets" />
+      <recent name="com.conceptualGraph.dBServise.dao" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -81,6 +124,7 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="RunManager" selected="Application.AppFX">
     <configuration name="AppFX" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.conceptualGraph.view.AppFX" />
@@ -95,14 +139,37 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+=======
+  <component name="RunManager" selected="Application.Test">
+<<<<<<< HEAD
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="11.0.3" />
+=======
+>>>>>>> dev_Max
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="13" />
+>>>>>>> 9b66e5af7cfc429b6ab7c725b7fa1ad8b0884594
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="com.conceptualGraph.model.Main" />
+      <option name="MAIN_CLASS_NAME" value="com.conceptualGraph.view.Test" />
       <module name="java-graph-app" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.conceptualGraph.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="13" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.conceptualGraph.view.Test" />
+      <module name="java-graph-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.conceptualGraph.view.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -126,14 +193,28 @@
       </method>
     </configuration>
     <list>
+<<<<<<< HEAD
+=======
       <item itemvalue="Application.Main" />
+<<<<<<< HEAD
       <item itemvalue="Application.AppFX" />
+=======
+>>>>>>> 9b66e5af7cfc429b6ab7c725b7fa1ad8b0884594
+      <item itemvalue="Application.Test" />
+>>>>>>> dev_Max
       <item itemvalue="JUnit.AppTest" />
     </list>
     <recent_temporary>
       <list>
+<<<<<<< HEAD
         <item itemvalue="Application.AppFX" />
+=======
+        <item itemvalue="Application.Test" />
+<<<<<<< HEAD
+=======
+>>>>>>> dev_Max
         <item itemvalue="Application.Main" />
+>>>>>>> 9b66e5af7cfc429b6ab7c725b7fa1ad8b0884594
         <item itemvalue="JUnit.AppTest" />
       </list>
     </recent_temporary>
@@ -289,7 +370,84 @@
       <option name="project" value="LOCAL" />
       <updated>1575461782655</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="DictOptimizer optimize">
+      <created>1575549558311</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1575549558311</updated>
+    </task>
+    <task id="LOCAL-00022" summary="PreChecker.arrayCheck corrections">
+      <created>1575554651247</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1575554651247</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Псевдокод для вычленения ФИО">
+      <created>1575561864569</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1575561864569</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Реализация вычленения ФИО">
+      <created>1576080529884</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1576080529884</updated>
+    </task>
+    <task id="LOCAL-00025" summary="DBService">
+      <created>1576322657357</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1576322657357</updated>
+    </task>
+    <task id="LOCAL-00026" summary="DBService">
+      <created>1576322684176</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1576322684176</updated>
+    </task>
+    <task id="LOCAL-00027" summary="DBService +">
+      <created>1576324418910</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1576324418910</updated>
+    </task>
+    <task id="LOCAL-00028" summary="words DAO">
+      <created>1576331213201</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1576331213201</updated>
+    </task>
+    <task id="LOCAL-00029" summary="all DAOs">
+      <created>1576340355354</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1576340355354</updated>
+    </task>
+    <task id="LOCAL-00030" summary="dbService complete">
+      <created>1576366467443</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1576366467443</updated>
+    </task>
+    <task id="LOCAL-00031" summary="dbService +">
+      <created>1576402386678</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1576402386678</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -306,11 +464,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="menu bar, choosing dir(UI), parsing chsn dir" />
-    <MESSAGE value="jsoup, новый класс Reader, метод ReadHTML" />
-    <MESSAGE value="chsn dir full scanning" />
-    <MESSAGE value="new methods" />
-    <MESSAGE value="new menu items" />
     <MESSAGE value="change filechooser" />
     <MESSAGE value="rename filechooser to dirChooser, add fileChooser" />
     <MESSAGE value="idk" />
@@ -326,6 +479,28 @@
     <MESSAGE value="PreChecker - союзы, частицы, предлоги, местоимения" />
     <MESSAGE value="DataBase object" />
     <MESSAGE value="DictOptimize changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="DictOptimize changes" />
+    <MESSAGE value="DictOptimizer optimize" />
+    <MESSAGE value="PreChecker.arrayCheck corrections" />
+    <MESSAGE value="Псевдокод для вычленения ФИО" />
+    <MESSAGE value="Реализация вычленения ФИО" />
+    <MESSAGE value="DBService" />
+    <MESSAGE value="DBService +" />
+    <MESSAGE value="words DAO" />
+    <MESSAGE value="all DAOs" />
+    <MESSAGE value="dbService complete" />
+    <MESSAGE value="dbService +" />
+    <option name="LAST_COMMIT_MESSAGE" value="dbService +" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="term.value" language="JAVA" />
+        <watch expression="term.value" language="JAVA" />
+        <watch expression="term" />
+        <watch expression="term" language="JAVA" />
+        <watch expression="articlesDAO" />
+        <watch expression="articlesDAO" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

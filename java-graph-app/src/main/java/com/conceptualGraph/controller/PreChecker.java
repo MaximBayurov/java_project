@@ -46,9 +46,6 @@ public class PreChecker {
         String words3;
         String words2;
         String words1;
-        for (int k=0; k<words.length; k++){
-            words[k]=bringTo(words[k]);
-        }
         if (words.length>=3) {
             for (int i = 0; i < words.length - 2; i++) {
                 words3 = words[i] + " " + words[i + 1] + " " + words[i + 2];
@@ -75,13 +72,19 @@ public class PreChecker {
         }
         if (words.length>=2){
             words2=words[words.length-2]+" "+words[words.length-1];
+//            System.out.println(words2);
             if (checkContent(words2,2)){
                 booleans[booleans.length-1] = true;
                 booleans[booleans.length-2] = true;
-            }else booleans[booleans.length-2] = false;
+                return booleans;
+            }else if (checkContent(words[words.length-2],1)){
+                booleans[booleans.length-2] = true;
+            }else
+                booleans[booleans.length-2] = false;
         }
         if (words.length>=1){
             words1=words[words.length-1];
+//            System.out.println(words1);
             if (checkContent(words1,1)){
                 booleans[booleans.length-1] = true;
             } else booleans[booleans.length-1] = false;
@@ -101,10 +104,6 @@ public class PreChecker {
             return true;
         } else return false;
     }
-    protected static String bringTo(String word){
-        return word.toLowerCase().replaceAll("[^a-zа-яё/-]","");
-    }
-
     public static void readDicts(){
         try{
             if (!dictsFlag){
