@@ -7,28 +7,85 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5ad2e5c-7bf5-4542-8024-6999ebb096bc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_win_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/HelloFX.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/test.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/test.trace.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java-graph-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/java-graph-app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/ArticlesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/ArticlesDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/view/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/view/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/conceptualGraph/AppTest.class" beforeDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="test" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="test" type="feb32156:DbDataSourceImpl" />
+        <item name="TEST: database" type="2aa06773:H2ImplModel$Database" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="test" type="feb32156:DbDataSourceImpl" />
+        <item name="TEST: database" type="2aa06773:H2ImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="test" type="feb32156:DbDataSourceImpl" />
+        <item name="TEST: database" type="2aa06773:H2ImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="PUBLIC: schema" type="7f85d983:H2ImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="test" type="feb32156:DbDataSourceImpl" />
+        <item name="TEST: database" type="2aa06773:H2ImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="PUBLIC: schema" type="7f85d983:H2ImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="test" type="feb32156:DbDataSourceImpl" />
+        <item name="TEST: database" type="2aa06773:H2ImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="PUBLIC: schema" type="7f85d983:H2ImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="ARTICLES: table" type="818c1b4a:H2ImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="test" type="feb32156:DbDataSourceImpl" />
+        <item name="TEST: database" type="2aa06773:H2ImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="PUBLIC: schema" type="7f85d983:H2ImplModel$Schema" />
+        <item name="sequences" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="test" type="feb32156:DbDataSourceImpl" />
+        <item name="TEST: database" type="2aa06773:H2ImplModel$Database" />
+        <item name="collations" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+    </expand>
+    <select />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="java-graph-app" />
@@ -53,20 +110,32 @@
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="importAutomatically" value="true" />
+        <option name="jdkForImporter" value="13" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
       </MavenImportingSettings>
     </option>
   </component>
   <component name="ProjectId" id="1Rc1ceWTWotSUW1Zdp9GXnkhhQ9" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="h2" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574859177346" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/conceptualGraph" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../stepic_java_webserver-master/L4.1 WebSockets" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -80,18 +149,6 @@
       <recent name="com.conceptualGraph.dBServise.dataSets" />
       <recent name="com.conceptualGraph.dBServise.dao" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Application.Test">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -152,6 +209,38 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:test" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:test" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@5a8e43ca" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:test" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@c16705d" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:test" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@156ed5d1" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -162,6 +251,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1569794357545</updated>
+      <workItem from="1576923113496" duration="2387000" />
+      <workItem from="1576930961310" duration="3434000" />
     </task>
     <task id="LOCAL-00001" summary="menu bar, choosing dir(UI), parsing chsn dir">
       <created>1569962846022</created>
@@ -380,8 +471,18 @@
       <option name="project" value="LOCAL" />
       <updated>1576402386678</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="JavaFX dependencies added to pom.xml">
+      <created>1576443905013</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1576443905013</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -397,7 +498,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="change filechooser" />
     <MESSAGE value="rename filechooser to dirChooser, add fileChooser" />
     <MESSAGE value="idk" />
     <MESSAGE value="добавил стемминг словаря и чтение" />
@@ -422,7 +522,62 @@
     <MESSAGE value="all DAOs" />
     <MESSAGE value="dbService complete" />
     <MESSAGE value="dbService +" />
-    <option name="LAST_COMMIT_MESSAGE" value="dbService +" />
+    <MESSAGE value="JavaFX dependencies added to pom.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="JavaFX dependencies added to pom.xml" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="392" y="89" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576923703938">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="392" y="89" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860@0.0.1600.860" timestamp="1576923703938" />
+    <state x="557" y="234" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1576923463709">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="557" y="234" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1600.860@0.0.1600.860" timestamp="1576923463709" />
+    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1576929999868">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1576929999868" />
+    <state width="1069" height="222" key="GridCell.Tab.0.bottom" timestamp="1576933858087">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1069" height="222" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1576933858087" />
+    <state width="1069" height="222" key="GridCell.Tab.0.center" timestamp="1576933858086">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1069" height="222" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1576933858086" />
+    <state width="1069" height="222" key="GridCell.Tab.0.left" timestamp="1576933858086">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1069" height="222" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1576933858086" />
+    <state width="1069" height="222" key="GridCell.Tab.0.right" timestamp="1576933858087">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1069" height="222" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1576933858087" />
+    <state x="280" y="5" key="SettingsEditor" timestamp="1576923213807">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="280" y="5" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1576923213807" />
+    <state x="392" y="164" key="Vcs.Push.Dialog.v2" timestamp="1576934579680">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="392" y="164" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1576934579680" />
+    <state x="530" y="236" key="com.intellij.database.dbimport.ImportUtil.MyDialog" timestamp="1576924050486">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="530" y="236" key="com.intellij.database.dbimport.ImportUtil.MyDialog/0.0.1600.860@0.0.1600.860" timestamp="1576924050486" />
+    <state x="318" y="136" key="com.intellij.execution.console.ConsoleHistoryController$MyBrowseAction$1" timestamp="1576933058931">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="318" y="136" key="com.intellij.execution.console.ConsoleHistoryController$MyBrowseAction$1/0.0.1600.860@0.0.1600.860" timestamp="1576933058931" />
+    <state x="501" y="255" key="com.intellij.ide.util.TipDialog" timestamp="1576923142360">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="501" y="255" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1576923142360" />
+    <state x="182" y="51" key="new project wizard" timestamp="1576929951387">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="182" y="51" key="new project wizard/0.0.1600.860@0.0.1600.860" timestamp="1576929951387" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
