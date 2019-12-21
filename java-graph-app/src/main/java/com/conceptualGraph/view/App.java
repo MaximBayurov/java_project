@@ -4,6 +4,7 @@ import com.conceptualGraph.BookGenerator;
 import com.conceptualGraph.controller.DictOptimizer;
 import com.conceptualGraph.controller.PreChecker;
 import com.conceptualGraph.model.Reader;
+import org.apache.poi.hpsf.Property;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -152,7 +153,7 @@ public class App {
 
     private class selectFileItemActionListener implements ActionListener {
         @Override
-        public void actionPerformed(ActionEvent e) {
+        public void actionPerformed(ActionEvent e)  {
             if (fileChooser.getSelectedFile() != null) fileChooser.setCurrentDirectory(fileChooser.getSelectedFile());
             else {
                 fileChooser.setCurrentDirectory(new File("./"));

@@ -9,12 +9,7 @@ import com.conceptualGraph.view.App;
 public class Main {
     public static void main( String[] args )
     {
-        try {
-            WordChecker.dbService.createDBTables();
-            Configurator configurator = new Configurator();
-            new App(configurator.getProperties()).start();
-        } catch (DBException ex){
-            ex.printStackTrace();
-        }
+        Configurator configurator = new Configurator();
+        new App(configurator.getProperties()).start();
     }
 }

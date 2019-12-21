@@ -4,6 +4,7 @@ import com.conceptualGraph.controller.PreChecker;
 import com.conceptualGraph.controller.Stemmer;
 import com.conceptualGraph.controller.WordChecker;
 import com.conceptualGraph.dBServise.DBException;
+import com.conceptualGraph.dBServise.DBService;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.jsoup.*;
@@ -20,16 +21,23 @@ public class Reader {
     private static ArrayList<String> dictionary = new ArrayList<>();
 
     public static void checkAndRead(File file){
-//           if (file.toString().toLowerCase().endsWith("doc")){readDoc(file);};
-           if (file.getName().toLowerCase().endsWith("docx")){readDocx(file);}
-           if (file.getName().toLowerCase().endsWith("html")){
-               try {
-                   readHTML(file);
-               } catch (Exception e) {
-                   System.out.println(e.getMessage());
-               }
-           }
-           if (file.getName().toLowerCase().endsWith("txt")){readTXT(file);}
+        try{
+
+            WordChecker.dbService.dropDB();
+            WordChecker.dbService.createDBTables();
+            //           if (file.toString().toLowerCase().endsWith("doc")){readDoc(file);};
+            if (file.getName().toLowerCase().endsWith("docx")){readDocx(file);}
+            if (file.getName().toLowerCase().endsWith("html")){
+                try {
+                    readHTML(file);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            if (file.getName().toLowerCase().endsWith("txt")){readTXT(file);}
+        } catch (DBException ex){
+            ex.printStackTrace();
+        }
 
     }
 

@@ -95,6 +95,25 @@ public class Interrogator {
     //                    System.out.println(link.attr("href"));
     //                }
     //            }
+        for (int i=0;i<links.size(); i++){
+            String href = links.get(i).attr("href");
+            String title = links.get(i).attr("title");
+            if (
+                    title.equals("") //пустышки
+                            || href.matches("^http.*") //ссылка не внутренняя или неправильная
+                            || href.matches(".*?redlink=1.*")
+                            || title.matches("^.*?(?:В|в)икипедия.*$")
+                            || href.matches(".*?[.](jpg|svg|png|gif|bmp|jpeg)$")  //картинки флагов/карты
+                            || title.matches("^[0-9]{0,4}(?:(?:-е|-ый|-й)? годы?|(?: до н[.]э[.]| до нашей эры).*|)$")  //года -e годы просто 1999 до н.э.
+                            || title.matches("^. \\((?:.*?ца|число)\\)") //кириллица/латиница/число
+                            || title.matches("^[0-9]{0,2} (?:января|февраля|марта|апреля|мая|июня|июля|августа|сентября|октября|ноября|декабря)$") //месяц
+                            || title.matches("^(Шаблон|Обсуждение|UTC.*|Категория|Служебная|Участник|Проект):.*")
+            ){
+                links.remove(i);
+                i--;
+            }
+        }
+
         return links;
     }
 }
