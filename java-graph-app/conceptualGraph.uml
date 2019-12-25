@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.conceptualGraph</OriginalElement>
+  <nodes>
+    <node x="1560.0" y="1025.0">com.conceptualGraph.view.App.generateBookActionListener</node>
+    <node x="1342.0" y="1527.0">com.conceptualGraph.model.Reader</node>
+    <node x="0.0" y="1775.0">com.conceptualGraph.dBServise.dataSets.PagesDataSet</node>
+    <node x="246.0" y="1123.0">com.conceptualGraph.controller.WordChecker</node>
+    <node x="1726.0" y="1123.0">com.conceptualGraph.dBServise.dataSets.WordsDataSet</node>
+    <node x="1672.0" y="1775.0">com.conceptualGraph.dBServise.executor.ResultHandler</node>
+    <node x="1867.0" y="1775.0">com.conceptualGraph.view.Test</node>
+    <node x="908.5" y="642.0">com.conceptualGraph.view.App</node>
+    <node x="1816.0" y="1025.0">com.conceptualGraph.view.App.readTxtActionListener</node>
+    <node x="519.9999999999999" y="1025.0">com.conceptualGraph.view.App.enterFileNumberActionListener</node>
+    <node x="247.5" y="1878.0">com.conceptualGraph.controller.WordCheckerController</node>
+    <node x="564.0" y="1527.0">com.conceptualGraph.dBServise.dataSets.ArticlesDataSet</node>
+    <node x="1303.0" y="1025.0">com.conceptualGraph.view.App.selectDirItemActionListener</node>
+    <node x="263.9999999999999" y="1025.0">com.conceptualGraph.view.App.MyTestItemActionListener</node>
+    <node x="989.0" y="1775.0">com.conceptualGraph.AppTest</node>
+    <node x="841.0" y="1123.0">com.conceptualGraph.dBServise.dao.ArticlesDAO</node>
+    <node x="230.0" y="1775.0">com.conceptualGraph.controller.WordCheckerControllerMBean</node>
+    <node x="0.0" y="1979.0">com.conceptualGraph.model.Main</node>
+    <node x="0.0" y="1527.0">com.conceptualGraph.dBServise.executor.Executor</node>
+    <node x="531.0" y="1123.0">com.conceptualGraph.dBServise.dao.WordsDAO</node>
+    <node x="790.9999999999999" y="1025.0">com.conceptualGraph.view.App.NewActionListener</node>
+    <node x="0.0" y="1123.0">com.conceptualGraph.controller.Stemmer</node>
+    <node x="1047.0" y="1025.0">com.conceptualGraph.view.App.wikiTestItemActionListener</node>
+    <node x="846.0" y="1527.0">com.conceptualGraph.dBServise.dao.StructureDAO</node>
+    <node x="1467.0" y="1775.0">com.conceptualGraph.controller.InterrogatorTest</node>
+    <node x="1585.0" y="1527.0">com.conceptualGraph.BookGenerator</node>
+    <node x="1105.0" y="1527.0">com.conceptualGraph.dBServise.dao.PagesDAO</node>
+    <node x="0.0" y="0.0">com.conceptualGraph.dBServise.DBService</node>
+    <node x="1828.0" y="1527.0">com.conceptualGraph.dBServise.dataSets.StructureDataSet</node>
+    <node x="1137.0" y="1123.0">com.conceptualGraph.controller.PreChecker</node>
+    <node x="0.0" y="1025.0">com.conceptualGraph.view.App.selectFileItemActionListener</node>
+    <node x="1444.0" y="1123.0">com.conceptualGraph.controller.DictOptimizer</node>
+    <node x="505.0" y="1775.0">com.conceptualGraph.controller.Interrogator</node>
+    <node x="300.0" y="1527.0">com.conceptualGraph.dBServise.dao.PositionsDAO</node>
+    <node x="1240.0" y="1775.0">com.conceptualGraph.dBServise.DBException</node>
+    <node x="786.0" y="1775.0">com.conceptualGraph.controller.Configurator</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.conceptualGraph.controller.WordCheckerController" target="com.conceptualGraph.controller.WordCheckerControllerMBean">
+      <point x="0.0" y="-26.5" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="com.conceptualGraph.view.App.selectDirItemActionListener" target="com.conceptualGraph.view.App">
+      <point x="0.0" y="-26.5" />
+      <point x="1421.5" y="995.0" />
+      <point x="1085.1875" y="995.0" />
+      <point x="48.1875" y="156.5" />
+    </edge>
+    <edge source="com.conceptualGraph.view.App.selectFileItemActionListener" target="com.conceptualGraph.view.App">
+      <point x="0.0" y="-26.5" />
+      <point x="122.0" y="975.0" />
+      <point x="924.5625" y="975.0" />
+      <point x="-112.4375" y="156.5" />
+    </edge>
+    <edge source="com.conceptualGraph.view.App.readTxtActionListener" target="com.conceptualGraph.view.App">
+      <point x="0.0" y="-26.5" />
+      <point x="1934.0" y="975.0" />
+      <point x="1149.4375" y="975.0" />
+      <point x="112.4375" y="156.5" />
+    </edge>
+    <edge source="com.conceptualGraph.view.App.MyTestItemActionListener" target="com.conceptualGraph.view.App">
+      <point x="0.0" y="-26.5" />
+      <point x="381.9999999999999" y="985.0" />
+      <point x="956.6875" y="985.0" />
+      <point x="-80.3125" y="156.5" />
+    </edge>
+    <edge source="com.conceptualGraph.view.App.NewActionListener" target="com.conceptualGraph.view.App">
+      <point x="1.1368683772161603E-13" y="-26.5" />
+      <point x="909.0" y="1005.0" />
+      <point x="1020.9375" y="1005.0" />
+      <point x="-16.0625" y="156.5" />
+    </edge>
+    <edge source="com.conceptualGraph.view.App.enterFileNumberActionListener" target="com.conceptualGraph.view.App">
+      <point x="0.0" y="-26.5" />
+      <point x="645.4999999999999" y="995.0" />
+      <point x="988.8125" y="995.0" />
+      <point x="-48.1875" y="156.5" />
+    </edge>
+    <edge source="com.conceptualGraph.view.App.wikiTestItemActionListener" target="com.conceptualGraph.view.App">
+      <point x="0.0" y="-26.5" />
+      <point x="1165.0" y="1005.0" />
+      <point x="1053.0625" y="1005.0" />
+      <point x="16.0625" y="156.5" />
+    </edge>
+    <edge source="com.conceptualGraph.view.App.generateBookActionListener" target="com.conceptualGraph.view.App">
+      <point x="0.0" y="-26.5" />
+      <point x="1678.0" y="985.0" />
+      <point x="1117.3125" y="985.0" />
+      <point x="80.3125" y="156.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.9440545808966861" x="599.3582477855447" y="343.26613043131636" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
