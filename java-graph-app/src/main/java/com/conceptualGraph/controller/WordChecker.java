@@ -14,6 +14,7 @@ import java.util.regex.Pattern;
 public class WordChecker {
 
     public static DBService dbService = new DBService();
+    public static int queryLimit = 1;
     private static int sentenceNumber = 0;
     private static int paragraphNumber = 0;
     private static ArrayList<String> dictionary = new ArrayList<>();
@@ -152,4 +153,5 @@ public class WordChecker {
         }
         return booleans;
     }
+
 }
