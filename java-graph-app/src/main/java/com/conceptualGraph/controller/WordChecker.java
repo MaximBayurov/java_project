@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
 
 public class WordChecker {
 
+    private static ArrayList<String> potentialTerms =new ArrayList();
     public static DBService dbService = new DBService();
     public static int queryLimit = 1;
     private static int sentenceNumber = 0;
@@ -93,8 +94,9 @@ public class WordChecker {
     }
 
     public static int[] paragraphCheck(String paragraph, int countDictWords, int wordsNumber){
+        potentialTerms.clear();
         paragraphNumber++;
-        String[] sentences = paragraph.split("(?<![A-ZА-ЯЁ])[\\.\\?\\;\\!]+"); //(?<![\\. ][A-ZА-ЯЁ])[\\.\\?\\;\\!]
+        String[] sentences = paragraph.split("(?<![A-ZА-ЯЁ])[\\.\\?\\;\\!]+");
         for (String sentence: sentences) {
             sentenceNumber++;
             dbService.addStructure(paragraphNumber,sentenceNumber);
@@ -109,9 +111,6 @@ public class WordChecker {
                 }
             }
             String word;
-//            for (int i=0; i<words.length; i++) {
-//                System.out.println(booleans[i] + " " + words[i]);
-//            }
             for (int j = 0; j<words.length; j++){
                 word = words[j].trim();
                 if (word.isEmpty()) {
@@ -121,6 +120,7 @@ public class WordChecker {
                     countDictWords++;
                     continue;
                 }else if (!check(word)) {
+                    potentialTerms.add(word);
                     dbService.insertTerm(word, wordsNumber, sentenceNumber);
                     countDictWords++;
                 }

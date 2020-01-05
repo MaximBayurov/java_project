@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.List;
 
-public class DBService {
+public class  DBService {
 
     private final Connection connection;
 
