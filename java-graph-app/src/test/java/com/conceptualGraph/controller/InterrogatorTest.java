@@ -47,7 +47,8 @@ class InterrogatorTest {
 //            } catch (IOException ex){
 //            Assert.fail("Невозможно получить документ по ссылке (установить соединение)");
 //        }
-        String url = "https://ru.wikipedia.org/w/api.php?action=parse&pageid=123&prop=links&format=json";
+        String pageTitle = "Москва";
+        String url = "https://ru.wikipedia.org/w/api.php?action=parse&page="+pageTitle+"&prop=links&format=json";
         URL obj = new URL(url);
         HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
 
@@ -75,18 +76,16 @@ class InterrogatorTest {
     void wikiOpenSearch() throws IOException, InterruptedException {
         List<String> links = Collections.synchronizedList(new ArrayList<String>());
         ArrayList<String> words = new ArrayList<>();
-        for (int i=0;i<10;i++){
-            words.add("Москва");
-            words.add("подарок");
-            words.add("фотография");
-            words.add("мать");
-            words.add("душа");
-            words.add("язык");
-            words.add("писатель");
-            words.add("сомнение");
-            words.add("работа");
-            words.add("журналист");
-        }
+        words.add("Москва");
+        words.add("подарок");
+        words.add("фотография");
+        words.add("мать");
+        words.add("душа");
+        words.add("язык");
+        words.add("писатель");
+        words.add("сомнение");
+        words.add("работа");
+        words.add("журналист");
 
 
 //        long start = System.nanoTime();
@@ -100,6 +99,7 @@ class InterrogatorTest {
 
         long start1 = System.nanoTime();
         wikiSearchThread myThreads[] = new wikiSearchThread[words.size()];
+        selectLinksThread myThreads2[] = new selectLinksThread[words.size()];
         for (int j = 0; j < words.size(); j++) {
             myThreads[j] = new wikiSearchThread(words.get(j));
             myThreads[j].start();
@@ -108,10 +108,23 @@ class InterrogatorTest {
             myThreads[j].join(); //todo add catch exception
         }
         for (int j=0; j< words.size(); j++){
-            System.out.println("Слово: "+myThreads[j].getWordWithLink()[0]+"\nСсылка: "+myThreads[j].getWordWithLink()[1]+"\n");
+            System.out.println("Слово: "+myThreads[j].getWordWithLink()[0]+"\nСсылка: "+myThreads[j].getWordWithLink()[1]+"\n" + "Обрезаная ссылка: "+myThreads[j].getWordWithLink()[1].substring(30)+"\n");
+            myThreads2[j] = new selectLinksThread(myThreads[j].getWordWithLink()[1].substring(30));
+            myThreads2[j].start();
+        }
+        for (int j = 0; j < words.size(); j++) {
+            myThreads2[j].join(); //todo add catch exception
         }
         double end1 = Math.pow(10,-9)*(System.nanoTime() - start1);
         System.out.println(end1);
         //~3 second
+    }
+
+    @Test
+    void wikiAPISelectLinks() {
+        ArrayList<String> links = Interrogator.wikiAPISelectLinks("%D0%9F%D0%BE%D0%B4%D0%B0%D1%80%D0%BE%D0%BA_%D0%BD%D0%B0_%D0%A0%D0%BE%D0%B6%D0%B4%D0%B5%D1%81%D1%82%D0%B2%D0%BE");
+        for (String link: links){
+            System.out.println(link);
+        }
     }
 }

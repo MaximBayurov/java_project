@@ -6,12 +6,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5ad2e5c-7bf5-4542-8024-6999ebb096bc" name="Default Changelist" comment="main package uml class diagram">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/wikiSearchThread.java" afterDir="false" />
+    <list default="true" id="d5ad2e5c-7bf5-4542-8024-6999ebb096bc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/selectLinksThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/test.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/test.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/WordChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/WordChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/DBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/DBService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/test.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/test.trace.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/Interrogator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/Interrogator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/conceptualGraph/controller/InterrogatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/conceptualGraph/controller/InterrogatorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -162,21 +161,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="13" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="com.conceptualGraph.view.Test" />
-      <module name="java-graph-app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.conceptualGraph.view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="InterrogatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-graph-app" />
       <extension name="coverage">
@@ -208,6 +192,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="InterrogatorTest.wikiAPISelectLinks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-graph-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.conceptualGraph.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.conceptualGraph.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.conceptualGraph.controller.InterrogatorTest" />
+      <option name="METHOD_NAME" value="wikiAPISelectLinks" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="InterrogatorTest.wikiOpenSearch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-graph-app" />
       <extension name="coverage">
@@ -226,18 +226,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.InterrogatorTest" />
       <item itemvalue="JUnit.InterrogatorTest.selectLinks" />
       <item itemvalue="JUnit.InterrogatorTest.wikiOpenSearch" />
+      <item itemvalue="JUnit.InterrogatorTest.wikiAPISelectLinks" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.InterrogatorTest.wikiOpenSearch" />
+        <item itemvalue="JUnit.InterrogatorTest.wikiAPISelectLinks" />
         <item itemvalue="JUnit.InterrogatorTest.selectLinks" />
         <item itemvalue="JUnit.InterrogatorTest" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -276,7 +276,7 @@
       <workItem from="1578141129488" duration="899000" />
       <workItem from="1578149920607" duration="1685000" />
       <workItem from="1578220714406" duration="105000" />
-      <workItem from="1578240943194" duration="10184000" />
+      <workItem from="1578240943194" duration="13832000" />
     </task>
     <task id="LOCAL-00001" summary="menu bar, choosing dir(UI), parsing chsn dir">
       <created>1569962846022</created>
@@ -537,7 +537,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577254742600</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="tests for multithreading">
+      <created>1578252005824</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1578252005824</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,7 +564,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="союзы и предлоги" />
     <MESSAGE value="новый словарь" />
     <MESSAGE value="new class Interrogorator 4 wiki requests" />
     <MESSAGE value="Interrogator.getPage()" />
@@ -582,7 +588,8 @@
     <MESSAGE value="Проверка ссылок, получаемых selectLinks'ом" />
     <MESSAGE value="MBean + test" />
     <MESSAGE value="main package uml class diagram" />
-    <option name="LAST_COMMIT_MESSAGE" value="main package uml class diagram" />
+    <MESSAGE value="tests for multithreading" />
+    <option name="LAST_COMMIT_MESSAGE" value="tests for multithreading" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="89" key="#Notifications" timestamp="1576934906632">
@@ -613,10 +620,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="480" y="75" key="#com.intellij.unscramble.UnscrambleDialog/0.0.1600.860@0.0.1600.860" timestamp="1577256035625" />
-    <state x="555" y="51" key="CommitChangelistDialog2" timestamp="1578073529246">
+    <state x="555" y="51" key="CommitChangelistDialog2" timestamp="1578252002469">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="555" y="51" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1578073529246" />
+    <state x="555" y="51" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1578252002469" />
     <state x="92" y="92" width="1416" height="676" key="DiffContextDialog" timestamp="1578251968350">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -625,22 +632,22 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1578220817441" />
-    <state width="1011" height="702" key="GridCell.Tab.0.bottom" timestamp="1578251546169">
+    <state width="1557" height="44" key="GridCell.Tab.0.bottom" timestamp="1578255695858">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1011" height="702" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1578251546169" />
-    <state width="1011" height="702" key="GridCell.Tab.0.center" timestamp="1578251546169">
+    <state width="1557" height="44" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1578255695858" />
+    <state width="1557" height="44" key="GridCell.Tab.0.center" timestamp="1578255695858">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1011" height="702" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1578251546169" />
-    <state width="1011" height="702" key="GridCell.Tab.0.left" timestamp="1578251546169">
+    <state width="1557" height="44" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1578255695858" />
+    <state width="1557" height="44" key="GridCell.Tab.0.left" timestamp="1578255695857">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1011" height="702" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1578251546169" />
-    <state width="1011" height="702" key="GridCell.Tab.0.right" timestamp="1578251546169">
+    <state width="1557" height="44" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1578255695857" />
+    <state width="1557" height="44" key="GridCell.Tab.0.right" timestamp="1578255695858">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1011" height="702" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1578251546169" />
+    <state width="1557" height="44" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1578255695858" />
     <state width="1557" height="276" key="GridCell.Tab.1.bottom" timestamp="1576961390676">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -673,10 +680,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="280" y="5" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1576943926579" />
-    <state x="392" y="164" key="Vcs.Push.Dialog.v2" timestamp="1578073532911">
+    <state x="392" y="164" key="Vcs.Push.Dialog.v2" timestamp="1578252009669">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="164" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1578073532911" />
+    <state x="392" y="164" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1578252009669" />
     <state x="530" y="236" key="com.intellij.database.dbimport.ImportUtil.MyDialog" timestamp="1576924050486">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -689,10 +696,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="501" y="255" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1578220747197" />
-    <state x="959" y="240" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1578245327283">
+    <state x="959" y="240" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1578255025720">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="959" y="240" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1600.860@0.0.1600.860" timestamp="1578245327283" />
+    <state x="959" y="240" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1600.860@0.0.1600.860" timestamp="1578255025720" />
     <state x="182" y="51" key="new project wizard" timestamp="1577451540469">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
