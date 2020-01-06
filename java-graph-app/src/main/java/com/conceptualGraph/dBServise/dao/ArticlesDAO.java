@@ -24,8 +24,7 @@ public class ArticlesDAO {
             result.next();
             return new ArticlesDataSet(
                     result.getLong(1),
-                    result.getString(2),
-                    result.getString(3));
+                    result.getString(2));
         });
     }
 
@@ -33,7 +32,6 @@ public class ArticlesDAO {
         executor.execUpdate(
                 "CREATE TABLE IF NOT EXISTS `articles` (\n" +
                         "  `id` int AUTO_INCREMENT PRIMARY KEY NOT NULL,\n" +
-                        "  `link` char UNIQUE NOT NULL,\n" +
                         "  `article` char NOT NULL\n" +
                         ");\n"
         );
@@ -43,9 +41,8 @@ public class ArticlesDAO {
 
     public long insertArticleWithID(String link, String article) throws SQLException {
         try {
-            executor.prepareQuery("insert into articles (id,link, article) values (default,?,?)");
-            executor.preparedStatement.setString(1, link);
-            executor.preparedStatement.setString(2, article);
+            executor.prepareQuery("insert into articles (id,article) values (default,?)");
+            executor.preparedStatement.setString(1, article);
             executor.preparedStatement.execute();
             ResultSet generatedKeys = executor.preparedStatement.getGeneratedKeys();
             generatedKeys.next();
@@ -59,12 +56,12 @@ public class ArticlesDAO {
         }
     }
 
-    public void insertArticle(String link, String article) throws SQLException {
-        executor.execUpdate("insert into articles (id,link, article) values (default,'" + link + "','" + article + "')");
+    public void insertArticle(String article) throws SQLException {
+        executor.execUpdate("insert into articles (id,link, article) values (default,'" + article + "')");
     }
 
-    public long getArticleId(String link) throws SQLException {
-        return executor.execQuery("select * from articles where link='" + link + "'", result -> {
+    public long getArticleId(String article) throws SQLException {
+        return executor.execQuery("select * from articles where article='" + article + "'", result -> {
             result.next();
             return result.getLong(1);
         });
@@ -80,8 +77,7 @@ public class ArticlesDAO {
             while (result.next()){
                 articlesDataSets.add( new ArticlesDataSet(
                         result.getLong(1),
-                        result.getString(2),
-                        result.getString(3)));
+                        result.getString(2)));
 
             }
             return articlesDataSets;
