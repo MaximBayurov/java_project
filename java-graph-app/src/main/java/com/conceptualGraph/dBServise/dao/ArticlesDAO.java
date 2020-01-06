@@ -39,7 +39,7 @@ public class ArticlesDAO {
 
 
 
-    public long insertArticleWithID(String link, String article) throws SQLException {
+    public long insertArticleWithID(String article) throws SQLException {
         try {
             executor.prepareQuery("insert into articles (id,article) values (default,?)");
             executor.preparedStatement.setString(1, article);
@@ -50,14 +50,14 @@ public class ArticlesDAO {
             generatedKeys.close();
             return id;
         } catch (JdbcSQLIntegrityConstraintViolationException ex){
-            return getArticleId(link);
+            return getArticleId(article);
         }finally {
             executor.preparedStatement.close();
         }
     }
 
     public void insertArticle(String article) throws SQLException {
-        executor.execUpdate("insert into articles (id,link, article) values (default,'" + article + "')");
+        executor.execUpdate("insert into articles (id, article) values (default,'" + article + "')");
     }
 
     public long getArticleId(String article) throws SQLException {
@@ -67,20 +67,4 @@ public class ArticlesDAO {
         });
     }
 
-    public void dropTable() throws  SQLException{
-        executor.execUpdate("drop table articles cascade");
-    }
-
-    public List<ArticlesDataSet> getAll() throws SQLException {
-        return executor.execQuery("select * from articles where link like 'https://ru.wiktionary.org%'", result -> {
-            ArrayList<ArticlesDataSet> articlesDataSets = new ArrayList<>();
-            while (result.next()){
-                articlesDataSets.add( new ArticlesDataSet(
-                        result.getLong(1),
-                        result.getString(2)));
-
-            }
-            return articlesDataSets;
-        } );
-    }
 }

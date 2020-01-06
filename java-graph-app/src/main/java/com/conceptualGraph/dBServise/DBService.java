@@ -157,12 +157,12 @@ public class  DBService {
     }
 
 
-    public void addArticle(String link, String article) throws DBException {
+    public void addArticle(String article) throws DBException {
         try {
             connection.setAutoCommit(false);
             ArticlesDAO dao = new ArticlesDAO(connection);
             dao.createTable();
-            dao.insertArticle(link,article);
+            dao.insertArticle(article);
             connection.commit();
         } catch (SQLException e){
             try{
@@ -304,7 +304,7 @@ public class  DBService {
                 if (!fullLink.isEmpty()) {
                     ArticlesDAO articlesDAO = new ArticlesDAO(connection);
                     articleID = articlesDAO.insertArticleWithID(
-                            shortLink, articleTitle);
+                            articleTitle);
                     PagesDAO pagesDAO = new PagesDAO(connection);
 
                     if (articleID != -1) {
@@ -314,7 +314,6 @@ public class  DBService {
                         for (Element link : links){
                             if (link.attr("href").contains("wiki")){
                                 linkID = articlesDAO.insertArticleWithID(
-                                        link.attr("href"),
                                         link.attr("title"));
                                 pagesDAO.insertPage(articleID, linkID);
                             }
@@ -342,36 +341,6 @@ public class  DBService {
                 connection.setAutoCommit(true);
             }catch (SQLException ignore){
             }
-        }
-    }
-
-    public void printWordsWithArticles() {
-        try {
-            Statement st = connection.createStatement();
-            st.execute("SELECT words.id, words.word, articles.article, articles.link FROM WORDS INNER JOIN" +
-                    " articles ON words.article = articles.id");
-            ResultSet rs = st.getResultSet();
-            while (rs.next()) {
-                System.out.println(rs.getLong(1) + " |" +
-                        " " + rs.getString(2) + " |" +
-                        " " + rs.getString(3) + " |" +
-                        " " + rs.getString(4));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    public void printAllArticles() throws DBException {
-        ArticlesDAO dao = new ArticlesDAO(connection);
-        try{
-            List<ArticlesDataSet> all = dao.getAll();
-            for (ArticlesDataSet dataSet: all){
-                System.out.println(dataSet);
-            }
-        }catch (SQLException e){
-            throw new DBException(e);
         }
     }
 }
