@@ -1,5 +1,7 @@
 package com.conceptualGraph.controller;
 
+import com.conceptualGraph.controller.threads.SelectLinksThread;
+import com.conceptualGraph.controller.threads.WikiSearchThread;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
@@ -98,10 +100,10 @@ class InterrogatorTest {
 
 
         long start1 = System.nanoTime();
-        wikiSearchThread myThreads[] = new wikiSearchThread[words.size()];
-        selectLinksThread myThreads2[] = new selectLinksThread[words.size()];
+        WikiSearchThread myThreads[] = new WikiSearchThread[words.size()];
+        SelectLinksThread myThreads2[] = new SelectLinksThread[words.size()];
         for (int j = 0; j < words.size(); j++) {
-            myThreads[j] = new wikiSearchThread(words.get(j));
+            myThreads[j] = new WikiSearchThread(words.get(j));
             myThreads[j].start();
         }
         for (int j = 0; j < words.size(); j++) {
@@ -109,7 +111,7 @@ class InterrogatorTest {
         }
         for (int j=0; j< words.size(); j++){
             System.out.println("Слово: "+myThreads[j].getWordWithLink()[0]+"\nСсылка: "+myThreads[j].getWordWithLink()[1]+"\n" + "Обрезаная ссылка: "+myThreads[j].getWordWithLink()[1].substring(30)+"\n");
-            myThreads2[j] = new selectLinksThread(myThreads[j].getWordWithLink()[1].substring(30));
+            myThreads2[j] = new SelectLinksThread(myThreads[j].getWordWithLink()[1].substring(30));
             myThreads2[j].start();
         }
         for (int j = 0; j < words.size(); j++) {

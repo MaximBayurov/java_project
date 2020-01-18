@@ -46,178 +46,6 @@ public class  DBService {
         }
         return null;
     }
-
-    public void printConnectInfo() {
-        try {
-            System.out.println("DB name: " + connection.getMetaData().getDatabaseProductName());
-            System.out.println("DB version: " + connection.getMetaData().getDatabaseProductVersion());
-            System.out.println("Driver: " + connection.getMetaData().getDriverName());
-            System.out.println("Autocommit: " + connection.getAutoCommit());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public WordsDataSet getWord(long id) throws  DBException{
-        try {
-            return (new WordsDAO(connection).get(id));
-        } catch (SQLException e) {
-            throw new DBException(e);
-        }
-    }
-
-    public void addWord(String word, int article) throws  DBException{
-        try {
-            connection.setAutoCommit(false);
-            WordsDAO dao = new WordsDAO(connection);
-            dao.createTable();
-            dao.insertWord(word,article);
-            connection.commit();
-        } catch (SQLException e){
-            try{
-                connection.rollback();
-            }catch (SQLException ignore){
-            }
-            throw  new DBException(e);
-        } finally {
-            try{
-                connection.setAutoCommit(true);
-            }catch (SQLException ignore){
-            }
-        }
-    }
-
-    public WordsDataSet getWordByText(String text) throws DBException {
-        try {
-            return (new WordsDAO((connection)).get(
-                    new WordsDAO((connection)).getWordId(text)
-            ));
-        }catch (SQLException e){
-            throw new DBException(e);
-        }
-    }
-
-
-    public void dropWords() throws DBException {
-        WordsDAO dao = new WordsDAO(connection);
-        try {
-            dao.dropTable();
-        } catch (SQLException e) {
-            throw new DBException(e);
-        }
-    }
-
-    public List<WordsDataSet> getAllWords() throws DBException {
-        WordsDAO dao = new WordsDAO(connection);
-        try{
-            List<WordsDataSet> wordsDataSets = dao.getAll();
-            return wordsDataSets;
-        }catch (SQLException e){
-            throw new DBException(e);
-        }
-    }
-
-    public List<WordsDataSet> getAllMatches(String text) throws DBException {
-        WordsDAO dao = new WordsDAO(connection);
-        try{
-            List<WordsDataSet> wordsDataSets = dao.getAllByText(text);
-            return wordsDataSets;
-        }catch (SQLException e){
-            throw new DBException(e);
-        }
-    }
-    /**ПОЗИЦИИ*/
-    public void addPosition(long id, int position, int sentence) throws  DBException {
-        try {
-            connection.setAutoCommit(false);
-            PositionsDAO dao = new PositionsDAO(connection);
-            dao.insertPosition(id, position, sentence);
-            System.out.println("Создана таблица и добавлены позиции и предложения: " + position + " kek " + sentence);
-            connection.commit();
-        } catch (SQLException e) {
-        }
-    }
-
-    public int getCount(long id) throws DBException {
-        try {
-            return (new PositionsDAO(connection).getWordCount(id));
-        } catch (SQLException e) {
-            throw new DBException(e);
-        }
-    }
-
-
-    public void dropPositions() throws DBException {
-        PositionsDAO dao = new PositionsDAO(connection);
-        try {
-            dao.dropTable();
-        } catch (SQLException e) {
-            throw new DBException(e);
-        }
-    }
-
-
-    public void addArticle(String article) throws DBException {
-        try {
-            connection.setAutoCommit(false);
-            ArticlesDAO dao = new ArticlesDAO(connection);
-            dao.createTable();
-            dao.insertArticle(article);
-            connection.commit();
-        } catch (SQLException e){
-            try{
-                connection.rollback();
-            }catch (SQLException ignore){
-            }
-            throw  new DBException(e);
-        } finally {
-            try{
-                connection.setAutoCommit(true);
-            }catch (SQLException ignore){
-            }
-        }
-    }
-
-
-    public ArticlesDataSet getArticle(long id) throws  DBException{
-        try {
-            return (new ArticlesDAO(connection).get(id));
-        } catch (SQLException e) {
-            throw new DBException(e);
-        }
-    }
-
-    public ArticlesDataSet getArticleByText(String articleName)  throws DBException {
-        try {
-            return (new ArticlesDAO((connection)).get(
-                    new ArticlesDAO((connection)).getArticleId(articleName)
-            ));
-        }catch (SQLException e){
-            throw new DBException(e);
-        }
-    }
-
-    public void addPage(int page, int article) throws DBException{
-        try {
-            connection.setAutoCommit(false);
-            PagesDAO dao = new PagesDAO(connection);
-            dao.createTable();
-            dao.insertPage(page,article);
-            connection.commit();
-        } catch (SQLException e){
-            try{
-                connection.rollback();
-            }catch (SQLException ignore){
-            }
-            throw  new DBException(e);
-        } finally {
-            try{
-                connection.setAutoCommit(true);
-            }catch (SQLException ignore){
-            }
-        }
-    }
-
     /**
      * STRUCTURE
      */
@@ -310,6 +138,66 @@ public class  DBService {
                     if (articleID != -1) {
                         /*переходим по сслыке википедии, чтобы взять линки*/
                         Elements links = Interrogator.selectLinks(fullLink);
+                        long linkID;
+                        for (Element link : links){
+                            if (link.attr("href").contains("wiki")){
+                                linkID = articlesDAO.insertArticleWithID(
+                                        link.attr("title"));
+                                pagesDAO.insertPage(articleID, linkID);
+                            }
+                        }
+                    }
+                }
+                /*здесь в зависимости от значения articleID мы вставляем слово в таблицу по разному*/
+                wordID = wordsDAO.insertWord(term, articleID);
+            }
+            PositionsDAO positionsDAO = new PositionsDAO(connection);
+            positionsDAO.insertPosition(wordID, termPosition, sentenceNumber);
+            connection.commit();
+        }
+        catch (SQLException e){
+            try{
+                connection.rollback();
+            }catch (SQLException ignore){
+            }
+        }
+        catch (IOException IOEx){
+            IOEx.printStackTrace();
+        }
+        finally {
+            try{
+                connection.setAutoCommit(true);
+            }catch (SQLException ignore){
+            }
+        }
+    }
+
+    public void insertWikiWord(String term, int termPosition, int sentenceNumber, String wordLink) {
+        try{
+            connection.setAutoCommit(false);
+            if (wordLink.isEmpty()){
+                WordsDAO wordsDAO = new WordsDAO(connection);
+                long wordID = wordsDAO.insertWord(term, -1);
+                PositionsDAO positionsDAO = new PositionsDAO(connection);
+                positionsDAO.insertPosition(wordID, termPosition, sentenceNumber);
+                connection.commit();
+                return;
+            }
+            WordsDAO wordsDAO = new WordsDAO(connection);
+            long wordID = wordsDAO.getExistingID(wordLink);
+
+            if(wordID==-1){
+                /*слово с такой ссылкой не существует (уникально), поэтому добавляем его в WORDS и ARTICLES*/
+                long articleID = -1;
+                if (!wordLink.isEmpty()) {
+                    ArticlesDAO articlesDAO = new ArticlesDAO(connection);
+                    articleID = articlesDAO.insertArticleWithID(
+                            wordLink);
+                    PagesDAO pagesDAO = new PagesDAO(connection);
+
+                    if (articleID != -1) {
+                        /*переходим по сслыке википедии, чтобы взять линки*/
+                        Elements links = Interrogator.selectLinks(wordLink);
                         long linkID;
                         for (Element link : links){
                             if (link.attr("href").contains("wiki")){
