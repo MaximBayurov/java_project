@@ -142,6 +142,8 @@ public class Reader {
             exampleDoc.close();
         } catch (IOException ex) {
             System.err.println(ex.getMessage() + "\n");
+        } catch (InterruptedException interaptedEx){
+            interaptedEx.printStackTrace();
         }
 //        catch (DBException DBEx){
 //            DBEx.printStackTrace();

@@ -1,5 +1,6 @@
 package com.conceptualGraph.controller;
 
+import com.conceptualGraph.controller.threads.SelectLinksThread;
 import com.conceptualGraph.controller.threads.WikiSearchThread;
 import com.conceptualGraph.dBServise.DBException;
 import com.conceptualGraph.dBServise.DBService;
@@ -122,16 +123,17 @@ public class WordChecker {
                     countDictWords++;
                     continue;
                 }else if (!check(word)) {
+
                     if (threadsCount<threadsLimit){
                         structure[threadsCount][0] = paragraphNumber;
                         structure[threadsCount][1] = sentenceNumber;
                         structure[threadsCount][2] = wordsNumber;
-                        potentialTerms[threadsCount] = word;
-                        dbService.insertTerm(word, wordsNumber, sentenceNumber);
+                        potentialTerms[threadsCount] = Stemmer.stem(word);;
                         countDictWords++;
                         threadsCount++;
                     }else{
                         WikiSearchThread[] wikiSearchThreads = new WikiSearchThread[threadsLimit];
+                        SelectLinksThread[] selectLinksThreads = new SelectLinksThread[threadsLimit];
                         for (int i = 0; i<threadsLimit; i++){
                             wikiSearchThreads[i] = new WikiSearchThread(potentialTerms[i]);
                             wikiSearchThreads[i].start();
@@ -139,8 +141,29 @@ public class WordChecker {
                         for (int i = 0; i<threadsLimit; i++){
                             wikiSearchThreads[i].join();
                         }
+
                         for (int i =0; i<threadsLimit; i++){
-                            dbService.insertWikiWord(potentialTerms[i], structure[i][2], structure[i][1], wikiSearchThreads[i].getLink());
+                            String wordLink = wikiSearchThreads[i].getLink();
+                            long articleID = dbService.insertWikiWord(potentialTerms[i], structure[i][2], structure[i][1], wordLink);
+                            if (articleID>0){
+                                selectLinksThreads[i] = new SelectLinksThread(wordLink, articleID);
+                                selectLinksThreads[i].start();
+                            }
+                        }
+
+                        for (int i = 0; i<threadsLimit; i++){
+                            if (selectLinksThreads[i]!=null){
+                                selectLinksThreads[i].join();
+                            }
+                        }
+
+                        for (int i = 0; i<threadsLimit; i++){
+                            if (selectLinksThreads[i]!=null){
+                                dbService.insertPageLinks(
+                                        selectLinksThreads[i].getArticleID(),
+                                        selectLinksThreads[i].getLinks()
+                                );
+                            }
                         }
                     }
                 }

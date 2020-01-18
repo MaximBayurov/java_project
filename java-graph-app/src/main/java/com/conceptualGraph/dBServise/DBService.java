@@ -18,6 +18,7 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class  DBService {
@@ -108,123 +109,62 @@ public class  DBService {
         }
     }
 
-    public void insertTerm(String term, int termPosition, int sentenceNumber){
+    /**
+     * Добавляет слово и его позицию в БД. В случае успешного добавления возвращает id статьи в базе данных, а в случае
+     * ошибки -1.
+     * @param term - слово
+     * @param termPosition - позиция слова в тексте
+     * @param sentenceNumber - номер предложения в тексте
+     * @param wordLink - ссылка статьи слова в Wiki
+     * @return id| -1 (В случае успешного добавления возвращает id статьи в базе данных, а в случае ошибки -1)
+     */
+    public long insertWikiWord(String term, int termPosition, int sentenceNumber, String wordLink) {
         try{
             connection.setAutoCommit(false);
-            JSONArray jo = Interrogator.wikiOpenSearch(term);
-            if (jo.getJSONArray(3).isNull(0)){
-                WordsDAO wordsDAO = new WordsDAO(connection);
-                long wordID = wordsDAO.insertWord(term, -1);
-                PositionsDAO positionsDAO = new PositionsDAO(connection);
-                positionsDAO.insertPosition(wordID, termPosition, sentenceNumber);
-                connection.commit();
-                return;
+
+            long articleID = -1;
+            if (!wordLink.isEmpty()) {
+                //вставили ссылку на статью слова
+                ArticlesDAO articlesDAO = new ArticlesDAO(connection);
+                articleID = articlesDAO.insertArticleWithID(wordLink);
             }
+            //вставили слово
             WordsDAO wordsDAO = new WordsDAO(connection);
-            String fullLink = jo.getJSONArray(3).get(0).toString();
-            String shortLink = jo.getJSONArray(3).get(0).toString().replace("https://ru.wikipedia.org","");
-            String articleTitle = jo.getJSONArray(1).get(0).toString();
-            long wordID = wordsDAO.getExistingID(shortLink);
-
-            if(wordID==-1){
-                /*слово с такой ссылкой не существует (уникально), поэтому добавляем его в WORDS и ARTICLES*/
-                long articleID = -1;
-                if (!fullLink.isEmpty()) {
-                    ArticlesDAO articlesDAO = new ArticlesDAO(connection);
-                    articleID = articlesDAO.insertArticleWithID(
-                            articleTitle);
-                    PagesDAO pagesDAO = new PagesDAO(connection);
-
-                    if (articleID != -1) {
-                        /*переходим по сслыке википедии, чтобы взять линки*/
-                        Elements links = Interrogator.selectLinks(fullLink);
-                        long linkID;
-                        for (Element link : links){
-                            if (link.attr("href").contains("wiki")){
-                                linkID = articlesDAO.insertArticleWithID(
-                                        link.attr("title"));
-                                pagesDAO.insertPage(articleID, linkID);
-                            }
-                        }
-                    }
-                }
-                /*здесь в зависимости от значения articleID мы вставляем слово в таблицу по разному*/
-                wordID = wordsDAO.insertWord(term, articleID);
-            }
+            long wordID = wordsDAO.insertWord(term, articleID);
+            //вставили позицию
             PositionsDAO positionsDAO = new PositionsDAO(connection);
             positionsDAO.insertPosition(wordID, termPosition, sentenceNumber);
             connection.commit();
+            return articleID;
         }
         catch (SQLException e){
             try{
                 connection.rollback();
             }catch (SQLException ignore){
             }
-        }
-        catch (IOException IOEx){
-            IOEx.printStackTrace();
-        }
-        finally {
+        }finally {
             try{
                 connection.setAutoCommit(true);
             }catch (SQLException ignore){
             }
         }
+        return -1;
     }
 
-    public void insertWikiWord(String term, int termPosition, int sentenceNumber, String wordLink) {
+    public void insertPageLinks(long articleID, ArrayList<String> links) {
         try{
-            connection.setAutoCommit(false);
-            if (wordLink.isEmpty()){
-                WordsDAO wordsDAO = new WordsDAO(connection);
-                long wordID = wordsDAO.insertWord(term, -1);
-                PositionsDAO positionsDAO = new PositionsDAO(connection);
-                positionsDAO.insertPosition(wordID, termPosition, sentenceNumber);
-                connection.commit();
-                return;
+            ArticlesDAO articlesDAO = new ArticlesDAO(connection);
+            PagesDAO pagesDAO = new PagesDAO(connection);
+            for (int i=0; i<links.size(); i++) {
+                long linkID = articlesDAO.insertArticleWithID(links.get(i));
+                pagesDAO.insertPage(articleID, linkID);
             }
-            WordsDAO wordsDAO = new WordsDAO(connection);
-            long wordID = wordsDAO.getExistingID(wordLink);
-
-            if(wordID==-1){
-                /*слово с такой ссылкой не существует (уникально), поэтому добавляем его в WORDS и ARTICLES*/
-                long articleID = -1;
-                if (!wordLink.isEmpty()) {
-                    ArticlesDAO articlesDAO = new ArticlesDAO(connection);
-                    articleID = articlesDAO.insertArticleWithID(
-                            wordLink);
-                    PagesDAO pagesDAO = new PagesDAO(connection);
-
-                    if (articleID != -1) {
-                        /*переходим по сслыке википедии, чтобы взять линки*/
-                        Elements links = Interrogator.selectLinks(wordLink);
-                        long linkID;
-                        for (Element link : links){
-                            if (link.attr("href").contains("wiki")){
-                                linkID = articlesDAO.insertArticleWithID(
-                                        link.attr("title"));
-                                pagesDAO.insertPage(articleID, linkID);
-                            }
-                        }
-                    }
-                }
-                /*здесь в зависимости от значения articleID мы вставляем слово в таблицу по разному*/
-                wordID = wordsDAO.insertWord(term, articleID);
-            }
-            PositionsDAO positionsDAO = new PositionsDAO(connection);
-            positionsDAO.insertPosition(wordID, termPosition, sentenceNumber);
-            connection.commit();
-        }
-        catch (SQLException e){
+        }catch (SQLException e){
             try{
                 connection.rollback();
             }catch (SQLException ignore){
             }
-        }
-        catch (IOException IOEx){
-            IOEx.printStackTrace();
-        }
-        finally {
+        }finally {
             try{
                 connection.setAutoCommit(true);
             }catch (SQLException ignore){

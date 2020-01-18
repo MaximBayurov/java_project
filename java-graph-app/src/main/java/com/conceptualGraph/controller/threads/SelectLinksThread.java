@@ -6,16 +6,31 @@ import java.util.ArrayList;
 
 public class SelectLinksThread extends Thread{
     String pageTitle;
+    ArrayList<String> links;
+    long articleID;
 
     public SelectLinksThread(String pageTitle) {
         this.pageTitle = pageTitle;
     }
 
+    public SelectLinksThread(String pageTitle, long articleID){
+        this.pageTitle=pageTitle;
+        this.articleID = articleID;
+    }
+
     @Override
     public void run() {
-        ArrayList<String> links = Interrogator.wikiAPISelectLinks(pageTitle);
+        links = Interrogator.wikiAPISelectLinks(pageTitle);
         for (String link:links){
             System.out.println(link);
         }
+    }
+
+    public long getArticleID() {
+        return articleID;
+    }
+
+    public ArrayList<String> getLinks() {
+        return links;
     }
 }
