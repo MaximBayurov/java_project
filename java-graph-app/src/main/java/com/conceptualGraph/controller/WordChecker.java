@@ -20,6 +20,7 @@ public class WordChecker {
     public static int threadsCount = 0;
     private static int sentenceNumber = 0;
     private static int paragraphNumber = 0;
+    private static long allWordsCount = 0;
     private static String[] potentialTerms =new String[threadsLimit];
     private static ArrayList<String> dictionary = new ArrayList<>();
     private static int[][] structure = new int[threadsLimit][3];
@@ -97,7 +98,16 @@ public class WordChecker {
         }
     }
 
-    public static int[] paragraphCheck(String paragraph, int countDictWords, int wordsNumber) throws InterruptedException {
+    /**
+     * Проверяет параграф и уве
+     * @param paragraph - проверяемый параграф
+     * @param countDictWords - количество слов книги, имеющихся в словаре
+     * @param wordsNumber - общее количество слов
+     * @return массив int[countDictWords,wordsNumber] , где wordsNumber и countDictWords количество слов после проверки
+     * (всего и совпавших со словарём соответственно)
+     * @throws InterruptedException
+     */
+    public static int[] paragraphCheck(String paragraph, int countDictWords, int wordsNumber){
         paragraphNumber++;
         String[] sentences = paragraph.split("(?<![A-ZА-ЯЁ])[\\.\\?\\;\\!]+");
         for (String sentence: sentences) {
@@ -132,39 +142,7 @@ public class WordChecker {
                         countDictWords++;
                         threadsCount++;
                     }else{
-                        WikiSearchThread[] wikiSearchThreads = new WikiSearchThread[threadsLimit];
-                        SelectLinksThread[] selectLinksThreads = new SelectLinksThread[threadsLimit];
-                        for (int i = 0; i<threadsLimit; i++){
-                            wikiSearchThreads[i] = new WikiSearchThread(potentialTerms[i]);
-                            wikiSearchThreads[i].start();
-                        }
-                        for (int i = 0; i<threadsLimit; i++){
-                            wikiSearchThreads[i].join();
-                        }
-
-                        for (int i =0; i<threadsLimit; i++){
-                            String wordLink = wikiSearchThreads[i].getLink();
-                            long articleID = dbService.insertWikiWord(potentialTerms[i], structure[i][2], structure[i][1], wordLink);
-                            if (articleID>0){
-                                selectLinksThreads[i] = new SelectLinksThread(wordLink, articleID);
-                                selectLinksThreads[i].start();
-                            }
-                        }
-
-                        for (int i = 0; i<threadsLimit; i++){
-                            if (selectLinksThreads[i]!=null){
-                                selectLinksThreads[i].join();
-                            }
-                        }
-
-                        for (int i = 0; i<threadsLimit; i++){
-                            if (selectLinksThreads[i]!=null){
-                                dbService.insertPageLinks(
-                                        selectLinksThreads[i].getArticleID(),
-                                        selectLinksThreads[i].getLinks()
-                                );
-                            }
-                        }
+                        threadsRun();
                     }
                 }
                 wordsNumber++;
@@ -172,6 +150,49 @@ public class WordChecker {
         }
 
         return new int[]{countDictWords,wordsNumber};
+    }
+
+    public static void threadsRun(){
+        try{
+            WikiSearchThread[] wikiSearchThreads = new WikiSearchThread[threadsCount];
+            SelectLinksThread[] selectLinksThreads = new SelectLinksThread[threadsCount];
+            for (int i = 0; i<threadsCount; i++){
+                wikiSearchThreads[i] = new WikiSearchThread(potentialTerms[i]);
+                wikiSearchThreads[i].start();
+            }
+            for (int i = 0; i<threadsCount; i++){
+                wikiSearchThreads[i].join();
+            }
+
+            for (int i =0; i<threadsCount; i++){
+                String wordLink = wikiSearchThreads[i].getLink();
+                allWordsCount += wikiSearchThreads[i].getWordsCount();
+                long articleID = dbService.insertWikiWord(potentialTerms[i], structure[i][2], structure[i][1], wordLink);
+                if (articleID>0){
+                    selectLinksThreads[i] = new SelectLinksThread(wordLink, articleID);
+                    selectLinksThreads[i].start();
+                }
+            }
+
+            for (int i = 0; i<threadsCount; i++){
+                if (selectLinksThreads[i]!=null){
+                    selectLinksThreads[i].join();
+                }
+            }
+
+            for (int i = 0; i<threadsCount; i++){
+                if (selectLinksThreads[i]!=null){
+                    dbService.insertPageLinks(
+                            selectLinksThreads[i].getArticleID(),
+                            selectLinksThreads[i].getLinks()
+                    );
+                }
+            }
+            threadsCount=0;
+        } catch (InterruptedException ex){
+            threadsCount=0;
+            ex.printStackTrace();
+        }
     }
 
     public static Boolean[] findNames(String sentence){

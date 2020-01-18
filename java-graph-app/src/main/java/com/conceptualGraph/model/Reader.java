@@ -1,21 +1,17 @@
 package com.conceptualGraph.model;
 
 import com.conceptualGraph.controller.PreChecker;
-import com.conceptualGraph.controller.Stemmer;
 import com.conceptualGraph.controller.WordChecker;
 import com.conceptualGraph.dBServise.DBException;
-import com.conceptualGraph.dBServise.DBService;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
-import org.jsoup.*;
+import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.io.*;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Reader {
     private static ArrayList<String> dictionary = new ArrayList<>();
@@ -131,24 +127,20 @@ public class Reader {
             int countDictWords = 0;
             PreChecker.readDicts();
             for (XWPFParagraph paragraph:paragraphs) {
-//                System.out.println("Начинается с " + wordsNumber + " слова|");
                 int[]counts = WordChecker.paragraphCheck(paragraph.getText(),countDictWords,wordsNumber);
                 countDictWords =counts[0];
                 wordsNumber = counts[1];
             }
-//            WordChecker.dbService.dropDB();
+            if (WordChecker.threadsCount!=0){
+                WordChecker.threadsRun();
+
+            }
             System.out.println("Количество слов в книге:" + wordsNumber );
             System.out.println("Количество совпавших с словарём слов:" + countDictWords);
             exampleDoc.close();
         } catch (IOException ex) {
             System.err.println(ex.getMessage() + "\n");
-        } catch (InterruptedException interaptedEx){
-            interaptedEx.printStackTrace();
         }
-//        catch (DBException DBEx){
-//            DBEx.printStackTrace();
-//        }
-
     }
 
 }

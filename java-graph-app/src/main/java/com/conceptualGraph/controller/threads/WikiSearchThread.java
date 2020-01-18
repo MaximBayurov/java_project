@@ -8,9 +8,11 @@ import java.io.IOException;
 public class WikiSearchThread extends Thread {
     String word;
     String link;
+    int wordsCount;
 
     public WikiSearchThread(String word){
         this.word = word;
+        wordsCount=0;
     }
     @Override
     public void run() {
@@ -18,6 +20,7 @@ public class WikiSearchThread extends Thread {
             JSONArray openSearchResults = Interrogator.wikiOpenSearch(word);
             if(!openSearchResults.getJSONArray(3).isNull(1)){
                 link = openSearchResults.getJSONArray(3).get(1).toString();
+                wordsCount = Interrogator.countWords(link);
             }else {
                 link = null;
             }
@@ -32,5 +35,9 @@ public class WikiSearchThread extends Thread {
 
     public String getLink() {
         return link;
+    }
+
+    public int getWordsCount() {
+        return wordsCount;
     }
 }

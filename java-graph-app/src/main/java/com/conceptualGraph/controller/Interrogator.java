@@ -51,18 +51,11 @@ public class Interrogator {
      */
     public static JSONArray wikiOpenSearch(String searchWord) throws IOException{
         String HTTPRequest = "https://ru.wikipedia.org/w/api.php?action=opensearch&search="+searchWord+"&format=json";
-//        System.out.println(HTTPRequest);
         JSONArray jo = readJsonFromUrl(HTTPRequest);
-
-//        System.out.println(jo.getJSONArray(3).get(0).toString());
-
-//        System.out.println(jo.getJSONArray(1).toString());
-//        System.out.println(jo.getJSONArray(2).toString());
-//        System.out.println(jo.getJSONArray(3).toString()); //массив с ссылками, из него нужно будет убрать все пробелы
         return jo;
     }
 
-    private static int countWords(String searchWord) {
+    public static int countWords(String searchWord) {
         try{
             URL url = new URL("https://ru.wikipedia.org/w/" +
                     "api.php?action=query&list=search&srwhat=nearmatch&srsearch="+searchWord+"&format=json");
@@ -114,13 +107,6 @@ public class Interrogator {
         Elements links = doc.select(
                 "div#mw-content-text > div.mw-parser-output > p a," +
                         " div#mw-content-text > div.mw-parser-output > table a ");
-
-    //            for (Element link : links){
-    //                if (link.attr("href").contains("wiki")){
-    //                    System.out.print(link.attr("title") + " | ");
-    //                    System.out.println(link.attr("href"));
-    //                }
-    //            }
         for (int i=0;i<links.size(); i++){
             String href = links.get(i).attr("href");
             String title = links.get(i).attr("title");

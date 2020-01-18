@@ -8,11 +8,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d5ad2e5c-7bf5-4542-8024-6999ebb096bc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/test.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/test.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/test.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/test.trace.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/Interrogator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/Interrogator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/WordChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/WordChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/threads/SelectLinksThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/threads/SelectLinksThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/threads/WikiSearchThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/threads/WikiSearchThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/DBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/DBService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/WordsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/WordsDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/model/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/model/Reader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -250,7 +250,12 @@
         <serviceView>
           <option name="contentProportion" value="0.33769634" />
           <treeState>
-            <expand />
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:test" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+            </expand>
             <select />
           </treeState>
         </serviceView>
@@ -281,7 +286,7 @@
       <workItem from="1578220714406" duration="105000" />
       <workItem from="1578240943194" duration="13832000" />
       <workItem from="1578769673724" duration="17000" />
-      <workItem from="1579354996448" duration="10316000" />
+      <workItem from="1579354996448" duration="13576000" />
     </task>
     <task id="LOCAL-00001" summary="menu bar, choosing dir(UI), parsing chsn dir">
       <created>1569962846022</created>
@@ -556,7 +561,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579355663569</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="quickest threads comGETing, an comPUTing in DB">
+      <created>1579367323049</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1579367323049</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -576,7 +588,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="new class Interrogorator 4 wiki requests" />
     <MESSAGE value="Interrogator.getPage()" />
     <MESSAGE value="?workspace.xml?" />
     <MESSAGE value="gitignore changes" />
@@ -601,7 +612,8 @@
     <MESSAGE value="main package uml class diagram" />
     <MESSAGE value="tests for multithreading" />
     <MESSAGE value="WordChecker &amp; DBService changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="WordChecker &amp; DBService changes" />
+    <MESSAGE value="quickest threads comGETing, an comPUTing in DB" />
+    <option name="LAST_COMMIT_MESSAGE" value="quickest threads comGETing, an comPUTing in DB" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="89" key="#Notifications" timestamp="1576934906632">
@@ -632,10 +644,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="480" y="75" key="#com.intellij.unscramble.UnscrambleDialog/0.0.1600.860@0.0.1600.860" timestamp="1577256035625" />
-    <state x="555" y="51" key="CommitChangelistDialog2" timestamp="1579355659079">
+    <state x="555" y="51" key="CommitChangelistDialog2" timestamp="1579367321071">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="555" y="51" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1579355659079" />
+    <state x="555" y="51" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1579367321071" />
     <state x="92" y="92" width="1416" height="676" key="DiffContextDialog" timestamp="1578251968350">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -688,6 +700,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="512" y="147" key="MultipleFileMergeDialog/0.0.1600.860@0.0.1600.860" timestamp="1576934895514" />
+    <state x="562" y="142" key="RollbackChangesDialog" timestamp="1579369549305">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="562" y="142" key="RollbackChangesDialog/0.0.1600.860@0.0.1600.860" timestamp="1579369549305" />
     <state x="280" y="5" key="SettingsEditor" timestamp="1576943926579">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
