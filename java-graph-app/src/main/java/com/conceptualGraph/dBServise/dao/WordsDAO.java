@@ -42,21 +42,26 @@ public class WordsDAO {
      * @throws SQLException
      */
     public long insertWord(String word, long article) throws SQLException {
-        executor.prepareQuery("insert into words (id,word, article) values (default,?, ?)");
-        if (article==-1){
-            executor.preparedStatement.setString(1,word);
-            executor.preparedStatement.setNull(2, Types.INTEGER);
-        } else {
-            executor.preparedStatement.setString(1,word);
-            executor.preparedStatement.setLong(2,article);
+        try{
+            executor.prepareQuery("insert into words (id,word, article) values (default,?, ?)");
+            if (article==-1){
+                executor.preparedStatement.setString(1,word);
+                executor.preparedStatement.setNull(2, Types.INTEGER);
+            } else {
+                executor.preparedStatement.setString(1,word);
+                executor.preparedStatement.setLong(2,article);
+            }
+            executor.preparedStatement.execute();
+            ResultSet generatedKeys = executor.preparedStatement.getGeneratedKeys();
+            generatedKeys.next();
+            long id = generatedKeys.getLong(1);
+            generatedKeys.close();
+            return id;
+        } catch (JdbcSQLIntegrityConstraintViolationException ex){
+            return getWordId(word);
+        }finally {
+            executor.preparedStatement.close();
         }
-        executor.preparedStatement.execute();
-        ResultSet generatedKeys = executor.preparedStatement.getGeneratedKeys();
-        generatedKeys.next();
-        long id = generatedKeys.getLong(1);
-        generatedKeys.close();
-        executor.preparedStatement.close();
-        return id;
     }
 
     public long getWordId(String word) throws SQLException {
