@@ -19,10 +19,11 @@ public class Test {
 //        } catch (IOException e){
 //            e.printStackTrace();
 //        }
-        String kek = "1996 в музыке";
-        if (kek.matches("[0-9]{0,4}(?:(?:-е|-ый|-й)? годы?|(?: до н[.]э[.]| до нашей эры).*|)")) {
-            System.out.println("kek");
-        }
+//        String kek = "1996 в музыке";
+//        if (kek.matches("[0-9]{0,4}(?:(?:-е|-ый|-й)? годы?|(?: до н[.]э[.]| до нашей эры).*|)")) {
+//            System.out.println("kek");
+//        }
+
     }
 
 

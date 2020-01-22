@@ -12,6 +12,7 @@ import com.conceptualGraph.dBServise.executor.Executor;
 import org.h2.bnf.Sentence;
 import org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException;
 import org.h2.jdbcx.JdbcDataSource;
+import org.h2.util.StringUtils;
 import org.json.JSONArray;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -123,7 +124,7 @@ public class  DBService {
             connection.setAutoCommit(false);
 
             long articleID = -1;
-            if (!wordLink.isEmpty()) {
+            if (!StringUtils.isNullOrEmpty(wordLink)) {
                 //вставили ссылку на статью слова
                 ArticlesDAO articlesDAO = new ArticlesDAO(connection);
                 articleID = articlesDAO.insertArticleWithID(wordLink);

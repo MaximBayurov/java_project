@@ -58,7 +58,7 @@ public class Interrogator {
     public static int countWords(String searchWord) {
         try{
             URL url = new URL("https://ru.wikipedia.org/w/" +
-                    "api.php?action=query&list=search&srwhat=nearmatch&srsearch="+searchWord+"&format=json");
+                    "api.php?action=query&list=search&srwhat=nearmatch&srsearch="+searchWord.replace(" ", "_")+"&format=json");
             InputStream is = url.openStream();
             BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
             String jsonText = readAll(rd);
@@ -73,7 +73,7 @@ public class Interrogator {
     public static ArrayList<String> wikiAPISelectLinks(String pageTitle){
         try{
             ArrayList<String> correctLinks = new ArrayList<>();
-            String url = "https://ru.wikipedia.org/w/api.php?action=parse&page="+pageTitle+"&prop=links&format=json";
+            String url = "https://ru.wikipedia.org/w/api.php?action=parse&page="+pageTitle.replace(" ", "_")+"&prop=links&format=json";
             URL obj = new URL(url);
             HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
 
