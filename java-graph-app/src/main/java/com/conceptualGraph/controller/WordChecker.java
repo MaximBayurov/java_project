@@ -1,5 +1,6 @@
 package com.conceptualGraph.controller;
 
+import com.conceptualGraph.controller.threads.WikiSearchThread;
 import com.conceptualGraph.dBServise.DBException;
 import com.conceptualGraph.dBServise.DBService;
 import com.conceptualGraph.dBServise.dao.StructureDAO;
@@ -13,12 +14,14 @@ import java.util.regex.Pattern;
 
 public class WordChecker {
 
-    private static ArrayList<String> potentialTerms =new ArrayList();
     public static DBService dbService = new DBService();
-    public static int queryLimit = 1;
+    public static int threadsLimit = 30;
+    public static int threadsCount = 0;
     private static int sentenceNumber = 0;
     private static int paragraphNumber = 0;
+    private static String[] potentialTerms =new String[threadsLimit];
     private static ArrayList<String> dictionary = new ArrayList<>();
+    private static int[][] structure = new int[threadsLimit][3];
     private static final Pattern namesPattern = Pattern.compile("(?:[А-ЯЁA-Z][а-яa-zё]+(?:\\s|-|[.]|\\n)){2,}|(?:[А-ЯЁA-][.]\\s?(?:[А-ЯЁA-Я][.]?\\s?)?[А-ЯЁA-Z][а-яa-zё]+(?:-[А-ЯЁA-Z][а-яa-zё])*?)");
 
     public static void readStemDict(){
@@ -93,8 +96,7 @@ public class WordChecker {
         }
     }
 
-    public static int[] paragraphCheck(String paragraph, int countDictWords, int wordsNumber){
-        potentialTerms.clear();
+    public static int[] paragraphCheck(String paragraph, int countDictWords, int wordsNumber) throws InterruptedException {
         paragraphNumber++;
         String[] sentences = paragraph.split("(?<![A-ZА-ЯЁ])[\\.\\?\\;\\!]+");
         for (String sentence: sentences) {
@@ -120,9 +122,27 @@ public class WordChecker {
                     countDictWords++;
                     continue;
                 }else if (!check(word)) {
-                    potentialTerms.add(word);
-                    dbService.insertTerm(word, wordsNumber, sentenceNumber);
-                    countDictWords++;
+                    if (threadsCount<threadsLimit){
+                        structure[threadsCount][0] = paragraphNumber;
+                        structure[threadsCount][1] = sentenceNumber;
+                        structure[threadsCount][2] = wordsNumber;
+                        potentialTerms[threadsCount] = word;
+                        dbService.insertTerm(word, wordsNumber, sentenceNumber);
+                        countDictWords++;
+                        threadsCount++;
+                    }else{
+                        WikiSearchThread[] wikiSearchThreads = new WikiSearchThread[threadsLimit];
+                        for (int i = 0; i<threadsLimit; i++){
+                            wikiSearchThreads[i] = new WikiSearchThread(potentialTerms[i]);
+                            wikiSearchThreads[i].start();
+                        }
+                        for (int i = 0; i<threadsLimit; i++){
+                            wikiSearchThreads[i].join();
+                        }
+                        for (int i =0; i<threadsLimit; i++){
+                            dbService.insertWikiWord(potentialTerms[i], structure[i][2], structure[i][1], wikiSearchThreads[i].getLink());
+                        }
+                    }
                 }
                 wordsNumber++;
             }

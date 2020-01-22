@@ -3,11 +3,11 @@ package com.conceptualGraph.controller;
 public class WordCheckerController implements WordCheckerControllerMBean {
     @Override
     public int getQueryLimit() {
-        return WordChecker.queryLimit;
+        return WordChecker.threadsLimit;
     }
 
     @Override
     public void setQueryLimit(int limit) {
-        WordChecker.queryLimit = limit;
+        WordChecker.threadsLimit = limit;
     }
 }
