@@ -8,6 +8,7 @@ import com.conceptualGraph.dBServise.dao.StructureDAO;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -113,23 +114,37 @@ public class WordChecker {
         for (String sentence: sentences) {
             sentenceNumber++;
             dbService.addStructure(paragraphNumber,sentenceNumber);
-            Boolean[] nameBools = findNames(sentence);
-            sentence= sentence.toLowerCase().replaceAll("[^a-zа-яё\\-/ ]","")
+//            Boolean[] nameBools = findNames(sentence);
+            sentence = sentence.replaceAll("[^А-ЯЁA-Za-zа-яё/ .]"," ")
                     .replaceAll("^-| -|- ", " ").replaceAll(" +"," ");
+            HashMap<Integer, Integer> names = new HashMap<Integer, Integer>();
+            names = findNames(sentence);
+            sentence = sentence.toLowerCase().replaceAll("\\.", " ").replaceAll(" +", " ");
             String[] words = sentence.trim().split(" ");
             Boolean[] booleans = PreChecker.arrayCheck(words);
-            for (int k=0; k<booleans.length; k++){
-                if (nameBools[k]==true){
-                    booleans[k]=true;
-                }
-            }
             String word;
             for (int j = 0; j<words.length; j++){
                 word = words[j].trim();
                 if (word.isEmpty()) {
                     continue;
                 }
-                if (booleans[j]){
+                if (names.containsKey(j)) {
+                    int sizeOfName = names.get(j);
+                    for (int n = 1; n<sizeOfName; n++) {
+                        word = word + words[j+n].trim();
+                    }
+                    j = j + sizeOfName - 1;
+                    if (threadsCount<threadsLimit){
+                        structure[threadsCount][0] = paragraphNumber;
+                        structure[threadsCount][1] = sentenceNumber;
+                        structure[threadsCount][2] = wordsNumber;
+                        potentialTerms[threadsCount] = Stemmer.stem(word);;
+                        countDictWords++;
+                        threadsCount++;
+                    }else{
+                        threadsRun();
+                    }
+                } else if (booleans[j] || word.length()<=2){
                     countDictWords++;
                     continue;
                 }else if (!check(word)) {
@@ -195,27 +210,35 @@ public class WordChecker {
         }
     }
 
-    public static Boolean[] findNames(String sentence){
-        ArrayList<String> names = new ArrayList<>();
+    class Name {
+        public Name (int wordNumber1, int sizeOfName1) {
+            sizeOfName = sizeOfName1;
+            wordNumber = wordNumber1;
+        }
+        public int wordNumber;
+        public int sizeOfName;
+    }
+
+    public static HashMap findNames(String sentence){
+        HashMap<Integer, Integer> names = new HashMap<Integer, Integer>();
         Matcher matcher = namesPattern.matcher(sentence);
+        int lastPos = 0;
+        int newPos;
+        int sizeOfName;
+        int sizeOfSubstring;
         while (matcher.find()){
-            names.add(matcher.group().trim());
+//            names.add(matcher.group().trim());
             /*Вставить имя в БД
             DataBase.insertTerm(word, 1, 1);*/
+            String matched = matcher.group();
+            sizeOfName = matched.split(" |\\.").length;
+            newPos = sentence.indexOf(matched, lastPos);
+            sizeOfSubstring = sentence.substring(lastPos, newPos).split(" |\\.").length;
+            names.put(sizeOfSubstring, sizeOfName);
+            newPos = newPos + sizeOfName;
+            lastPos = newPos;
         }
-        String[] words = sentence.trim().replaceAll(" +"," ").split(" ");
-        Boolean[] booleans = new Boolean[words.length];
-        for (int i=0; i < words.length; i++){
-            String word = words[i];
-            booleans[i] = false;
-            for (String name: names){
-                if (name.contains(word)){
-                    booleans[i] = true;
-                    break;
-                }
-            }
-        }
-        return booleans;
+        return names;
     }
 
 }

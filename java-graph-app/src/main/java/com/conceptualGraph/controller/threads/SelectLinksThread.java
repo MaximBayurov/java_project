@@ -21,9 +21,6 @@ public class SelectLinksThread extends Thread{
     @Override
     public void run() {
         links = Interrogator.wikiAPISelectLinks(pageTitle);
-        for (String link:links){
-            System.out.println(link);
-        }
     }
 
     public long getArticleID() {

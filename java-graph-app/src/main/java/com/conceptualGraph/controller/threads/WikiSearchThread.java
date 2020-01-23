@@ -19,7 +19,7 @@ public class WikiSearchThread extends Thread {
         try {
             JSONArray openSearchResults = Interrogator.wikiOpenSearch(word);
             if(!openSearchResults.getJSONArray(3).isNull(1)){
-                link = openSearchResults.getJSONArray(3).get(1).toString();
+                link = openSearchResults.getJSONArray(1).get(0).toString();
                 wordsCount = Interrogator.countWords(link);
             }else {
                 link = null;

@@ -38,7 +38,7 @@ public class DictOptimizer {
             for (Element paragraph: pageText){
                 String[] sentences = paragraph.text().split("(?<![\\. ][A-ZА-ЯЁ])[\\.\\?\\;\\!]");
                 for (String sentence: sentences){
-                    sentence= sentence.toLowerCase().replaceAll("[^a-zа-яё\\-/ ]","")
+                    sentence= sentence.toLowerCase().replaceAll("[^a-zа-яё\\-/ ]"," ")
                             .replaceAll("^-| -|- ", " ").replaceAll(" +"," ");
                     String[] words = sentence.trim().split(" ");
                     for (String word: words){
