@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.Charset;
@@ -50,9 +51,9 @@ public class Interrogator {
      * @throws IOException в случае неудачного соединения с Wiki
      */
     public static JSONArray wikiOpenSearch(String searchWord) throws IOException{
-        String HTTPRequest = "https://ru.wikipedia.org/w/api.php?action=opensearch&search="+searchWord+"&format=json";
-        JSONArray jo = readJsonFromUrl(HTTPRequest);
-        return jo;
+            String HTTPRequest = "https://ru.wikipedia.org/w/api.php?action=opensearch&search=" + searchWord + "&format=json";
+            JSONArray jo = readJsonFromUrl(HTTPRequest);
+            return jo;
     }
 
     public static int countWords(String searchWord) {

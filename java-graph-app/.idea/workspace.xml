@@ -7,18 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5ad2e5c-7bf5-4542-8024-6999ebb096bc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_miglayout_miglayout_core_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_miglayout_miglayout_javafx_5_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_13.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_14_ea_4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_13.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_14_ea_4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_13.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_14_ea_4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_win_13.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_win_14_ea_4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_13.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_14_ea_7.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_13.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_14_ea_7.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java-graph-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/java-graph-app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/HelloFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/HelloFX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/test.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/test.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/test.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/test.trace.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/Interrogator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/Interrogator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/WordChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/WordChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/threads/SelectLinksThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/threads/SelectLinksThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/threads/WikiSearchThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/threads/WikiSearchThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/model/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/model/Reader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,8 +120,8 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="database.data.extractors.current.id" value="Comma-separated (CSV)_id" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../letsCode lessons/demo" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
@@ -150,7 +146,7 @@
       <recent name="D:\work-space\java_project\java-graph-app\src\main\resourses" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.HelloFX">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="HelloFX" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="13" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -159,6 +155,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.conceptualGraph.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.conceptualGraph.model.Main" />
+      <module name="java-graph-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.conceptualGraph.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -182,13 +191,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="java-graph-app-1.0-SNAPSHOT-tests.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/java-graph-app-1.0-SNAPSHOT-tests.jar" />
+      <method v="2" />
+    </configuration>
+    <configuration name="java-graph-app-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/java-graph-app-1.0-SNAPSHOT.jar" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Application.HelloFX" />
+      <item itemvalue="JAR Application.java-graph-app-1.0-SNAPSHOT-tests.jar" />
+      <item itemvalue="JAR Application.java-graph-app-1.0-SNAPSHOT.jar" />
       <item itemvalue="JUnit.InterrogatorTest.wikiAPISelectLinks" />
+      <item itemvalue="Application.Main" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.HelloFX" />
+        <item itemvalue="JAR Application.java-graph-app-1.0-SNAPSHOT.jar" />
+        <item itemvalue="JAR Application.java-graph-app-1.0-SNAPSHOT-tests.jar" />
         <item itemvalue="JUnit.InterrogatorTest.wikiAPISelectLinks" />
       </list>
     </recent_temporary>
@@ -199,7 +222,37 @@
         <serviceView>
           <option name="contentProportion" value="0.33769634" />
           <treeState>
-            <expand />
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:test" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:test" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@5bfef89a" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:test" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@27a96a33" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:test" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@3474ce1e" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:test" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@179e05c3" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:test" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@31a81b46" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+            </expand>
             <select />
           </treeState>
         </serviceView>
@@ -231,7 +284,8 @@
       <workItem from="1578240943194" duration="13832000" />
       <workItem from="1578769673724" duration="17000" />
       <workItem from="1579354996448" duration="13681000" />
-      <workItem from="1579810502269" duration="4803000" />
+      <workItem from="1579810502269" duration="8092000" />
+      <workItem from="1579950598722" duration="9793000" />
     </task>
     <task id="LOCAL-00001" summary="menu bar, choosing dir(UI), parsing chsn dir">
       <created>1569962846022</created>
@@ -520,7 +574,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579370574167</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Настройка зависимостей для JavaFX">
+      <created>1579815618871</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1579815618871</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -540,7 +601,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="?workspace.xml?" />
     <MESSAGE value="gitignore changes" />
     <MESSAGE value="wrksps" />
     <MESSAGE value="PreChecker - союзы, частицы, предлоги, местоимения" />
@@ -565,7 +625,8 @@
     <MESSAGE value="WordChecker &amp; DBService changes" />
     <MESSAGE value="quickest threads comGETing, an comPUTing in DB" />
     <MESSAGE value="last threads correct work" />
-    <option name="LAST_COMMIT_MESSAGE" value="last threads correct work" />
+    <MESSAGE value="Настройка зависимостей для JavaFX" />
+    <option name="LAST_COMMIT_MESSAGE" value="Настройка зависимостей для JavaFX" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="89" width="816" height="729" key="#Intentions" timestamp="1579812855816">
@@ -580,10 +641,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="392" y="89" key="#Project_Structure/0.0.1600.860@0.0.1600.860" timestamp="1577030643851" />
-    <state x="392" y="89" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579815055972">
+    <state x="392" y="89" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579950694173">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="89" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860@0.0.1600.860" timestamp="1579815055972" />
+    <state x="392" y="89" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860@0.0.1600.860" timestamp="1579950694173" />
     <state x="557" y="234" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1576923463709">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -596,38 +657,42 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="530" y="207" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1600.860@0.0.1600.860" timestamp="1576966034235" />
+    <state x="529" y="214" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1579818205224">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="529" y="214" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1600.860@0.0.1600.860" timestamp="1579818205224" />
     <state x="480" y="75" key="#com.intellij.unscramble.UnscrambleDialog" timestamp="1577256035625">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="480" y="75" key="#com.intellij.unscramble.UnscrambleDialog/0.0.1600.860@0.0.1600.860" timestamp="1577256035625" />
-    <state x="555" y="51" key="CommitChangelistDialog2" timestamp="1579370571198">
+    <state x="513" y="51" key="CommitChangelistDialog2" timestamp="1579815617192">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="555" y="51" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1579370571198" />
+    <state x="513" y="51" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1579815617192" />
     <state x="92" y="92" width="1416" height="676" key="DiffContextDialog" timestamp="1578251968350">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="92" y="92" width="1416" height="676" key="DiffContextDialog/0.0.1600.860@0.0.1600.860" timestamp="1578251968350" />
-    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1578220817441">
+    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1579951345065">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1578220817441" />
-    <state width="1557" height="221" key="GridCell.Tab.0.bottom" timestamp="1579815505690">
+    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1579951345065" />
+    <state width="1557" height="221" key="GridCell.Tab.0.bottom" timestamp="1579967334243">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="221" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1579815505690" />
-    <state width="1557" height="221" key="GridCell.Tab.0.center" timestamp="1579815505690">
+    <state width="1557" height="221" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1579967334243" />
+    <state width="1557" height="221" key="GridCell.Tab.0.center" timestamp="1579967334242">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="221" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1579815505690" />
-    <state width="1557" height="221" key="GridCell.Tab.0.left" timestamp="1579815505690">
+    <state width="1557" height="221" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1579967334242" />
+    <state width="1557" height="221" key="GridCell.Tab.0.left" timestamp="1579967334242">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="221" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1579815505690" />
-    <state width="1557" height="221" key="GridCell.Tab.0.right" timestamp="1579815505690">
+    <state width="1557" height="221" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1579967334242" />
+    <state width="1557" height="221" key="GridCell.Tab.0.right" timestamp="1579967334243">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="221" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1579815505690" />
+    <state width="1557" height="221" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1579967334243" />
     <state width="1557" height="276" key="GridCell.Tab.1.bottom" timestamp="1576961390676">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -656,34 +721,42 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="152" y="74" key="MergeDialog/0.0.1600.860@0.0.1600.860" timestamp="1576934857991" />
-    <state x="512" y="147" key="MultipleFileMergeDialog" timestamp="1576934895514">
+    <state x="512" y="147" key="MultipleFileMergeDialog" timestamp="1579815683004">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="512" y="147" key="MultipleFileMergeDialog/0.0.1600.860@0.0.1600.860" timestamp="1576934895514" />
+    <state x="512" y="147" key="MultipleFileMergeDialog/0.0.1600.860@0.0.1600.860" timestamp="1579815683004" />
     <state x="562" y="142" key="RollbackChangesDialog" timestamp="1579369549305">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="562" y="142" key="RollbackChangesDialog/0.0.1600.860@0.0.1600.860" timestamp="1579369549305" />
-    <state x="280" y="5" key="SettingsEditor" timestamp="1579812734955">
+    <state x="280" y="5" key="SettingsEditor" timestamp="1579950659538">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="280" y="5" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1579812734955" />
-    <state x="392" y="164" key="Vcs.Push.Dialog.v2" timestamp="1579370577053">
+    <state x="280" y="5" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1579950659538" />
+    <state x="392" y="164" key="Vcs.Push.Dialog.v2" timestamp="1579815700477">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="164" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1579370577053" />
+    <state x="392" y="164" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1579815700477" />
     <state x="530" y="236" key="com.intellij.database.dbimport.ImportUtil.MyDialog" timestamp="1576924050486">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="530" y="236" key="com.intellij.database.dbimport.ImportUtil.MyDialog/0.0.1600.860@0.0.1600.860" timestamp="1576924050486" />
+    <state x="567" y="135" key="com.intellij.database.run.actions.ShowCsvFormatsAction$ForImport" timestamp="1579951434569">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="567" y="135" key="com.intellij.database.run.actions.ShowCsvFormatsAction$ForImport/0.0.1600.860@0.0.1600.860" timestamp="1579951434569" />
     <state x="318" y="136" key="com.intellij.execution.console.ConsoleHistoryController$MyBrowseAction$1" timestamp="1577029219754">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="318" y="136" key="com.intellij.execution.console.ConsoleHistoryController$MyBrowseAction$1/0.0.1600.860@0.0.1600.860" timestamp="1577029219754" />
-    <state x="501" y="255" key="com.intellij.ide.util.TipDialog" timestamp="1579810504380">
+    <state x="501" y="255" key="com.intellij.ide.util.TipDialog" timestamp="1579950607799">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="501" y="255" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1579810504380" />
+    <state x="501" y="255" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1579950607799" />
+    <state x="609" y="348" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579950674121">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="609" y="348" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1600.860@0.0.1600.860" timestamp="1579950674121" />
     <state x="959" y="240" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1578255025720">
       <screen x="0" y="0" width="1600" height="860" />
     </state>

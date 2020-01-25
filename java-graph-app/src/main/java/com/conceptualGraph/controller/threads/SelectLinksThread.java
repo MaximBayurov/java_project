@@ -16,6 +16,7 @@ public class SelectLinksThread extends Thread{
     public SelectLinksThread(String pageTitle, long articleID){
         this.pageTitle=pageTitle;
         this.articleID = articleID;
+        this.links = null;
     }
 
     @Override

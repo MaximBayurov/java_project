@@ -44,7 +44,7 @@ public class Reader {
             BufferedReader bfr = new BufferedReader(new FileReader(chosenFile));
             BufferedWriter bfw = new BufferedWriter(new FileWriter("ReaderResults.txt"));
             int wordsNumber = 0;
-            int countDictWords = 0;
+            int termsCount = 0;
             String line = bfr.readLine().trim();
             while (line != null){
                 System.out.println("Начинается с " + wordsNumber + " слова|");
@@ -52,13 +52,13 @@ public class Reader {
                 String[] words = line.split(" ");
                 for (String word:words) {
                     word = word.replace(".","").trim();
-                    if (dictionary.contains(word)) countDictWords++;
+                    if (dictionary.contains(word)) termsCount++;
                 }
                 wordsNumber += words.length;
                 line = bfr.readLine();
             }
             bfw.write("Количество слов в книге:" + wordsNumber + "\n");
-            bfw.write("Количество идентифицированных слов:" + countDictWords + "\n");
+            bfw.write("Количество идентифицированных слов:" + termsCount + "\n");
             bfw.close();
             bfr.close();
         } catch (IOException ex) {
@@ -85,7 +85,7 @@ public class Reader {
         Elements text = doc.select("h1, h2, h3, h4, h5, h6, p");
         ArrayList<Integer> indexList = new ArrayList<>();
         int wordsNumber = 1;
-        int countDictWords = 0;
+        int termsCount = 0;
         PreChecker.readDicts();
         for (int i = 0; i < text.size(); i++) {
 //            ПОКА НЕ УДАЛЯТЬ!!!
@@ -103,8 +103,8 @@ public class Reader {
                 a = false;
             }
 
-            int[]counts = WordChecker.paragraphCheck(text.get(i).text(),countDictWords,wordsNumber);
-            countDictWords =counts[0];
+            int[]counts = WordChecker.paragraphCheck(text.get(i).text(),termsCount,wordsNumber);
+            termsCount =counts[0];
             wordsNumber = counts[1];
         }
         bw.close();
@@ -112,7 +112,7 @@ public class Reader {
         System.out.println(indexList);
         System.out.println("Количество глав: " + h.size());
         System.out.println("Количество слов в книге: " + wordsNumber);
-        System.out.println("Количество совпавших с словарём слов: " + countDictWords);
+        System.out.println("Количество терминов: " + termsCount);
     }
 
 
@@ -124,11 +124,11 @@ public class Reader {
             XWPFDocument exampleDoc = new XWPFDocument(bufferedInputStream);
             List<XWPFParagraph> paragraphs = exampleDoc.getParagraphs();
             int wordsNumber = 1;
-            int countDictWords = 0;
+            int termsCount = 0;
             PreChecker.readDicts();
             for (XWPFParagraph paragraph:paragraphs) {
-                int[]counts = WordChecker.paragraphCheck(paragraph.getText(),countDictWords,wordsNumber);
-                countDictWords =counts[0];
+                int[]counts = WordChecker.paragraphCheck(paragraph.getText(),termsCount,wordsNumber);
+                termsCount =counts[0];
                 wordsNumber = counts[1];
             }
             if (WordChecker.threadsCount!=0){
@@ -136,7 +136,7 @@ public class Reader {
 
             }
             System.out.println("Количество слов в книге:" + wordsNumber );
-            System.out.println("Количество совпавших с словарём слов:" + countDictWords);
+            System.out.println("Количество терминов:" + termsCount);
             exampleDoc.close();
         } catch (IOException ex) {
             System.err.println(ex.getMessage() + "\n");
