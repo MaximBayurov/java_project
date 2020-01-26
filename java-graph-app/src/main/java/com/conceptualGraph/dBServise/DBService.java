@@ -119,7 +119,7 @@ public class  DBService {
      * @param wordLink - ссылка статьи слова в Wiki
      * @return id| -1 (В случае успешного добавления возвращает id статьи в базе данных, а в случае ошибки -1)
      */
-    public long insertWikiWord(String term, int termPosition, int sentenceNumber, String wordLink) {
+    public long insertWikiWord(String term, long termPosition, long sentenceNumber, String wordLink) {
         try{
             connection.setAutoCommit(false);
 
@@ -172,4 +172,35 @@ public class  DBService {
             }
         }
     }
+
+    public long getConnectionsNumber() {
+        try{
+            PagesDAO pagesDAO = new PagesDAO(connection);
+            return pagesDAO.termConnections();
+        }catch (SQLException e){
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    public long getAllReferences() {
+        try{
+            PagesDAO pagesDAO = new PagesDAO(connection);
+            return pagesDAO.allReferences();
+        }catch (SQLException e){
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    public long getUnknownTermsNumber() {
+        try{
+            WordsDAO wordsDAO = new WordsDAO(connection);
+            return wordsDAO.countAllNulls();
+        }catch (SQLException e){
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
 }

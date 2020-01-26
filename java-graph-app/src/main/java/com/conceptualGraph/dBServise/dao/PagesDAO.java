@@ -26,7 +26,22 @@ public class PagesDAO {
         executor.execUpdate("insert into pages (page, article) values (" + page + ", " + article + ")");
     }
 
-    public void dropTable() throws  SQLException{
+    public void dropTable() throws  SQLException {
         executor.execUpdate("drop table pages cascade");
+    }
+
+    public long termConnections() throws SQLException {
+        return executor.execQuery("SELECT count(`page`) FROM `pages` " +
+                "WHERE `article` IN (SELECT DISTINCT `page` FROM `pages`)", resultSet -> {
+            resultSet.next();
+            return resultSet.getLong(0);
+        });
+    }
+
+    public long allReferences() throws SQLException {
+        return executor.execQuery("SELECT count(*) FROM `pages`", resultSet -> {
+            resultSet.next();
+            return resultSet.getLong(0);
+        });
     }
 }

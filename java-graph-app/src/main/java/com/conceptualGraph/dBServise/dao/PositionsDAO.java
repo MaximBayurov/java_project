@@ -25,13 +25,13 @@ public class PositionsDAO {
 //        executor.execUpdate("ALTER TABLE `positions` ADD PRIMARY KEY (position, sentence);");//ОБРАБОТАТЬ ЭКСЕПТИОН
     }
 
-    public void insertPosition(long id, int postion, int sentence) throws SQLException {
+    public void insertPosition(long id, long postion, long sentence) throws SQLException {
         String sql;
         sql = "INSERT INTO positions VALUES (?, ?, ?)";
         executor.prepareQuery(sql);
         executor.preparedStatement.setLong(1, id);
-        executor.preparedStatement.setInt(2, postion);
-        executor.preparedStatement.setInt(3, sentence);
+        executor.preparedStatement.setLong(2, postion);
+        executor.preparedStatement.setLong(3, sentence);
         executor.preparedStatement.execute();
     }
 

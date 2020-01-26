@@ -5,6 +5,7 @@ import com.conceptualGraph.controller.threads.WikiSearchThread;
 import com.conceptualGraph.dBServise.DBException;
 import com.conceptualGraph.dBServise.DBService;
 import com.conceptualGraph.dBServise.dao.StructureDAO;
+import com.conceptualGraph.model.Reader;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -21,10 +22,9 @@ public class WordChecker {
     public static int threadsCount = 0;
     private static int sentenceNumber = 0;
     private static int paragraphNumber = 0;
-    private static long allWordsCount = 0;
     private static String[] potentialTerms =new String[threadsLimit];
     private static ArrayList<String> dictionary = new ArrayList<>();
-    private static int[][] structure = new int[threadsLimit][3];
+    private static long[][] structure = new long[threadsLimit][3];
     private static final Pattern namesPattern = Pattern.compile("(?:[А-ЯЁA-Z][а-яa-zё]+(?:\\s|-|[.]|\\n)){2,}|(?:[А-ЯЁA-][.]\\s?(?:[А-ЯЁA-Я][.]?\\s?)?[А-ЯЁA-Z][а-яa-zё]+(?:-[А-ЯЁA-Z][а-яa-zё])*?)");
 
     public static void readStemDict(){
@@ -102,13 +102,11 @@ public class WordChecker {
     /**
      * Проверяет параграф и уве
      * @param paragraph - проверяемый параграф
-     * @param termsCount - количество слов книги, не имеющихся в словаре
-     * @param wordsNumber - общее количество слов
      * @return массив int[countDictWords,wordsNumber] , где wordsNumber и countDictWords количество слов после проверки
      * (всего и совпавших со словарём соответственно)
      * @throws InterruptedException
      */
-    public static int[] paragraphCheck(String paragraph, int termsCount, int wordsNumber){
+    public static void paragraphCheck(String paragraph){
         paragraphNumber++;
         String[] sentences = paragraph.split("(?<![A-ZА-ЯЁ])[\\.\\?\\;\\!]+");
         for (String sentence: sentences) {
@@ -124,7 +122,7 @@ public class WordChecker {
             String word;
             for (int j = 0; j<words.length; j++){
                 word = words[j].trim();
-                wordsNumber++;
+                Reader.wordsNumber++;
                 if (word.isEmpty()) {
                     continue;
                 }
@@ -148,17 +146,17 @@ public class WordChecker {
                 if (booleans[j] || word.length()<=2){
                     continue;
                 }else if (!check(word)) {
-                    termsCount++;
+                    Reader.termsCount++;
                     if (threadsCount<threadsLimit-1){
                         structure[threadsCount][0] = paragraphNumber;
                         structure[threadsCount][1] = sentenceNumber;
-                        structure[threadsCount][2] = wordsNumber;
+                        structure[threadsCount][2] = Reader.wordsNumber;
                         potentialTerms[threadsCount] = Stemmer.stem(word);
                         threadsCount++;
                     }else{
                         structure[threadsCount][0] = paragraphNumber;
                         structure[threadsCount][1] = sentenceNumber;
-                        structure[threadsCount][2] = wordsNumber;
+                        structure[threadsCount][2] = Reader.wordsNumber;
                         potentialTerms[threadsCount] = Stemmer.stem(word);
                         threadsCount++;
                         threadsRun();
@@ -166,8 +164,6 @@ public class WordChecker {
                 }
             }
         }
-
-        return new int[]{termsCount,wordsNumber};
     }
 
     public static void threadsRun(){
@@ -184,7 +180,7 @@ public class WordChecker {
 
             for (int i =0; i<threadsCount; i++){
                 String wordLink = wikiSearchThreads[i].getLink();
-                allWordsCount += wikiSearchThreads[i].getWordsCount();
+                Reader.termsWordsNumber += wikiSearchThreads[i].getWordsCount();
                 long articleID = dbService.insertWikiWord(potentialTerms[i], structure[i][2], structure[i][1], wordLink);
                 if (articleID>0){
                     selectLinksThreads[i] = new SelectLinksThread(wordLink, articleID);
@@ -233,6 +229,16 @@ public class WordChecker {
             lastPos = newPos;
         }
         return names;
+    }
+
+    public static double getRelationCoefficient() {
+        DBService dbService = new DBService();
+        return dbService.getConnectionsNumber() / dbService.getAllReferences();
+    }
+
+    public static double getAccuracy() {
+        DBService dbService = new DBService();
+        return Reader.termsCount - dbService.getUnknownTermsNumber() - Reader.termsCount;
     }
 
 

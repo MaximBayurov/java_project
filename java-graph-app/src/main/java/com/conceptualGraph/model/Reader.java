@@ -3,6 +3,7 @@ package com.conceptualGraph.model;
 import com.conceptualGraph.controller.PreChecker;
 import com.conceptualGraph.controller.WordChecker;
 import com.conceptualGraph.dBServise.DBException;
+import com.conceptualGraph.dBServise.DBService;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.jsoup.Jsoup;
@@ -13,16 +14,29 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Reader {
-    private static ArrayList<String> dictionary = new ArrayList<>();
 
+
+public class Reader {
+
+    /**
+     *
+     * @param termsCount - количество слов книги, не имеющихся в словаре
+     * @param wordsNumber - общее количество слов
+     */
+
+    private static ArrayList<String> dictionary = new ArrayList<>();
+    public static long termsCount = 0;
+    public static long wordsNumber = 1;
+    public static long termsWordsNumber = 0;
     public static void checkAndRead(File file){
         try{
 
             WordChecker.dbService.dropDB();
             WordChecker.dbService.createDBTables();
             //           if (file.toString().toLowerCase().endsWith("doc")){readDoc(file);};
-            if (file.getName().toLowerCase().endsWith("docx")){readDocx(file);}
+            if (file.getName().toLowerCase().endsWith("docx")){
+                readDocx(file);
+            }
             if (file.getName().toLowerCase().endsWith("html")){
                 try {
                     readHTML(file);
@@ -35,6 +49,12 @@ public class Reader {
             ex.printStackTrace();
         }
 
+        long allWordsNumber =termsWordsNumber + wordsNumber;
+        double termAverageDifficulty = termsCount / termsWordsNumber; /*будет очень меньше единицы, надо найти формулу
+                                                                        для выравнивания от 0 до 1*/
+        double termConnection = WordChecker.getRelationCoefficient(); //
+        double accuracy = WordChecker.getAccuracy();
+        double bookAverageDifficulty = (termsCount / allWordsNumber + termAverageDifficulty) / 2;
     }
 
     //работает некорректно
@@ -84,8 +104,6 @@ public class Reader {
         Elements h = doc.select("h1, h2, h3, h4, h5, h6");
         Elements text = doc.select("h1, h2, h3, h4, h5, h6, p");
         ArrayList<Integer> indexList = new ArrayList<>();
-        int wordsNumber = 1;
-        int termsCount = 0;
         PreChecker.readDicts();
         for (int i = 0; i < text.size(); i++) {
 //            ПОКА НЕ УДАЛЯТЬ!!!
@@ -103,9 +121,11 @@ public class Reader {
                 a = false;
             }
 
-            int[]counts = WordChecker.paragraphCheck(text.get(i).text(),termsCount,wordsNumber);
-            termsCount =counts[0];
-            wordsNumber = counts[1];
+            WordChecker.paragraphCheck(text.get(i).text());
+        }
+        if (WordChecker.threadsCount!=0){
+            WordChecker.threadsRun();
+
         }
         bw.close();
         System.out.println("readHTML end");
@@ -123,13 +143,9 @@ public class Reader {
             BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
             XWPFDocument exampleDoc = new XWPFDocument(bufferedInputStream);
             List<XWPFParagraph> paragraphs = exampleDoc.getParagraphs();
-            int wordsNumber = 1;
-            int termsCount = 0;
             PreChecker.readDicts();
             for (XWPFParagraph paragraph:paragraphs) {
-                int[]counts = WordChecker.paragraphCheck(paragraph.getText(),termsCount,wordsNumber);
-                termsCount =counts[0];
-                wordsNumber = counts[1];
+                WordChecker.paragraphCheck(paragraph.getText());
             }
             if (WordChecker.threadsCount!=0){
                 WordChecker.threadsRun();

@@ -100,17 +100,10 @@ public class WordsDAO {
         else return -1;
     }
 
-    public List<WordsDataSet> getAll() throws SQLException{
-        return executor.execQuery("select * from words", result -> {
-            ArrayList<WordsDataSet> wordsDataSets = new ArrayList<>();
-            while (result.next()){
-                wordsDataSets.add( new WordsDataSet(
-                        result.getLong(1),
-                        result.getString(2),
-                        result.getLong(3)));
-
-            }
-            return wordsDataSets;
+    public long countAllNulls() throws SQLException{
+        return executor.execQuery("select COUNT(*) from words WHERE article IS NULL", result -> {
+            result.next();
+            return result.getLong(0);
         } );
     }
 }
