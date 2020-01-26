@@ -1,3 +1,12 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+.idea/libraries/Maven__org_openjfx_javafx_base_win_14_ea_4.xml
+.idea/libraries/Maven__org_openjfx_javafx_controls_win_14_ea_4.xml
+.idea/libraries/Maven__org_openjfx_javafx_fxml_win_13.xml
+.idea/libraries/Maven__org_openjfx_javafx_graphics_win_14_ea_7.xml
+.idea/libraries/Maven__org_openjfx_javafx_base_linux_14_ea_4.xml
+.idea/libraries/Maven__org_openjfx_javafx_controls_linux_14_ea_4.xml
+.idea/libraries/Maven__org_openjfx_javafx_fxml_linux_13.xml
+.idea/libraries/Maven__org_openjfx_javafx_graphics_linux_14_ea_7.xml
+
