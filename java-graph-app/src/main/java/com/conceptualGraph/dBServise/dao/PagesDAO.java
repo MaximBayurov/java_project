@@ -34,14 +34,14 @@ public class PagesDAO {
         return executor.execQuery("SELECT count(`page`) FROM `pages` " +
                 "WHERE `article` IN (SELECT DISTINCT `page` FROM `pages`)", resultSet -> {
             resultSet.next();
-            return resultSet.getLong(0);
+            return resultSet.getLong(1);
         });
     }
 
     public long allReferences() throws SQLException {
         return executor.execQuery("SELECT count(*) FROM `pages`", resultSet -> {
             resultSet.next();
-            return resultSet.getLong(0);
+            return resultSet.getLong(1);
         });
     }
 }

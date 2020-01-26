@@ -28,7 +28,7 @@ public class Reader {
     public static long termsCount = 0;
     public static long wordsNumber = 1;
     public static long termsWordsNumber = 0;
-    public static void checkAndRead(File file){
+    public static double[] checkAndRead(File file){
         try{
 
             WordChecker.dbService.dropDB();
@@ -49,12 +49,21 @@ public class Reader {
             ex.printStackTrace();
         }
 
-        long allWordsNumber =termsWordsNumber + wordsNumber;
-        double termAverageDifficulty = termsCount / termsWordsNumber; /*будет очень меньше единицы, надо найти формулу
-                                                                        для выравнивания от 0 до 1*/
-        double termConnection = WordChecker.getRelationCoefficient(); //
+        long allWordsNumber = termsWordsNumber + wordsNumber;
+        double termsAverageDifficulty = WordChecker.getRefrences() / termsWordsNumber; /*будет очень меньше единицы, надо найти формулу
+                                                                для выравнивания от 0 до 1*/
+        double termConnection = WordChecker.getConnections() / WordChecker.getRefrences(); //
         double accuracy = WordChecker.getAccuracy();
-        double bookAverageDifficulty = (termsCount / allWordsNumber + termAverageDifficulty) / 2;
+        double bookAverageDifficulty = (termsCount / wordsNumber + termsAverageDifficulty) / 2;
+
+        System.out.println(wordsNumber + " - количество всего слов в книге");
+        System.out.println(termsCount + " - количество терминов в книге ");
+        System.out.println(allWordsNumber + " - слов на всех страницах");
+        System.out.println(termConnection + " - терминов, связаных между собой");
+        System.out.println(accuracy + " - точность");
+        System.out.println(bookAverageDifficulty + " - средняя сложность книги");
+
+        return new double[] {termsCount, wordsNumber, allWordsNumber / 120 / 60, termsAverageDifficulty, termConnection, bookAverageDifficulty, accuracy};
     }
 
     //работает некорректно

@@ -8,13 +8,15 @@
   <component name="ChangeListManager">
     <list default="true" id="d5ad2e5c-7bf5-4542-8024-6999ebb096bc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/test.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/test.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/test.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/test.trace.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/HelloFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/HelloFX.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/WordChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/WordChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/DBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/DBService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/PagesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/PagesDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/PositionsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/PositionsDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/WordsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/WordsDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/model/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/model/Reader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/word_rus.txt" beforeDir="false" afterPath="$PROJECT_DIR$/word_rus.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stemed_word_rus.txt" beforeDir="false" afterPath="$PROJECT_DIR$/stemed_word_rus.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +123,7 @@
     <property name="database.data.extractors.current.id" value="Comma-separated (CSV)_id" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
@@ -146,7 +148,7 @@
       <recent name="D:\work-space\java_project\java-graph-app\src\main\resourses" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.HelloFX">
     <configuration name="HelloFX" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="/opt/jdk-13" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -591,11 +593,11 @@
     </state>
     <state x="392" y="89" key="#Project_Structure/0.0.1600.860@0.0.1600.860" timestamp="1577030643851" />
     <state x="385" y="91" width="800" height="677" key="#Project_Structure/67.27.1299.741@67.27.1299.741" timestamp="1579957189625" />
-    <state x="282" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579959455922">
+    <state x="282" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580061773603">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="392" y="89" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860@0.0.1600.860" timestamp="1579815055972" />
-    <state x="282" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1299.741@67.27.1299.741" timestamp="1579959455922" />
+    <state x="282" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1299.741@67.27.1299.741" timestamp="1580061773603" />
     <state x="557" y="234" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1576923463709">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -616,35 +618,36 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="555" y="51" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1579370571198" />
-    <state x="92" y="92" width="1416" height="676" key="DiffContextDialog" timestamp="1578251968350">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state x="142" y="106" width="1150" height="583" key="DiffContextDialog" timestamp="1580061130936">
+      <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="92" y="92" width="1416" height="676" key="DiffContextDialog/0.0.1600.860@0.0.1600.860" timestamp="1578251968350" />
-    <state x="538" y="186" width="424" height="484" key="FileChooserDialogImpl" timestamp="1579957181974">
+    <state x="142" y="106" width="1150" height="583" key="DiffContextDialog/67.27.1299.741@67.27.1299.741" timestamp="1580061130936" />
+    <state x="538" y="186" width="424" height="484" key="FileChooserDialogImpl" timestamp="1580061136644">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1578220817441" />
-    <state x="538" y="186" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1579957181974" />
-    <state width="1253" height="175" key="GridCell.Tab.0.bottom" timestamp="1580041038333">
+    <state x="538" y="186" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1580061136644" />
+    <state width="1253" height="175" key="GridCell.Tab.0.bottom" timestamp="1580071209265">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state width="1557" height="221" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1579815505690" />
-    <state width="1253" height="175" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1580041038333" />
-    <state width="1253" height="175" key="GridCell.Tab.0.center" timestamp="1580041038331">
+    <state width="1253" height="175" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1580071209265" />
+    <state width="1253" height="175" key="GridCell.Tab.0.center" timestamp="1580071209264">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state width="1557" height="221" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1579815505690" />
-    <state width="1253" height="175" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1580041038331" />
-    <state width="1253" height="175" key="GridCell.Tab.0.left" timestamp="1580041038329">
+    <state width="1253" height="175" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1580071209264" />
+    <state width="1253" height="175" key="GridCell.Tab.0.left" timestamp="1580071209264">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state width="1557" height="221" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1579815505690" />
-    <state width="1253" height="175" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1580041038329" />
-    <state width="1253" height="175" key="GridCell.Tab.0.right" timestamp="1580041038332">
+    <state width="1253" height="175" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1580071209264" />
+    <state width="1253" height="175" key="GridCell.Tab.0.right" timestamp="1580071209265">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state width="1557" height="221" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1579815505690" />
-    <state width="1253" height="175" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1580041038332" />
+    <state width="1253" height="175" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1580071209265" />
     <state width="1557" height="276" key="GridCell.Tab.1.bottom" timestamp="1576961390676">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -681,11 +684,11 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="562" y="142" key="RollbackChangesDialog/0.0.1600.860@0.0.1600.860" timestamp="1579369549305" />
-    <state x="294" y="27" width="1024" height="741" key="SettingsEditor" timestamp="1579959490078">
+    <state x="294" y="27" width="1024" height="741" key="SettingsEditor" timestamp="1580061846981">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="280" y="5" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1579812734955" />
-    <state x="294" y="27" width="1024" height="741" key="SettingsEditor/67.27.1299.741@67.27.1299.741" timestamp="1579959490078" />
+    <state x="294" y="27" width="1024" height="741" key="SettingsEditor/67.27.1299.741@67.27.1299.741" timestamp="1580061846981" />
     <state x="392" y="164" key="Vcs.Push.Dialog.v2" timestamp="1579370577053">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -698,11 +701,11 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="318" y="136" key="com.intellij.execution.console.ConsoleHistoryController$MyBrowseAction$1/0.0.1600.860@0.0.1600.860" timestamp="1577029219754" />
-    <state x="474" y="247" key="com.intellij.ide.util.TipDialog" timestamp="1580038013868">
+    <state x="474" y="247" key="com.intellij.ide.util.TipDialog" timestamp="1580070242289">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="501" y="255" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1579810504380" />
-    <state x="474" y="247" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1580038013868" />
+    <state x="474" y="247" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1580070242289" />
     <state x="959" y="240" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1578255025720">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -721,15 +724,6 @@
     <state x="463" y="180" width="672" height="678" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1579361114355" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/conceptualGraph/model/Reader.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="term.value" language="JAVA" />

@@ -103,7 +103,7 @@ public class WordsDAO {
     public long countAllNulls() throws SQLException{
         return executor.execQuery("select COUNT(*) from words WHERE article IS NULL", result -> {
             result.next();
-            return result.getLong(0);
+            return result.getLong(1);
         } );
     }
 }

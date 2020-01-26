@@ -14,7 +14,7 @@
 
 
   <properties>
-    <jdk.path>C:\Program Files\Java\jdk-13\bin\java</jdk.path>
+    <jdk.path>/opt/jdk-13/bin/java</jdk.path>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 

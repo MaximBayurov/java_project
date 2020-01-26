@@ -231,14 +231,16 @@ public class WordChecker {
         return names;
     }
 
-    public static double getRelationCoefficient() {
-        DBService dbService = new DBService();
-        return dbService.getConnectionsNumber() / dbService.getAllReferences();
+    public static double getConnections() {
+        return dbService.getConnectionsNumber();
+    }
+
+    public static double getRefrences(){
+        return dbService.getAllReferences();
     }
 
     public static double getAccuracy() {
-        DBService dbService = new DBService();
-        return Reader.termsCount - dbService.getUnknownTermsNumber() - Reader.termsCount;
+        return Reader.termsCount - dbService.getUnknownTermsNumber();
     }
 
 
