@@ -52,7 +52,7 @@ public class Reader {
         long allWordsNumber = termsWordsNumber + wordsNumber;
         double termsAverageDifficulty = WordChecker.getRefrences() / termsWordsNumber; /*будет очень меньше единицы, надо найти формулу
                                                                 для выравнивания от 0 до 1*/
-        double termConnection = WordChecker.getConnections() / WordChecker.getRefrences(); //
+        double termConnection = WordChecker.getConnections() / termsCount; //
         double accuracy = WordChecker.getAccuracy();
         double bookAverageDifficulty = (termsCount / wordsNumber + termsAverageDifficulty) / 2;
 
@@ -60,6 +60,7 @@ public class Reader {
         System.out.println(termsCount + " - количество терминов в книге ");
         System.out.println(allWordsNumber + " - слов на всех страницах");
         System.out.println(termConnection + " - терминов, связаных между собой");
+        System.out.println(WordChecker.getConnections() + " - терминов, связаных между собой");
         System.out.println(accuracy + " - точность");
         System.out.println(bookAverageDifficulty + " - средняя сложность книги");
 

@@ -240,7 +240,7 @@ public class WordChecker {
     }
 
     public static double getAccuracy() {
-        return Reader.termsCount - dbService.getUnknownTermsNumber();
+        return (Reader.termsCount - dbService.getUnknownTermsNumber()) / Reader.termsCount * 100;
     }
 
 

@@ -9,14 +9,8 @@
     <list default="true" id="d5ad2e5c-7bf5-4542-8024-6999ebb096bc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/test.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/test.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/test.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/test.trace.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/HelloFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/HelloFX.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/WordChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/WordChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/PagesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/PagesDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/WordsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/WordsDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/model/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/model/Reader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stemed_word_rus.txt" beforeDir="false" afterPath="$PROJECT_DIR$/stemed_word_rus.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +142,7 @@
       <recent name="D:\work-space\java_project\java-graph-app\src\main\resourses" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.HelloFX">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="HelloFX" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="/opt/jdk-13" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -628,26 +622,26 @@
     </state>
     <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1578220817441" />
     <state x="538" y="186" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1580061136644" />
-    <state width="1253" height="175" key="GridCell.Tab.0.bottom" timestamp="1580071209265">
+    <state width="1253" height="175" key="GridCell.Tab.0.bottom" timestamp="1580073232678">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state width="1557" height="221" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1579815505690" />
-    <state width="1253" height="175" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1580071209265" />
-    <state width="1253" height="175" key="GridCell.Tab.0.center" timestamp="1580071209264">
+    <state width="1253" height="175" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1580073232678" />
+    <state width="1253" height="175" key="GridCell.Tab.0.center" timestamp="1580073232677">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state width="1557" height="221" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1579815505690" />
-    <state width="1253" height="175" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1580071209264" />
-    <state width="1253" height="175" key="GridCell.Tab.0.left" timestamp="1580071209264">
+    <state width="1253" height="175" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1580073232677" />
+    <state width="1253" height="175" key="GridCell.Tab.0.left" timestamp="1580073232677">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state width="1557" height="221" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1579815505690" />
-    <state width="1253" height="175" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1580071209264" />
-    <state width="1253" height="175" key="GridCell.Tab.0.right" timestamp="1580071209265">
+    <state width="1253" height="175" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1580073232677" />
+    <state width="1253" height="175" key="GridCell.Tab.0.right" timestamp="1580073232678">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state width="1557" height="221" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1579815505690" />
-    <state width="1253" height="175" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1580071209265" />
+    <state width="1253" height="175" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1580073232678" />
     <state width="1557" height="276" key="GridCell.Tab.1.bottom" timestamp="1576961390676">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
