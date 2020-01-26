@@ -32,7 +32,7 @@ public class ArticlesDAO {
         executor.execUpdate(
                 "CREATE TABLE IF NOT EXISTS `articles` (\n" +
                         "  `id` int AUTO_INCREMENT PRIMARY KEY NOT NULL,\n" +
-                        "  `article` char NOT NULL\n" +
+                        "  `article` char NOT NULL UNIQUE\n" +
                         ");\n"
         );
     }

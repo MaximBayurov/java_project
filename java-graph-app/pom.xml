@@ -14,7 +14,7 @@
 
 
   <properties>
-    <jdk.path>/opt/jdk-13/bin/java</jdk.path>
+    <jdk.path>C:\Program Files\Java\jdk-13\bin\java</jdk.path>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -171,6 +171,29 @@
           <executable>${jdk.path}</executable>
           <mainClass>com.conceptualGraph.HelloFX</mainClass>
         </configuration>
+      </plugin>
+
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <transformers>
+                <transformer
+                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <mainClass>com.conceptualGraph.Launcher</mainClass>
+                </transformer>
+              </transformers>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>

@@ -7,16 +7,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5ad2e5c-7bf5-4542-8024-6999ebb096bc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_linux_14_ea_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_14_ea_4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_linux_14_ea_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_win_14_ea_4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_linux_13.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_13.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_linux_14_ea_7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_14_ea_7.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/test.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/test.mv.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/test.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/test.trace.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java-graph-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/java-graph-app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/HelloFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/HelloFX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/WordChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/controller/WordChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/PagesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/PagesDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/WordsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/WordsDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/model/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/model/Reader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stemed_word_rus.txt" beforeDir="false" afterPath="$PROJECT_DIR$/stemed_word_rus.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/ArticlesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conceptualGraph/dBServise/dao/ArticlesDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +64,24 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="PUBLIC: schema" type="7f85d983:H2ImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="test" type="feb32156:DbDataSourceImpl" />
+        <item name="TEST: database" type="2aa06773:H2ImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="PUBLIC: schema" type="7f85d983:H2ImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="ARTICLES: table" type="818c1b4a:H2ImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="test" type="feb32156:DbDataSourceImpl" />
+        <item name="TEST: database" type="2aa06773:H2ImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="PUBLIC: schema" type="7f85d983:H2ImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="POSITIONS: table" type="818c1b4a:H2ImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -122,7 +140,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="database.data.extractors.current.id" value="Comma-separated (CSV)_id" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -148,7 +166,19 @@
       <recent name="D:\work-space\java_project\java-graph-app\src\main\resourses" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.HelloFX">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="HelloFX (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.conceptualGraph.HelloFX" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.conceptualGraph.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="HelloFX" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="/opt/jdk-13" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -197,10 +227,12 @@
       <item itemvalue="Application.HelloFX" />
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.InterrogatorTest.wikiAPISelectLinks" />
+      <item itemvalue="Application.HelloFX (1)" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.HelloFX (1)" />
         <item itemvalue="JUnit.InterrogatorTest.wikiAPISelectLinks" />
       </list>
     </recent_temporary>
@@ -209,9 +241,29 @@
     <option name="viewStates">
       <list>
         <serviceView>
-          <option name="contentProportion" value="0.33769634" />
+          <option name="contentProportion" value="0.15772252" />
           <treeState>
-            <expand />
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:test" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:test" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@618421b5" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:test" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@1ad0031e" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:test" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@4148aa56" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+            </expand>
             <select />
           </treeState>
         </serviceView>
@@ -580,6 +632,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="last threads correct work" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="517" y="89" key="#HelloFX_(1)" timestamp="1580072075339">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="517" y="89" key="#HelloFX_(1)/0.0.1600.860@0.0.1600.860" timestamp="1580072075339" />
     <state x="392" y="89" width="816" height="729" key="#Intentions" timestamp="1579812855816">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -623,30 +679,30 @@
     </state>
     <state x="92" y="92" width="1416" height="676" key="DiffContextDialog/0.0.1600.860@0.0.1600.860" timestamp="1578251968350" />
     <state x="142" y="106" width="1150" height="583" key="DiffContextDialog/67.27.1299.741@67.27.1299.741" timestamp="1580061130936" />
-    <state x="538" y="186" width="424" height="484" key="FileChooserDialogImpl" timestamp="1580061136644">
-      <screen x="67" y="27" width="1299" height="741" />
+    <state x="580" y="185" width="424" height="484" key="FileChooserDialogImpl" timestamp="1580074149372">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1578220817441" />
+    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1580074149372" />
     <state x="538" y="186" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1580061136644" />
-    <state width="1253" height="175" key="GridCell.Tab.0.bottom" timestamp="1580071209265">
-      <screen x="67" y="27" width="1299" height="741" />
+    <state width="1286" height="702" key="GridCell.Tab.0.bottom" timestamp="1580075651726">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="221" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1579815505690" />
+    <state width="1286" height="702" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1580075651726" />
     <state width="1253" height="175" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1580071209265" />
-    <state width="1253" height="175" key="GridCell.Tab.0.center" timestamp="1580071209264">
-      <screen x="67" y="27" width="1299" height="741" />
+    <state width="1286" height="702" key="GridCell.Tab.0.center" timestamp="1580075651726">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="221" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1579815505690" />
+    <state width="1286" height="702" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1580075651726" />
     <state width="1253" height="175" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1580071209264" />
-    <state width="1253" height="175" key="GridCell.Tab.0.left" timestamp="1580071209264">
-      <screen x="67" y="27" width="1299" height="741" />
+    <state width="1286" height="702" key="GridCell.Tab.0.left" timestamp="1580075651726">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="221" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1579815505690" />
+    <state width="1286" height="702" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1580075651726" />
     <state width="1253" height="175" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1580071209264" />
-    <state width="1253" height="175" key="GridCell.Tab.0.right" timestamp="1580071209265">
-      <screen x="67" y="27" width="1299" height="741" />
+    <state width="1286" height="702" key="GridCell.Tab.0.right" timestamp="1580075651726">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="221" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1579815505690" />
+    <state width="1286" height="702" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1580075651726" />
     <state width="1253" height="175" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1580071209265" />
     <state width="1557" height="276" key="GridCell.Tab.1.bottom" timestamp="1576961390676">
       <screen x="0" y="0" width="1600" height="860" />
