@@ -102,33 +102,33 @@ public class WordChecker {
     /**
      * Проверяет параграф и уве
      * @param paragraph - проверяемый параграф
-     * @param countDictWords - количество слов книги, имеющихся в словаре
+     * @param termsCount - количество слов книги, не имеющихся в словаре
      * @param wordsNumber - общее количество слов
      * @return массив int[countDictWords,wordsNumber] , где wordsNumber и countDictWords количество слов после проверки
      * (всего и совпавших со словарём соответственно)
      * @throws InterruptedException
      */
-    public static int[] paragraphCheck(String paragraph, int countDictWords, int wordsNumber){
+    public static int[] paragraphCheck(String paragraph, int termsCount, int wordsNumber){
         paragraphNumber++;
         String[] sentences = paragraph.split("(?<![A-ZА-ЯЁ])[\\.\\?\\;\\!]+");
         for (String sentence: sentences) {
             sentenceNumber++;
             dbService.addStructure(paragraphNumber,sentenceNumber);
 //            Boolean[] nameBools = findNames(sentence);
-            sentence = sentence.replaceAll("[^А-ЯЁA-Za-zа-яё/ .]"," ")
+            sentence = sentence.toLowerCase().replaceAll("[^a-zа-яё/ ]"," ")
                     .replaceAll("^-| -|- ", " ").replaceAll(" +"," ");
-            HashMap<Integer, Integer> names = new HashMap<Integer, Integer>();
-            names = findNames(sentence);
-            sentence = sentence.toLowerCase().replaceAll("\\.", " ").replaceAll(" +", " ");
+//            HashMap<Integer, Integer> names = new HashMap<Integer, Integer>();
+//            names = findNames(sentence);
             String[] words = sentence.trim().split(" ");
             Boolean[] booleans = PreChecker.arrayCheck(words);
             String word;
             for (int j = 0; j<words.length; j++){
                 word = words[j].trim();
+                wordsNumber++;
                 if (word.isEmpty()) {
                     continue;
                 }
-                if (names.containsKey(j)) {
+                /*if (names.containsKey(j)) {
                     int sizeOfName = names.get(j);
                     for (int n = 1; n<sizeOfName; n++) {
                         word = word + words[j+n].trim();
@@ -144,27 +144,30 @@ public class WordChecker {
                     }else{
                         threadsRun();
                     }
-                } else if (booleans[j] || word.length()<=2){
-                    countDictWords++;
+                } else */
+                if (booleans[j] || word.length()<=2){
                     continue;
                 }else if (!check(word)) {
-
-                    if (threadsCount<threadsLimit){
+                    termsCount++;
+                    if (threadsCount<threadsLimit-1){
                         structure[threadsCount][0] = paragraphNumber;
                         structure[threadsCount][1] = sentenceNumber;
                         structure[threadsCount][2] = wordsNumber;
-                        potentialTerms[threadsCount] = Stemmer.stem(word);;
-                        countDictWords++;
+                        potentialTerms[threadsCount] = Stemmer.stem(word);
                         threadsCount++;
                     }else{
+                        structure[threadsCount][0] = paragraphNumber;
+                        structure[threadsCount][1] = sentenceNumber;
+                        structure[threadsCount][2] = wordsNumber;
+                        potentialTerms[threadsCount] = Stemmer.stem(word);
+                        threadsCount++;
                         threadsRun();
                     }
                 }
-                wordsNumber++;
             }
         }
 
-        return new int[]{countDictWords,wordsNumber};
+        return new int[]{termsCount,wordsNumber};
     }
 
     public static void threadsRun(){
@@ -196,7 +199,7 @@ public class WordChecker {
             }
 
             for (int i = 0; i<threadsCount; i++){
-                if (selectLinksThreads[i]!=null){
+                if (selectLinksThreads[i]!=null&&selectLinksThreads[i].getLinks()!=null){
                     dbService.insertPageLinks(
                             selectLinksThreads[i].getArticleID(),
                             selectLinksThreads[i].getLinks()
@@ -208,15 +211,6 @@ public class WordChecker {
             threadsCount=0;
             ex.printStackTrace();
         }
-    }
-
-    class Name {
-        public Name (int wordNumber1, int sizeOfName1) {
-            sizeOfName = sizeOfName1;
-            wordNumber = wordNumber1;
-        }
-        public int wordNumber;
-        public int sizeOfName;
     }
 
     public static HashMap findNames(String sentence){
@@ -240,5 +234,6 @@ public class WordChecker {
         }
         return names;
     }
+
 
 }
